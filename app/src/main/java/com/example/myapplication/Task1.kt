@@ -34,16 +34,12 @@ class Task1 {
 
         when(operationType) {
             '*' -> println("$newX X $newY = ${newX*newY}")
-            '/' -> println("$newX / $newY = ${newX/newY}")
-            '%' -> println("$newX % $newY = ${newX%newY}")
-            '!' -> {
-                if(newX >= 0 && newY >= 0) {
-                    val result = factorial((newX / newY))
-                    println("Factorial of ($newX/$newY) = $result")
-                }else {
-                    println("Negative number!")
-                }
-            }
+            '/' -> if(newY != 0) println("$newX / $newY = ${newX/newY}") else println("Can't Divide!")
+            '%' -> if(newY != 0) println("$newX % $newY = ${newX%newY}") else println("Can't Divide!")
+            '!' -> { val result = factorial((newX / newY))
+                     println("Factorial of ($newX/$newY) = $result")
+                   }
+
         }
 
         println("Do you want to restart? <Y?N> (Default: No)")
@@ -68,11 +64,13 @@ class Task1 {
         return number
     }
 
-     private fun factorial(a : Int) : Long {
-        if(a == 0) return 1
-        if(a == 1) return 1
-        return a * factorial(a - 1)
+    private fun factorial(a: Int): Long {
+        if(a <= 1) return 1
+        var result = 1L
+        for(i in 2..a) result *= i
+        return result
     }
+
 
 
 }
