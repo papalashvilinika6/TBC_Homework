@@ -14,20 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint1"
-        android:inputType="number"
-        android:layout_marginTop="180dp"
-        android:layout_marginHorizontal="20dp">
-
+        android:inputType="number">
     </androidx.appcompat.widget.AppCompatEditText>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCalculate"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="@string/calculateBtn"
-        android:backgroundTint="@color/lightBlue"
-        android:textColor="@color/white">
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -36,10 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/result"
-        android:textSize="25sp"
-        android:gravity="center">
+        android:layout_marginHorizontal="100dp"
+        android:text="">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
