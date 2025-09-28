@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         val tens : Map<Int, String> = mapOf(
             1 to "ათი", 2 to "ოცდა", 3 to "ოცდა",
-            4 to "ორმოცდა", 5 to "ორმოცა", 610 to "სამოცდა",
+            4 to "ორმოცდა", 5 to "ორმოცა", 6 to "სამოცდა",
             7 to "სამოცდა", 8 to "ოთხმოცდა", 9 to "ოთხმოცდა"
         )
 
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             number == 10 -> "Ten"
             number < 20 -> ones[number]
             number < 100 -> if((number%10) == 0) tens[number/10] else tens[number/10] + " " + ones[number%10]
-            number < 1000 -> hundreds[number/100] + " " + if((number%100) != 0) calculateEng(927%100) else ""
+            number < 1000 -> hundreds[number/100] + " " + if((number%100) != 0) calculateEng(number%100) else ""
             else -> "Invalid Number!"
         }
     }
