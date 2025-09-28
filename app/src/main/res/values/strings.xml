@@ -4,4 +4,10 @@
     <string name="hint1">შეიყვანეთ რიცხვი</string>
     <string name="calculateBtn">გამოთვლა</string>
     <string name="result">შედეგი</string>
+    <string name="geo">Georgian</string>
+    <string name="eng">ინგლისური</string>
+
+    <string name="hint1_eng">Enter a number</string>
+    <string name="calculateBtn_eng">Calculate</string>
+    <string name="result_eng">Result</string>
 </resources>

@@ -20,16 +20,39 @@
 
     </androidx.appcompat.widget.AppCompatEditText>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCalculate"
-        android:layout_width="200dp"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/child"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/calculateBtn"
-        android:backgroundTint="@color/lightBlue"
-        android:textColor="@color/white">
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
 
-    </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCalculate"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/calculateBtn"
+            android:backgroundTint="@color/lightBlue"
+            android:textColor="@color/white">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/tglLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/lightBlue"
+            android:textColor="@color/white"
+            android:textOn="@string/geo"
+            android:textOff="@string/eng">
+
+        </androidx.appcompat.widget.AppCompatToggleButton>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/resultText"
