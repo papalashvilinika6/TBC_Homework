@@ -20,15 +20,21 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val numberText = findViewById<AppCompatEditText>(R.id.edit_Text)
+        val editText = findViewById<AppCompatEditText>(R.id.edit_Text)
         val button = findViewById<AppCompatButton>(R.id.btnCalculate)
         val result = findViewById<AppCompatTextView>(R.id.resultText)
 
         button.setOnClickListener {
-            val text = numberText.text
-            val number = text.toString().toInt()
+            val text = editText.text
+            val numberText = text.toString()
 
-            result.text = calculate(number)
+            if(numberText.isNotEmpty() && numberText.length <= 4) {
+                val number = numberText.toInt()
+                result.text = calculate(number)
+            }else {
+                result.text = "არასწორი რიცხვი!"
+            }
+
         }
 
 
