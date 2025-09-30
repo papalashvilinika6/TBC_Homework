@@ -13,7 +13,7 @@
         android:id="@+id/edit_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint1"
+        android:hint="@string/new_password"
         android:inputType="number"
         android:layout_marginTop="30dp">
     </androidx.appcompat.widget.AppCompatEditText>
@@ -22,7 +22,7 @@
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calculateBtn"
+        android:text="@string/new_password"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp">
 
