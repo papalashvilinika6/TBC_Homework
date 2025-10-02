@@ -1,33 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+    android:id="@+id/mainId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="@color/darkBlue1"
     >
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/child"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inputNameId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightBlue">
+        android:layout_marginTop="50dp"
+        android:hint="@string/nameHint"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inputEmailId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/emailHint"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/childLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addUserBtnId"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn1Text"
+            android:textColor="@color/darkBlue"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/infoId"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textSize="24sp"
-            android:text="@string/info"
-            android:layout_marginTop="20dp"
+            android:id="@+id/usersNumTextId"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/numUsers"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white">
+            android:textSize="23sp"
+            android:layout_marginTop="13dp"
+            android:textColor="@color/white"
+            >
 
         </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/getUserBtnId"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn2Text"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/darkBlue"
+            android:background="@drawable/button">
+
+        </androidx.appcompat.widget.AppCompatButton>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -35,92 +90,24 @@
         android:id="@+id/resultTextId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginTop="55dp"
-        android:layout_marginBottom="5dp">
+        android:textSize="23sp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/white">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/emailId"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultText2Id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress">
+        android:textSize="23sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/white">
 
-    </androidx.appcompat.widget.AppCompatEditText>
+    </androidx.appcompat.widget.AppCompatTextView>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/userNameId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:inputType="text">
-
-    </androidx.appcompat.widget.AppCompatEditText>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/firstNameId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:inputType="text">
-
-    </androidx.appcompat.widget.AppCompatEditText>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/lastNameId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/last_name"
-        android:inputType="text">
-
-    </androidx.appcompat.widget.AppCompatEditText>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ageId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/age"
-        android:inputType="number"
-        >
-
-    </androidx.appcompat.widget.AppCompatEditText>
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/childLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/saveBtnId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="80dp"
-            android:text="@string/save"
-            android:backgroundTint="@color/lightBlue"
-            android:textColor="@color/white">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/clearBtnId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="80dp"
-            android:text="@string/clear"
-            android:backgroundTint="@color/lightBlue"
-            android:textColor="@color/white">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
-

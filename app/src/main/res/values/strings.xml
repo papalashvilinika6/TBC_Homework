@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">First Application</string>
-    <string name="info">Profile Info</string>
-    <string name="email">Email</string>
-    <string name="username">Username:</string>
-    <string name="first_name">First Name:</string>
-    <string name="age">Age:</string>
-    <string name="last_name">Last Name:</string>
-    <string name="save">Save</string>
-    <string name="clear">Clear</string>
-    <string name="new_password">New Password:</string>
-    <string name="repeat_new_password">Repeat New Password:</string>
-    <string name="emptyMsg">Please fill out this fields!</string>
-    <string name="againBtn">Again</string>
-    <string name="agePrint">Age: </string>
-    <string name="namePrint">Name: </string>
-    <string name="usernamePrint">Username: </string>
-    <string name="emailPrint">Email: </string>
+    <string name="nameHint">Enter Full name:</string>
+    <string name="emailHint">Enter Email:</string>
+    <string name="btn1Text">Add User</string>
+    <string name="btn2Text">Get User Info</string>
+    <string name="numUsers"><![CDATA[Users -> 0]]></string>
+    <string name="emailResult">"Email : "</string>
+    <string name="app_name">My Aplication</string>
 </resources>
