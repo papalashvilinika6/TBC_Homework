@@ -6,10 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myapplication.databinding.ActivityMainBinding
-import kotlin.collections.component1
-import kotlin.collections.component2
-import kotlin.collections.iterator
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,47 +24,59 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val usersInfo = mutableMapOf<String, String>()
+        val unorderedAnagrams = mutableListOf<String>()
 
-        addButton(usersInfo)
-        getButton(usersInfo)
+        saveButton(unorderedAnagrams)
+        outputButton(unorderedAnagrams)
+        clearButton(unorderedAnagrams)
+
     }
 
 
-    fun getButton(usersInfo : MutableMap <String, String>) {
-        binding.getUserBtnId.setOnClickListener {
-            for ((key, value) in usersInfo) {
-                if(key == binding.inputEmailId.text.toString()) {
-                    binding.resultTextId.text = "Email: $key"
-                    binding.resultText2Id.text = "Username $value"
-                } else {
-                    binding.resultTextId.text = "Account Cannot Found"
-                    binding.resultText2Id.text = ""
-                }
-            }
+    private fun saveButton(mutableList: MutableList<String>) {
+        binding.saveBtnId.setOnClickListener {
+            val input = binding.inputAnagramId.text.toString().trim()
+            val result =
 
+            mutableList.add(input)
+            binding.resultTextId.append(input)
+            binding.resultTextId.append(", ")
+            binding.inputAnagramId.text?.clear()
         }
     }
 
-    fun addButton(usersInfo: MutableMap<String, String>) {
-        binding.addUserBtnId.setOnClickListener {
-            val email = binding.inputEmailId.text.toString()
-            val name = binding.inputNameId.text.toString()
-
-            if('@' in email && name.isNotEmpty()){
-                if(email in usersInfo.keys) {
-                    binding.inputEmailId.error = "This Email Already Registered"
-                }else {
-                    usersInfo[email] = name
-                    binding.usersNumTextId.text = binding.usersNumTextId.text?.dropLast(1)
-                    binding.usersNumTextId.append(usersInfo.size.toString())
-                }
-            }else {
-                if(!email.contains('@')) binding.inputEmailId.error = "Enter Correct Email"
-                if(name.isEmpty()) binding.inputNameId.error = "Enter Name To Add"
+    private fun group(unorderedAnagrams: MutableList<String>): String {
+        return unorderedAnagrams
+            .groupBy { i -> i.toCharArray().sorted().joinToString("") }
+            .values
+            .joinToString("\n") { group ->
+                group.joinToString(", ")
             }
+    }
 
+    private fun outputButton(unorderedAnagrams: MutableList<String>) {
+        binding.outputBtnId.setOnClickListener {
+            binding.resultTextId.text = ""
+            binding.resultTextId.text = group(unorderedAnagrams)
+            binding.resultCountId.text = binding.resultCountId.text.dropLast(1)
+            binding.resultCountId.append(count(unorderedAnagrams).toString())
         }
     }
+
+    private fun count(unorderedAnagrams: MutableList<String>): Int {
+        val groups = unorderedAnagrams
+            .groupBy { it.toCharArray().sorted().joinToString("") }
+            .values
+        return groups.size
+    }
+
+    private fun clearButton(unorderedAnagrams: MutableList<String>) {
+        binding.clearButtonId.setOnClickListener {
+            unorderedAnagrams.clear()
+            binding.resultTextId.text = ""
+            binding.resultCountId.text = "Collections Number: 0"
+        }
+    }
+
 
 }

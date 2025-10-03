@@ -9,30 +9,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="20dp"
     android:gravity="center_horizontal"
-    android:background="@color/darkBlue1"
+    android:background="@color/darkBlue"
     >
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/inputNameId"
+        android:id="@+id/inputAnagramId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="@string/nameHint"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white">
-
-    </androidx.appcompat.widget.AppCompatEditText>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/inputEmailId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="@string/emailHint"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white">
+        android:layout_height="40dp"
+        android:hint="@string/hint_anagram"
+        android:background="@color/white"
+        android:textSize="25sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="15dp">
 
     </androidx.appcompat.widget.AppCompatEditText>
 
@@ -40,47 +29,27 @@
         android:id="@+id/childLayoutId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addUserBtnId"
-            android:layout_width="100dp"
+            android:id="@+id/saveBtnId"
+            android:layout_width="1dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn1Text"
-            android:textColor="@color/darkBlue"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:layout_marginEnd="90dp"
             android:background="@drawable/button"
-            >
+            android:text="@string/saveBtn">
 
         </androidx.appcompat.widget.AppCompatButton>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/usersNumTextId"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/numUsers"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="23sp"
-            android:layout_marginTop="13dp"
-            android:textColor="@color/white"
-            >
-
-        </androidx.appcompat.widget.AppCompatTextView>
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/getUserBtnId"
-            android:layout_width="110dp"
+            android:id="@+id/outputBtnId"
+            android:layout_width="1dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn2Text"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:textColor="@color/darkBlue"
-            android:background="@drawable/button">
+            android:background="@drawable/button"
+            android:text="@string/outputBtn">
 
         </androidx.appcompat.widget.AppCompatButton>
 
@@ -89,25 +58,36 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/resultTextId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textColor="@color/white">
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:textSize="21sp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="25dp">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultText2Id"
+        android:id="@+id/resultCountId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:textColor="@color/white">
+        android:layout_height="40dp"
+        android:text="@string/collectionsNum"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:gravity="center">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clearButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:gravity="center"
+        android:text="@string/clearBtn"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="10dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
