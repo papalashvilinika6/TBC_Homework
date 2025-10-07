@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application</string>
-    <string name="hint_anagram">Enter Anagram</string>
-    <string name="outputBtn">Output</string>
-    <string name="saveBtn">Save</string>
-    <string name="collectionsNum">Collections Number: 0</string>
-    <string name="clearBtn">Clear</string>
+    <string name="travel">Travel</string>
+    <string name="hi_david">Hi, David 👋</string>
+    <string name="explore_the_world">Explore the world</string>
+    <string name="find_your_dream">Find Your Dream Destination With Us</string>
+    <string name="_230">$230</string>
+    <string name="price">Price</string>
+    <string name="location_text">South, America</string>
+    <string name="lication1_text">Andes Mountain</string>
+    <string name="_8_hours">8 hours</string>
+    <string name="_16_c">16 C</string>
+    <string name="_4_5">4.5</string>
+    <string name="description">This vast mountain range is renowned for its remarkable diversity in terms of topography and climate. It features towering peaks, active volcanoes, deep canyons, expansive plateaus, and lush valleys. The Andes are also home to</string>
+    <string name="book_now">Book Now</string>
+    <string name="overview">Overview</string>
+    <string name="details">Details</string>
 </resources>

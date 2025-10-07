@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainId"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/linear_gradient"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_marginTop="280dp"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:text="@string/travel"
+        android:textSize="44sp"
+        android:textColor="@color/white2"
+        app:fontFamily="@font/lobster"
+        android:drawableEnd="@drawable/globe_icon">
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="252dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="@string/find_your_dream"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto">
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
