@@ -32,23 +32,29 @@ class ThirdActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
+        btnBack()
+        btnLogin()
+
+
+    }
+
+    fun emailIsValid(email: String) : Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun btnBack() {
         binding.iBtnBackId.setOnClickListener {
             finish()
         }
+    }
 
+    private fun btnLogin() {
         binding.iBrnNextId.setOnClickListener {
             val email = binding.etEmailId.text.toString().trim()
             val password = binding.etPasswordId.text.toString().trim()
 
-            if(email.isEmpty() || password.isEmpty()){
-                Snackbar.make(binding.root, "Fill All Fields", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if(!emailIsValid(email)) {
-                Snackbar.make(binding.root, "Enter Real Email", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            if(!isValid(mail = email, pass = password)) return@setOnClickListener
 
             auth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
@@ -62,12 +68,18 @@ class ThirdActivity : AppCompatActivity() {
                     }
                 }
         }
-
-
     }
 
-    fun emailIsValid(email: String) : Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    private fun isValid(mail: String, pass: String) : Boolean {
+        if(mail.isEmpty() || pass.isEmpty()){
+            Snackbar.make(binding.root, "Fill All Fields", Snackbar.LENGTH_SHORT).show()
+            return false
+        }else if(!emailIsValid(email = mail)) {
+            Snackbar.make(binding.root, "Enter Real Email", Snackbar.LENGTH_SHORT).show()
+            return false
+        }else {
+            return true
+        }
     }
 
 }

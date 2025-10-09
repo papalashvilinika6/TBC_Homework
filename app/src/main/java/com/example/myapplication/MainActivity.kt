@@ -25,15 +25,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnRegister.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-        }
+        btnRegister()
+        btnLogin()
 
+    }
+
+    private fun btnLogin() {
         binding.btnLogin.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
             startActivity(intent)
         }
-
     }
+
+    private fun btnRegister() {
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }
