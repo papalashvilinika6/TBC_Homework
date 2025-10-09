@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application</string>
+    <string name="password_hint">••••••••••••</string>
+    <string name="mail_hint">jane@example.com</string>
+    <string name="terms">By signing up, you agree to Photo’s <u>Terms of Service</u> and <u>Privacy Policy</u>.</string>
+    <string name="username_hint">this.jane</string>
+    <string name="login_successful">Login Was Successful!</string>
 </resources>

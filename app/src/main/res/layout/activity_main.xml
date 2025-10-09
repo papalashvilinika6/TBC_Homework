@@ -20,7 +20,7 @@
             android:id="@+id/backgroundImageId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/logged_out_background"
+            android:src="@mipmap/logged_out_background"
             android:scaleType="centerCrop"
             android:fitsSystemWindows="false">
 
@@ -39,7 +39,7 @@
             android:id="@+id/infoId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/component"
+            android:src="@mipmap/component"
             android:layout_gravity="bottom"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="16dp">

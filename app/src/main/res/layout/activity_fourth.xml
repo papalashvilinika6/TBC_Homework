@@ -32,13 +32,13 @@
     </androidx.appcompat.widget.AppCompatImageView>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etEmailId"
+        android:id="@+id/etUsernameId"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/et_email_and_password"
+        android:background="@mipmap/et_email_and_password"
         android:layout_marginHorizontal="16dp"
-        android:hint="this.jane"
+        android:hint="@string/username_hint"
         android:padding="16dp"
         android:fontFamily="@font/roboto"
         android:textColorHint="@color/black"
@@ -47,7 +47,7 @@
     </androidx.appcompat.widget.AppCompatEditText>
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/iBrnNextId"
+        android:id="@+id/iBtnNextId"
         android:layout_width="380dp"
         android:layout_height="52dp"
         android:src="@drawable/singup_button"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="By signing up, you agree to Photo’s Terms of Service and Privacy Policy."
+        android:text="@string/terms"
         android:layout_marginHorizontal="16dp"
         android:fontFamily="@font/roboto"
         android:textSize="13sp"
