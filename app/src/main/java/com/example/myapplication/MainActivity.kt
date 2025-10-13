@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                     twStatusId.text = getString(R.string.email_not_found)
                     twStatusId.setTextColor(Color.RED)
                 }else {
-                    if (allInputsValid(firstName = firstName, lastName = lastName, age = age, email = email)) return@setOnClickListener
+                    if (!allInputsValid(firstName = firstName, lastName = lastName, age = age, email = email)) return@setOnClickListener
 
                     users.remove(user)
                     user = User(firstName, lastName, age.toIntOrNull(), email)
