@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application</string>
-    <string name="password_hint">••••••••••••</string>
-    <string name="mail_hint">jane@example.com</string>
-    <string name="terms">By signing up, you agree to Photo’s <u>Terms of Service</u> and <u>Privacy Policy</u>.</string>
-    <string name="username_hint">this.jane</string>
-    <string name="login_successful">Login Was Successful!</string>
+    <string name="fname">First Name:</string>
+    <string name="lname">Last Name:</string>
+    <string name="age">Age:</string>
+    <string name="email">Email:</string>
+    <string name="status">Status</string>
+    <string name="deleted_0">Deleted: 0</string>
+    <string name="deleted">Deleted: %d</string>
+    <string name="add_user">Add User</string>
+    <string name="remove_user">Remove User</string>
+    <string name="update_user">Update User</string>
+    <string name="active_0">Active: 0</string>
+    <string name="active">Active: %d</string>
+    <string name="success">User Added Successfully</string>
+    <string name="fail">User Already Exists</string>
+    <string name="successDelete">User deleted successfully</string>
+    <string name="userNot">User does not exits</string>
+    <string name="email_not_found">Email Not Found</string>
+    <string name="updated_email">Email Updated Successfully</string>
+    <string name="fields">Fill All Fields</string>
+    <string name="enter_real_email">Enter Real Email</string>
+    <string name="email_to_remove">Write an Email to Remove</string>
+    <string name="email_to_update">Write an Email to Update</string>
 </resources>
