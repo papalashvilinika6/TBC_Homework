@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     twStatusId.setTextColor(Color.RED)
                 }
 
-                twActiveUsersId.text = getString(R.string.active, users.size)
+                count()
             }
         }
     }
@@ -86,8 +86,7 @@ class MainActivity : AppCompatActivity() {
                       twStatusId.setTextColor(Color.RED)
 
 
-                twDeletedUsersId.text = getString(R.string.deleted, deleted)
-                twActiveUsersId.text = getString(R.string.active, users.size)
+                count()
             }
         }
     }
@@ -138,6 +137,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSnackbar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun count() {
+        binding.twActiveUsersId.text = getString(R.string.active, users.size)
+        binding.twDeletedUsersId.text = getString(R.string.deleted, deleted)
     }
 
 
