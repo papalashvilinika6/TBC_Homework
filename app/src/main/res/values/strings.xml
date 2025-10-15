@@ -23,4 +23,5 @@
     <string name="enter_real_email">Enter Real Email</string>
     <string name="email_to_remove">Write an Email to Remove</string>
     <string name="email_to_update">Write an Email to Update</string>
+    <string name="is_empty">No Accounts Registered</string>
 </resources>

@@ -1,20 +1,19 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Patterns
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.Data.users
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
-import kotlin.text.isEmpty
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var users = mutableSetOf<User>()
     private var deleted = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,119 +29,75 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        count()
+        displayStatus()
         btnAdd()
-        btnRemove()
         btnUpdate()
 
     }
 
     private fun btnAdd() {
+        binding.btnAddUsersId.setOnClickListener {
+            val intent = Intent(this, AddUserActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun btnUpdate(){
+        binding.btnUpdateUsersId.setOnClickListener {
+            if(users.isNotEmpty()) {
+                val randomIndex = Random.nextInt(users.size)
+                val intent = Intent(this, UpdateUserActivity::class.java)
+                intent.putExtra("random", randomIndex)
+                intent.putExtra("deleted", deleted)
+                startActivity(intent)
+            }else {
+                binding.twStatusId.text = getString(R.string.is_empty)
+            }
+        }
+    }
+
+
+    private fun displayStatus() {
         with(binding) {
+            val checkAdd = intent.getBooleanExtra("check", false)
+            val checkRemove = intent.getBooleanExtra("removeCheck", false)
+            val checkUpdate = intent.getBooleanExtra("updateCheck", false)
 
-            btnAddUsersId.setOnClickListener {
-                val firstName = etFirstNameId.text.toString().trim()
-                val lastName = etLastNameId.text.toString().trim()
-                val age = etAgeId.text.toString().trim()
-                val email = etEmailId.text.toString().trim()
-
-                if (!allInputsValid(firstName,lastName,age,email)) return@setOnClickListener
-
-                if (!emailIsValid(email = email)) {
-                    Snackbar.make(root, getString(R.string.enter_real_email), Snackbar.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-
-                if (users.none { it.email == email }) {
-                    val user = User(firstName, lastName, age.toIntOrNull(), email)
-                    users.add(user)
+            when {
+                checkAdd -> {
                     twStatusId.setText(R.string.success)
                     twStatusId.setTextColor(Color.GREEN)
-                } else {
+                }
+
+                !checkAdd -> {
                     twStatusId.setText(R.string.fail)
                     twStatusId.setTextColor(Color.RED)
                 }
 
-                count()
-            }
-        }
-    }
-
-    private fun btnRemove() {
-        with(binding) {
-
-            btnRemoveUsersId.setOnClickListener {
-                val email = etEmailId.text.toString().trim()
-                if(email.isEmpty() || !emailIsValid(email = email)) {
-                    showSnackbar(getString(R.string.email_to_remove))
-                    return@setOnClickListener
-                }
-
-                users.firstOrNull { it.email == email }?.let { user ->
-                    users.remove(user)
+                checkRemove -> {
                     twStatusId.setText(R.string.successDelete)
                     twStatusId.setTextColor(Color.GREEN)
-                    deleted++
-                } ?:  twStatusId.setText(R.string.userNot)
-                      twStatusId.setTextColor(Color.RED)
-
-
-                count()
-            }
-        }
-    }
-
-    private fun btnUpdate() {
-        with(binding)  {
-
-            btnUpdateUsersid.setOnClickListener {
-                val email = etEmailId.text.toString().trim()
-                if(email.isEmpty() || !emailIsValid(email = email)) {
-                    showSnackbar(getString(R.string.email_to_update))
-                    return@setOnClickListener
                 }
 
-                val firstName = etFirstNameId.text.toString().trim()
-                val lastName = etLastNameId.text.toString().trim()
-                val age = etAgeId.text.toString().trim()
-
-                var user = users.firstOrNull() { it.email == email }
-                if(user == null) {
-                    twStatusId.text = getString(R.string.email_not_found)
-                    twStatusId.setTextColor(Color.RED)
-                }else {
-                    if (!allInputsValid(firstName = firstName, lastName = lastName, age = age, email = email)) return@setOnClickListener
-
-                    users.remove(user)
-                    user = User(firstName, lastName, age.toIntOrNull(), email)
-                    users.add(user)
-                    twStatusId.text = getString(R.string.updated_email)
+                checkUpdate -> {
+                    twStatusId.setText(R.string.updated_email)
                     twStatusId.setTextColor(Color.GREEN)
                 }
+
+                else -> {
+                    twStatusId.setText(R.string.status)
+                    twStatusId.setTextColor(Color.WHITE)
+                }
             }
         }
-    }
-
-
-    private fun emailIsValid(email: String) : Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
-    private fun allInputsValid(firstName:String, lastName:String, age:String, email:String) : Boolean {
-        if (firstName.isEmpty() || lastName.isEmpty() || age.isEmpty() || email.isEmpty()) {
-            showSnackbar(getString(R.string.fields))
-            return false
-        }
-        return true
-    }
-
-    private fun showSnackbar(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun count() {
+        val newDelete = intent.getIntExtra("deleted", 0)
+        deleted = newDelete
         binding.twActiveUsersId.text = getString(R.string.active, users.size)
-        binding.twDeletedUsersId.text = getString(R.string.deleted, deleted)
+        binding.twDeletedUsersId.text = getString(R.string.deleted, newDelete)
     }
-
 
 }
