@@ -4,4 +4,15 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class User (var firstName: String, val lastName: String, val age: Int?, val email: String) : Parcelable
+data class User (
+    val id: String,
+    val firstName: String,
+    val lastName: String,
+    val birthday: String,
+    val address: String,
+    val email: String
+) : Parcelable {
+        companion object{
+            const val KEY = "user_key"
+        }
+    }

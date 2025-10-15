@@ -1,20 +1,30 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.myapplication.Data.users
 import com.example.myapplication.databinding.ActivityMainBinding
-import kotlin.random.Random
+import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.addTextChangedListener
+
 
 class MainActivity : AppCompatActivity() {
 
+    val users = mutableListOf<User>(
+        User(id = "1", firstName = "გრიშა", lastName = "ონიანი", birthday = "1724647601641", address = "სტალინის სახლმუზეუმი", email = "grisha@mail.ru"),
+        User(id = "2", firstName = "Jemal", lastName = "Kakauridze", birthday = "1714647601641", address = "თბილისი, ლილოს მიტოვებული ქარხანა", email = "jemal@gmail.com"),
+        User(id = "3", firstName = "Omger", lastName = "Kakauridze", birthday = "1724647701641", address = "თბილისი, ასათიანი 18", email = "omger@gmail.com"),
+        User(id = "32", firstName = "ბორის", lastName = "გარუჩავა", birthday = "1714947701641", address = "თბილისი, იაშვილი 14", email = ""),
+        User(id = "34", firstName = "აბთო", lastName = "სიხარულიძე", birthday = "1711947701641", address = "ფოთი", email = "tebzi@gmail.com")
+    )
+
+
     private lateinit var binding: ActivityMainBinding
-    private var deleted = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,75 +39,72 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        count()
-        displayStatus()
-        btnAdd()
-        btnUpdate()
+        searchUser()
+        addToList()
+        addBtn()
 
     }
 
-    private fun btnAdd() {
+    private fun searchUser() {
+        binding.etSeatchFieldId.addTextChangedListener { it ->
+            val input = it.toString()
+            if (input.isEmpty()) {
+                binding.twTextResultId.text = ""
+                binding.btnAddUsersId.visibility = View.GONE
+                return@addTextChangedListener
+            }
+
+            val user = users.firstOrNull() {
+                it.firstName.contains(input, true) ||
+                        it.lastName.contains(input, true) ||
+                        it.email.contains(input, true) ||
+                        it.address.contains(input, true) ||
+                        it.birthday.contains(input, true)
+            }
+
+            if (user != null) {
+                val userText = getString(
+                    R.string.user_info,
+                    user.id,
+                    user.firstName,
+                    user.lastName,
+                    user.birthday,
+                    user.address,
+                    user.email
+                )
+
+                binding.twTextResultId.text = userText
+                binding.btnAddUsersId.visibility = View.GONE
+            } else {
+                binding.twTextResultId.text = getString(R.string.notFound)
+                binding.btnAddUsersId.visibility = View.VISIBLE
+                addBtn()
+            }
+        }
+
+
+    }
+
+    private fun addBtn() {
         binding.btnAddUsersId.setOnClickListener {
             val intent = Intent(this, AddUserActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun btnUpdate(){
-        binding.btnUpdateUsersId.setOnClickListener {
-            if(users.isNotEmpty()) {
-                val randomIndex = Random.nextInt(users.size)
-                val intent = Intent(this, UpdateUserActivity::class.java)
-                intent.putExtra("random", randomIndex)
-                intent.putExtra("deleted", deleted)
-                startActivity(intent)
-            }else {
-                binding.twStatusId.text = getString(R.string.is_empty)
-            }
-        }
-    }
-
-
-    private fun displayStatus() {
-        with(binding) {
-            val checkAdd = intent.getBooleanExtra("check", false)
-            val checkRemove = intent.getBooleanExtra("removeCheck", false)
-            val checkUpdate = intent.getBooleanExtra("updateCheck", false)
-
-            when {
-                checkAdd -> {
-                    twStatusId.setText(R.string.success)
-                    twStatusId.setTextColor(Color.GREEN)
-                }
-
-                !checkAdd -> {
-                    twStatusId.setText(R.string.fail)
-                    twStatusId.setTextColor(Color.RED)
-                }
-
-                checkRemove -> {
-                    twStatusId.setText(R.string.successDelete)
-                    twStatusId.setTextColor(Color.GREEN)
-                }
-
-                checkUpdate -> {
-                    twStatusId.setText(R.string.updated_email)
-                    twStatusId.setTextColor(Color.GREEN)
-                }
-
-                else -> {
-                    twStatusId.setText(R.string.status)
-                    twStatusId.setTextColor(Color.WHITE)
+    private fun addToList() {
+        val getUserResult = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val user = result.data?.getParcelableExtra<User>(User.KEY)
+                user?.let {
+                    users.add(it)
+                    binding.twTextResultId.text = "${it.firstName} ${it.lastName}"
                 }
             }
         }
-    }
-
-    private fun count() {
-        val newDelete = intent.getIntExtra("deleted", 0)
-        deleted = newDelete
-        binding.twActiveUsersId.text = getString(R.string.active, users.size)
-        binding.twDeletedUsersId.text = getString(R.string.deleted, newDelete)
     }
 
 }
+

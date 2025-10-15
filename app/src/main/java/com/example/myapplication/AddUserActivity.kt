@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -10,7 +11,6 @@ import com.example.myapplication.Data.emailIsValid
 import com.example.myapplication.Data.showSnackbar
 import com.example.myapplication.Data.users
 import com.example.myapplication.databinding.ActivityAddBinding
-import com.google.android.material.snackbar.Snackbar
 
 
 class AddUserActivity : AppCompatActivity() {
@@ -37,42 +37,48 @@ class AddUserActivity : AppCompatActivity() {
         with(binding) {
 
             btnAddUsersId.setOnClickListener {
+                val id = etIdNumberId.text.toString().trim()
                 val firstName = etFirstNameId.text.toString().trim()
                 val lastName = etLastNameId.text.toString().trim()
-                val age = etAgeId.text.toString().trim()
+                val birthday = etBirthdayId.text.toString().trim()
+                val address = etAdressId.text.toString().trim()
                 val email = etEmailId.text.toString().trim()
 
-                if (!allInputsValid(firstName,lastName,age,email)) return@setOnClickListener
+                if (!allInputsValid(
+                        id = id,
+                        firstName = firstName,
+                        lastName = lastName,
+                        birthday = birthday,
+                        address = address,
+                        email = email)) return@setOnClickListener
 
                 if (!emailIsValid(email = email)) {
-                    Snackbar.make(root, getString(R.string.enter_real_email), Snackbar.LENGTH_SHORT).show()
+                    showSnackbar(binding.root, getString(R.string.enter_real_email))
                     return@setOnClickListener
                 }
 
                 if (users.none { it.email == email }) {
-                    val user = User(firstName, lastName, age.toIntOrNull(), email)
-                    users.add(user)
-                    sendToMain(true)
-                } else {
-                    sendToMain(false)
+                    val user = User(id, firstName, lastName, birthday, address, email)
+                    sendToMain(user)
                 }
 
             }
         }
     }
 
-    private fun allInputsValid(firstName:String, lastName:String, age:String, email:String) : Boolean {
-        if (firstName.isEmpty() || lastName.isEmpty() || age.isEmpty() || email.isEmpty()) {
+    private fun allInputsValid(id: String, firstName:String, lastName:String, birthday: String, address:String, email:String) : Boolean {
+        if (id.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || birthday.isEmpty() || address.isEmpty() || email.isEmpty()) {
             showSnackbar(binding.root , getString(R.string.fields))
             return false
         }
         return true
     }
 
-    private fun sendToMain(success: Boolean) {
+    private fun sendToMain(user: User) {
         val intent = Intent(this@AddUserActivity, MainActivity::class.java)
-        intent.putExtra("check", success)
-        startActivity(intent)
+        intent.putExtra(User.KEY, user)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
 }
