@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragmentId">
+
+    <fragment
+        android:id="@+id/mainFragmentId"
+        android:name="com.example.myapplication.MainFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_mainFragmentId_to_addFragmentId"
+            app:destination="@id/addFragmentId" />
+        <action
+            android:id="@+id/action_mainFragmentId_to_updateFragmentId"
+            app:destination="@id/updateFragmentId" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFragmentId"
+        android:name="com.example.myapplication.AddFragment"
+        android:label="Add">
+
+        <action
+            android:id="@+id/action_addFragmentId_to_mainFragmentId"
+            app:destination="@id/mainFragmentId" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateFragmentId"
+        android:name="com.example.myapplication.UpdateFragment"
+        android:label="Update">
+
+        <action
+            android:id="@+id/action_updateFragmentId_to_mainFragmentId"
+            app:destination="@id/mainFragmentId" />
+    </fragment>
+
+</navigation>

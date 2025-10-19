@@ -1,36 +1,35 @@
 package com.example.myapplication
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.myapplication.Data.emailIsValid
-import com.example.myapplication.Data.showSnackbar
-import com.example.myapplication.Data.users
-import com.example.myapplication.databinding.ActivityAddBinding
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.myapplication.Helper.emailIsValid
+import com.example.myapplication.Helper.showSnackbar
+import com.example.myapplication.databinding.FragmentAddBinding
+import com.example.myapplication.UsersList.users
 import com.google.android.material.snackbar.Snackbar
 
 
-class AddUserActivity : AppCompatActivity() {
+class AddFragment : Fragment() {
+    private var _binding: FragmentAddBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var binding: ActivityAddBinding
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentAddBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        binding = ActivityAddBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainId)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
-            insets
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+        super.onViewCreated(view, savedInstanceState)
 
         btnAdd()
+
     }
 
     private fun btnAdd() {
@@ -51,7 +50,7 @@ class AddUserActivity : AppCompatActivity() {
 
                 if (users.none { it.email == email }) {
                     val user = User(firstName, lastName, age.toIntOrNull(), email)
-                    users.add(user)
+                    UsersList.addUser(user)
                     sendToMain(true)
                 } else {
                     sendToMain(false)
@@ -70,9 +69,14 @@ class AddUserActivity : AppCompatActivity() {
     }
 
     private fun sendToMain(success: Boolean) {
-        val intent = Intent(this@AddUserActivity, MainActivity::class.java)
-        intent.putExtra("check", success)
-        startActivity(intent)
+        val bundle = Bundle().apply {
+            putBoolean("check", success)
+        }
+        findNavController().navigate(R.id.action_addFragmentId_to_mainFragmentId, bundle)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
