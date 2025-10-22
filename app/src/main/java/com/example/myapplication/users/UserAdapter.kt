@@ -18,8 +18,9 @@ class UsersAdapter(
             binding.tvAge.text = "Age: ${user.age}"
             binding.tvEmail.text = user.email
 
-            binding.root.setOnClickListener {
+            binding.root.setOnLongClickListener {
                 onItemClick(user)
+                true
             }
         }
     }
