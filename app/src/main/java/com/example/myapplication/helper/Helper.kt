@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.helper
 
 import android.util.Patterns
 import android.view.View
