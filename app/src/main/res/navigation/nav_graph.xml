@@ -1,44 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragmentId">
+    app:startDestination="@id/galleryFragment">
 
     <fragment
-        android:id="@+id/mainFragmentId"
-        android:name="com.example.myapplication.screen.home.HomeFragment"
-        android:label="Home">
-
-        <action
-            android:id="@+id/action_mainFragmentId_to_addFragmentId"
-            app:destination="@id/addFragmentId" />
-        <action
-            android:id="@+id/action_mainFragmentId_to_updateFragmentId"
-            app:destination="@id/updateFragmentId" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/addFragmentId"
-        android:name="com.example.myapplication.screen.add_user.AddFragment"
-        android:label="Add">
-
-        <action
-            android:id="@+id/action_addFragmentId_to_mainFragmentId"
-            app:destination="@id/mainFragmentId" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/updateFragmentId"
-        android:name="com.example.myapplication.screen.update_user.UpdateFragment"
-        android:label="Update">
-
-        <action
-            android:id="@+id/action_updateFragmentId_to_mainFragmentId"
-            app:destination="@id/mainFragmentId" />
-        <argument
-            android:name="userIndex"
-            app:argType="integer" />
+        android:id="@+id/galleryFragment"
+        android:name="com.example.myapplication.screen.gallery.GalleryFragment"
+        android:label="Gallery" >
     </fragment>
 
 </navigation>
