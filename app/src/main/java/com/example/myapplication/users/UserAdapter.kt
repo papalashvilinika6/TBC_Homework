@@ -2,9 +2,10 @@ package com.example.myapplication.users
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getString
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.User
-import com.example.myapplication.databinding.UserItemBinding
+import com.example.myapplication.R
+import com.example.myapplication.databinding.ItemUserBinding
 
 class UsersAdapter(
     private val users: List<User>,
@@ -12,22 +13,21 @@ class UsersAdapter(
 ) :
     RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
-    inner class UserViewHolder(private val binding: UserItemBinding) :
+    inner class UserViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.tvFullName.text = "${user.firstName} ${user.lastName}"
             binding.tvAge.text = "Age: ${user.age}"
             binding.tvEmail.text = user.email
 
-            binding.root.setOnLongClickListener {
+            binding.root.setOnClickListener {
                 onItemClick(user)
-                true
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = UserItemBinding.inflate(
+        val binding = ItemUserBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
