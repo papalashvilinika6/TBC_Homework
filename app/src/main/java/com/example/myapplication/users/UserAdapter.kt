@@ -2,9 +2,7 @@ package com.example.myapplication.users
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getString
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemUserBinding
 
 class UsersAdapter(

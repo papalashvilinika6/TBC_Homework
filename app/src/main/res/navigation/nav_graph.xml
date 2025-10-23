@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragmentId">
 
     <fragment
         android:id="@+id/mainFragmentId"
-        android:name="com.example.myapplication.MainFragment"
+        android:name="com.example.myapplication.screen.home.HomeFragment"
         android:label="Home">
 
         <action
@@ -19,7 +20,7 @@
 
     <fragment
         android:id="@+id/addFragmentId"
-        android:name="com.example.myapplication.AddFragment"
+        android:name="com.example.myapplication.screen.add_user.AddFragment"
         android:label="Add">
 
         <action
@@ -29,12 +30,15 @@
 
     <fragment
         android:id="@+id/updateFragmentId"
-        android:name="com.example.myapplication.UpdateFragment"
+        android:name="com.example.myapplication.screen.update_user.UpdateFragment"
         android:label="Update">
 
         <action
             android:id="@+id/action_updateFragmentId_to_mainFragmentId"
             app:destination="@id/mainFragmentId" />
+        <argument
+            android:name="userIndex"
+            app:argType="integer" />
     </fragment>
 
 </navigation>
