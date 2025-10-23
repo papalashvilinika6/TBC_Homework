@@ -43,7 +43,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         userViewModel.users.observe(viewLifecycleOwner) { userList ->
             val adapter = UsersAdapter(userList) { clickedUser ->
-                // Navigate to DetailFragment with SafeArgs
                 val action = HomeFragmentDirections.actionMainFragmentIdToUpdateFragmentId(
                     userList.indexOf(clickedUser)
                 )
