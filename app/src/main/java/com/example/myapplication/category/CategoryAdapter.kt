@@ -1,5 +1,6 @@
 package com.example.myapplication.category
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -19,8 +20,9 @@ class CategoryAdapter(
 
         fun bind(item: Category, isSelected: Boolean) {
             binding.textCategory.text = item.title
-//            binding. setImageResource(item.iconRes)
-            binding.textCategory.setBackgroundResource(
+            binding.textCategory.setTextColor(Color.WHITE)
+            binding.iconImage.setImageResource(item.image)
+            binding.layoutId.setBackgroundResource(
                 if (isSelected) R.drawable.selected_button_shape else R.drawable.button_shape
             )
             binding.root.setOnClickListener {

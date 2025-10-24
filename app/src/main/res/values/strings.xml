@@ -4,4 +4,11 @@
     <string name="category" translatable="false">Category</string>
     <string name="product_name" translatable="false">Product Name</string>
     <string name="price" translatable="false">$100</string>
+    <string name="c_jackets">🧥 Jackets</string>
+    <string name="c_jeans">👖 Jeans</string>
+    <string name="c_trousers">🩳 Trousers</string>
+    <string name="c_shirts">👕 Shirts</string>
+    <string name="c_dresses">👗 Dresses</string>
+    <string name="all">All</string>
+    <string name="party">Party</string>
 </resources>

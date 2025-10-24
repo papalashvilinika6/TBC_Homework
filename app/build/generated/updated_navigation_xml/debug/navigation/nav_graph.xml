@@ -1,0 +1,12 @@
+<navigation
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/nav_graph"
+app:startDestination="@id/galleryFragment" >
+<fragment
+    android:id="@+id/galleryFragment"
+    android:name="com.example.myapplication.gallery.GalleryFragment"
+    android:label="Gallery" >
+
+</fragment>
+</navigation>

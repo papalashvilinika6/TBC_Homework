@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="green">#3ED598</color>
+    <color name="grey">#1F2E35</color>
+    <color name="light_grey">#96A7AF</color>
+    <color name="red">#F00000</color>
+    <color name="white">#FFFFFF</color>
+    <string name="all">All</string>
+    <string name="app_name" translatable="false">My Application</string>
+    <string name="c_dresses">👗 Dresses</string>
+    <string name="c_jackets">🧥 Jackets</string>
+    <string name="c_jeans">👖 Jeans</string>
+    <string name="c_shirts">👕 Shirts</string>
+    <string name="c_trousers">🩳 Trousers</string>
+    <string name="category" translatable="false">Category</string>
+    <string name="gcm_defaultSenderId" translatable="false">1008338050197</string>
+    <string name="google_api_key" translatable="false">AIzaSyBcKBZi_ZE7QQ42zdTJin-6eufpYgzz1ag</string>
+    <string name="google_app_id" translatable="false">1:1008338050197:android:34aebb0114afcef0e00f9c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBcKBZi_ZE7QQ42zdTJin-6eufpYgzz1ag</string>
+    <string name="google_storage_bucket" translatable="false">my-application-2bdbb.firebasestorage.app</string>
+    <string name="party">Party</string>
+    <string name="price" translatable="false">$100</string>
+    <string name="product_name" translatable="false">Product Name</string>
+    <string name="project_id" translatable="false">my-application-2bdbb</string>
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication"/>
+    <style name="imageShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+</resources>

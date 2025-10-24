@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/galleryFragment"
-        android:name="com.example.myapplication.screen.gallery.GalleryFragment"
+        android:name="com.example.myapplication.gallery.GalleryFragment"
         android:label="Gallery" >
     </fragment>
 
