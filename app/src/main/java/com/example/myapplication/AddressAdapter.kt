@@ -1,0 +1,38 @@
+package com.example.myapplication
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.databinding.ItemAddressBinding
+
+class AddressAdapter(private val onItemClick: (Address) -> Unit) : ListAdapter<Address, AddressAdapter.ViewHolder>(DiffCallback()) {
+
+    inner class ViewHolder(private val binding: ItemAddressBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: Address) {
+            binding.apply {
+                tvTitle.text = item.title
+                tvSubtitle.text = item.subtitle
+                imgType.setImageResource(item.typeIcon)
+                    tvEdit.setOnClickListener {
+                    onItemClick(item)
+                }
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(ItemAddressBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    class DiffCallback : DiffUtil.ItemCallback<Address>() {
+        override fun areItemsTheSame(oldItem: Address, newItem: Address) = oldItem.subtitle == newItem.subtitle
+        override fun areContentsTheSame(oldItem: Address, newItem: Address) = oldItem == newItem
+    }
+}

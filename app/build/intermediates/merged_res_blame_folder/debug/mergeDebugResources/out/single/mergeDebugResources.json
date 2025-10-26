@@ -1,230 +1,138 @@
 [
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jeans3.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jeans3.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\xml\\backup_rules.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\layout_item_product.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\item_product.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_back_btn.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/back_btn.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_selected_button_shape.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\selected_button_shape.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\font_monserrat.ttf.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\font\\monserrat.ttf"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-72:/layout_item_category.xml.flat",
-        "source": "com.example.myapplication.app-main-74:/layout/item_category.xml"
+        "merged": "com.example.myapplication.app-debug-72:/layout_fragment_base.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/fragment_base.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_throusers3.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\throusers3.xml"
+        "merged": "com.example.myapplication.app-debug-72:/layout_fragment_add.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/fragment_add.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\font_lobster.ttf.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\font\\lobster.ttf"
+        "merged": "com.example.myapplication.app-debug-72:/layout_activity_main.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_dress2.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\dress2.xml"
+        "merged": "com.example.myapplication.app-debug-72:/xml_backup_rules.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_etext_shape.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/etext_shape.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.example.myapplication.app-debug-72:/layout_item_address.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/item_address.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.myapplication.app-debug-72:/font_lobster.ttf.flat",
+        "source": "com.example.myapplication.app-main-74:/font/lobster.ttf"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_shirt3.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\shirt3.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_background_et.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/background_et.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_item_background.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/item_background.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jeans4.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jeans4.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_home_logo.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/home_logo.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\font_roboto.ttf.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\font\\roboto.ttf"
+        "merged": "com.example.myapplication.app-debug-72:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\font_inter.ttf.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\font\\inter.ttf"
+        "merged": "com.example.myapplication.app-debug-72:/font_monserrat.ttf.flat",
+        "source": "com.example.myapplication.app-main-74:/font/monserrat.ttf"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.example.myapplication.app-debug-72:/layout_fragment_edit.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/fragment_edit.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_shirts_icon.png.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/shirts_icon.png"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jacket3.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jacket3.xml"
+        "merged": "com.example.myapplication.app-debug-72:/font_roboto.ttf.flat",
+        "source": "com.example.myapplication.app-main-74:/font/roboto.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_dress_icon.png.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/dress_icon.png"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jeans1.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jeans1.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_button_shape.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/button_shape.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.myapplication.app-debug-72:/font_ptsans.ttf.flat",
+        "source": "com.example.myapplication.app-main-74:/font/ptsans.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_all.jpg.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/all.jpg"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.myapplication.app-debug-72:/layout_fragment_address.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/layout/fragment_address.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_throusers1.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\throusers1.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_shirt2.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\shirt2.xml"
+        "merged": "com.example.myapplication.app-debug-72:/drawable_office_logo.xml.flat",
+        "source": "com.example.myapplication.app-main-74:/drawable/office_logo.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_jeans_icon.png.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/jeans_icon.png"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jacket2.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jacket2.xml"
+        "merged": "com.example.myapplication.app-debug-72:/font_inter.ttf.flat",
+        "source": "com.example.myapplication.app-main-74:/font/inter.ttf"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_dress3.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\dress3.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_throusers4.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\throusers4.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\layout_fragment_base.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_base.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-hdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jeans2.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jeans2.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_shirt1.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\shirt1.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_throusers2.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\throusers2.xml"
-    },
-    {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_jackets_icon.png.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/jackets_icon.png"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_dress1.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\dress1.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-anydpi-v26\\ic_launcher.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_background_gradient.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\background_gradient.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_button_shape.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\button_shape.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_dress_icon.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\dress_icon.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.myapplication.app-debug-72:/drawable_throusers_icon.png.flat",
-        "source": "com.example.myapplication.app-main-74:/drawable/throusers_icon.png"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\layout_fragment_gallery.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_gallery.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jacket4.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jacket4.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\layout_item_category.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\item_category.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_dress4.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\dress4.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_shirt4.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\shirt4.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_jacket1.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\jacket1.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-72:\\drawable_etext_shape.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\drawable\\etext_shape.xml"
+        "merged": "com.example.myapplication.app-debug-72:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.myapplication.app-main-74:/mipmap-xxhdpi/ic_launcher.webp"
     }
 ]

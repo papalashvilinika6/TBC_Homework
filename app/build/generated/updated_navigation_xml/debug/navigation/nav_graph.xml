@@ -2,11 +2,38 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:id="@+id/nav_graph"
-app:startDestination="@id/galleryFragment" >
+app:startDestination="@id/addressFragment" >
 <fragment
-    android:id="@+id/galleryFragment"
-    android:name="com.example.myapplication.gallery.GalleryFragment"
-    android:label="Gallery" >
+    android:id="@+id/addressFragment"
+    android:name="com.example.myapplication.AddressFragment"
+    android:label="AddressFragment" >
+
+    <action
+        android:id="@+id/action_addressFragment_to_addFragment"
+        app:destination="@id/addFragment" />
+    <action
+        android:id="@+id/action_addressFragment_to_editFragment"
+        app:destination="@id/editFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/addFragment"
+    android:name="com.example.myapplication.AddFragment"
+    android:label="AddFragment" >
+
+    <action
+        android:id="@+id/action_addFragment_to_addressFragment"
+        app:destination="@id/addressFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/editFragment"
+    android:name="com.example.myapplication.EditFragment"
+    android:label="EditFragment" >
+
+    <action
+        android:id="@+id/action_editFragment_to_addressFragment"
+        app:destination="@id/addressFragment" />
 
 </fragment>
 </navigation>
