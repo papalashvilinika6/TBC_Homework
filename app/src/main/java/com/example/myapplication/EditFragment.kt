@@ -23,6 +23,7 @@ class EditFragment : BaseFragment<FragmentEditBinding>(FragmentEditBinding::infl
     override fun bind() {
         spinnerDestination()
         etUpdate()
+
     }
 
     private fun spinnerDestination() {

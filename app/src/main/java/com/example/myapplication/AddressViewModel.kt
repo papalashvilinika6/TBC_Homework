@@ -27,9 +27,17 @@ class AddressViewModel : ViewModel() {
         }
     }
 
+    fun deleteAddress(address: Address) {
+        _addresses.value = _addresses.value?.filter { it.id != address.id }
+
+        if (_selectedAddress.value?.id == address.id) {
+            _selectedAddress.value = null
+        }
+    }
+
 
     fun addAddress(title: String, address: String) {
-        val id = (_addresses.value?.size ?: 0) + 1
+        val id = (_addresses.value?.maxOfOrNull { it.id } ?: 0) + 1
 
         val imageRes = when (title.trim().lowercase()) {
             "my home" -> R.drawable.home_logo

@@ -1,26 +1,38 @@
 [
     {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\fragment_address.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\fragment_add.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\item_address.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\item_address.xml"
+    },
+    {
         "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/fragment_add.xml",
         "source": "com.example.myapplication.app-main-74:/layout/fragment_add.xml"
-    },
-    {
-        "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/item_address.xml",
-        "source": "com.example.myapplication.app-main-74:/layout/item_address.xml"
-    },
-    {
-        "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/activity_main.xml",
-        "source": "com.example.myapplication.app-main-74:/layout/activity_main.xml"
     },
     {
         "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/fragment_address.xml",
         "source": "com.example.myapplication.app-main-74:/layout/fragment_address.xml"
     },
     {
-        "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/fragment_base.xml",
-        "source": "com.example.myapplication.app-main-74:/layout/fragment_base.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\fragment_base.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_base.xml"
     },
     {
         "merged": "com.example.myapplication.app-mergeDebugResources-71:/layout/fragment_edit.xml",
         "source": "com.example.myapplication.app-main-74:/layout/fragment_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-71:\\layout\\fragment_edit.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-74:\\layout\\fragment_edit.xml"
     }
 ]

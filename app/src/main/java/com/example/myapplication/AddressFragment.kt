@@ -15,10 +15,17 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>(FragmentAddressBind
     }
 
     override fun bind() {
-        adapter = AddressAdapter { address ->
-            viewModel.selectAddress(address)
-            findNavController().navigate(R.id.action_addressFragment_to_editFragment)
-        }
+        adapter = AddressAdapter(
+            onItemClick = { address ->
+                viewModel.selectAddress(address)
+                findNavController().navigate(R.id.action_addressFragment_to_editFragment)
+            },
+
+            onItemLongClick = { address ->
+                viewModel.deleteAddress(address)
+            }
+        )
+
 
         binding.rvAdressesId.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAdressesId.adapter = adapter

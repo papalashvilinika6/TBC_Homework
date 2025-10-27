@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemAddressBinding
 
-class AddressAdapter(private val onItemClick: (Address) -> Unit) : ListAdapter<Address, AddressAdapter.ViewHolder>(DiffCallback()) {
+class AddressAdapter(private val onItemClick: (Address) -> Unit, private val onItemLongClick: (Address) -> Unit) :
+    ListAdapter<Address, AddressAdapter.ViewHolder>(DiffCallback()) {
 
     inner class ViewHolder(private val binding: ItemAddressBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -19,6 +20,11 @@ class AddressAdapter(private val onItemClick: (Address) -> Unit) : ListAdapter<A
                 imgType.setImageResource(item.typeIcon)
                     tvEdit.setOnClickListener {
                     onItemClick(item)
+                }
+
+                root.setOnLongClickListener {
+                    onItemLongClick(item)
+                    true
                 }
             }
         }
