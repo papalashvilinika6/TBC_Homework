@@ -2,38 +2,26 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:id="@+id/nav_graph"
-app:startDestination="@id/addressFragment" >
+app:startDestination="@id/homeFragment" >
 <fragment
-    android:id="@+id/addressFragment"
-    android:name="com.example.myapplication.address.AddressFragment"
-    android:label="AddressFragment" >
+    android:id="@+id/homeFragment"
+    android:name="com.example.myapplication.home.HomeFragment"
+    android:label="Home" >
 
     <action
-        android:id="@+id/action_addressFragment_to_addFragment"
-        app:destination="@id/addFragment" />
-    <action
-        android:id="@+id/action_addressFragment_to_editFragment"
-        app:destination="@id/editFragment" />
+        android:id="@+id/action_homeFragment_to_gameFragment"
+        app:destination="@id/gameFragment" />
 
 </fragment>
 <fragment
-    android:id="@+id/addFragment"
-    android:name="com.example.myapplication.add.AddFragment"
-    android:label="AddFragment" >
+    android:id="@+id/gameFragment"
+    android:name="com.example.myapplication.game.GameFragment"
+    android:label="Tic-Tac-Toe Game" >
 
-    <action
-        android:id="@+id/action_addFragment_to_addressFragment"
-        app:destination="@id/addressFragment" />
-
-</fragment>
-<fragment
-    android:id="@+id/editFragment"
-    android:name="com.example.myapplication.edit.EditFragment"
-    android:label="EditFragment" >
-
-    <action
-        android:id="@+id/action_editFragment_to_addressFragment"
-        app:destination="@id/addressFragment" />
+    <argument
+        android:name="boardSize"
+        android:defaultValue="3"
+        app:argType="integer" />
 
 </fragment>
 </navigation>
