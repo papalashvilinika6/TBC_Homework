@@ -5,7 +5,7 @@ android:id="@+id/nav_graph"
 app:startDestination="@id/addressFragment" >
 <fragment
     android:id="@+id/addressFragment"
-    android:name="com.example.myapplication.AddressFragment"
+    android:name="com.example.myapplication.address.AddressFragment"
     android:label="AddressFragment" >
 
     <action
@@ -18,7 +18,7 @@ app:startDestination="@id/addressFragment" >
 </fragment>
 <fragment
     android:id="@+id/addFragment"
-    android:name="com.example.myapplication.AddFragment"
+    android:name="com.example.myapplication.add.AddFragment"
     android:label="AddFragment" >
 
     <action
@@ -28,7 +28,7 @@ app:startDestination="@id/addressFragment" >
 </fragment>
 <fragment
     android:id="@+id/editFragment"
-    android:name="com.example.myapplication.EditFragment"
+    android:name="com.example.myapplication.edit.EditFragment"
     android:label="EditFragment" >
 
     <action

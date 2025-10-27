@@ -1,1 +1,1 @@
-[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.example.myapplication.AddressFragmentDirections","com.example.myapplication.AddFragmentDirections","com.example.myapplication.EditFragmentDirections"]}]
+[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.example.myapplication.address.AddressFragmentDirections","com.example.myapplication.add.AddFragmentDirections","com.example.myapplication.edit.EditFragmentDirections"]}]
