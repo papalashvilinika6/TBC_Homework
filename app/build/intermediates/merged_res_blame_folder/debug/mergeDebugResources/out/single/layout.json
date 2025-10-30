@@ -1,22 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\activity_main.xml"
-    },
-    {
         "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/fragment_game.xml",
         "source": "com.example.myapplication.app-main-47:/layout/fragment_game.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_home.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/fragment_home.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\item_game_button.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\item_game_button.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\fragment_game.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_game.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/item_game_button.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/item_game_button.xml"
     }
 ]
