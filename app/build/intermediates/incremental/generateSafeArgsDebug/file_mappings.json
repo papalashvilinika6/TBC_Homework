@@ -1,1 +1,1 @@
-[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.example.myapplication.home.HomeFragmentDirections","com.example.myapplication.game.GameFragmentArgs"]}]
+[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.example.myapplication.order.OrderFragmentDirections"]}]

@@ -1,118 +1,134 @@
 [
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/layout_activity_main.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/layout/activity_main.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\font_roboto.ttf.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\font\\roboto.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_etext_shape.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\etext_shape.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/font_monserrat.ttf.flat",
-        "source": "com.example.myapplication.app-main-47:/font/monserrat.ttf"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/layout_fragment_game.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/layout/fragment_game.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/font_ptsans.ttf.flat",
-        "source": "com.example.myapplication.app-main-47:/font/ptsans.ttf"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\layout_fragment_order.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_order.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_button_shape.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\button_shape.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_ic_o.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/ic_o.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/layout_item_game_button.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/layout/item_game_button.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\layout_fragment_details.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_details.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_etext_shape.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/etext_shape.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\font_monserrat.ttf.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\font\\monserrat.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/font_roboto.ttf.flat",
-        "source": "com.example.myapplication.app-main-47:/font/roboto.ttf"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\layout_item_order.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\item_order.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/layout_fragment_home.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\font_ptsans.ttf.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\font\\ptsans.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\font_inter.ttf.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\font\\inter.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\layout_item_status.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\item_status.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_bell_pin.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\bell_pin.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_button_shape.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/button_shape.xml"
+        "merged": "com.example.myapplication.app-debug-45:/layout_item_status.xml.flat",
+        "source": "com.example.myapplication.app-main-47:/layout/item_status.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_order_card.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\order_card.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/font_lobster.ttf.flat",
-        "source": "com.example.myapplication.app-main-47:/font/lobster.ttf"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\font_lobster.ttf.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\font\\lobster.ttf"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.myapplication.app-main-47:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_list_btn.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\list_btn.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/font_inter.ttf.flat",
-        "source": "com.example.myapplication.app-main-47:/font/inter.ttf"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/xml_backup_rules.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.myapplication.app-debug-45:/drawable_ic_x.xml.flat",
-        "source": "com.example.myapplication.app-main-47:/drawable/ic_x.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_button_outline.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\button_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-debug-45:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     }
 ]

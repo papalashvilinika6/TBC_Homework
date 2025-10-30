@@ -7,12 +7,23 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemStatusBinding
 
-class StatusAdapter() : ListAdapter<Status, StatusAdapter.ViewHolder>(DiffCallback()) {
+class StatusAdapter(
+    private val onStatusClick: (Status) -> Unit
+) : ListAdapter<Status, StatusAdapter.ViewHolder>(DiffCallback()) {
 
     inner class ViewHolder(private val binding: ItemStatusBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Status) {
+        fun bind(status: Status) {
+            binding.tvStatusId.text = status.title
+
+            val context = binding.root.context
+            val color = if (status.isSelected) android.R.color.holo_blue_light else android.R.color.transparent
+            binding.root.setBackgroundColor(context.getColor(color))
+
+            val clickListener = { _: android.view.View -> onStatusClick(status) }
+            binding.root.setOnClickListener(clickListener)
+            binding.tvStatusId.setOnClickListener(clickListener)
         }
     }
 

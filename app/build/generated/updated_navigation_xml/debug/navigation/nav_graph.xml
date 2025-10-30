@@ -2,26 +2,19 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:id="@+id/nav_graph"
-app:startDestination="@id/homeFragment" >
+app:startDestination="@id/orderFragment" >
 <fragment
-    android:id="@+id/homeFragment"
-    android:name="com.example.myapplication.home.HomeFragment"
-    android:label="Home" >
+    android:id="@+id/orderFragment"
+    android:name="com.example.myapplication.order.OrderFragment"
+    android:label="Orders" >
 
     <action
-        android:id="@+id/action_homeFragment_to_gameFragment"
-        app:destination="@id/gameFragment" />
+        android:id="@+id/action_orderFragment_to_detailsFragment"
+        app:destination="@id/detailsFragment" />
 
 </fragment>
 <fragment
-    android:id="@+id/gameFragment"
-    android:name="com.example.myapplication.game.GameFragment"
-    android:label="Tic-Tac-Toe Game" >
-
-    <argument
-        android:name="boardSize"
-        android:defaultValue="3"
-        app:argType="integer" />
-
-</fragment>
+    android:id="@+id/detailsFragment"
+    android:name="com.example.myapplication.details.DetailsFragment"
+    android:label="Order Details" />
 </navigation>

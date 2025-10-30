@@ -26,6 +26,7 @@ abstract class BaseFragment <VB : ViewBinding>(private val inflate: (LayoutInfla
 
         listeners()
         bind()
+        observers()
     }
 
     protected abstract fun listeners()
