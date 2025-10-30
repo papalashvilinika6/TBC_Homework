@@ -21,10 +21,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
 
     private fun updateButtonsVisibility(status: String) {
         val isPending = status == "PENDING"
-        binding.btnDeliveredId.isEnabled = isPending
-        binding.btnCanceledId.isEnabled = isPending
-        binding.btnDeliveredId.alpha = if (isPending) 1f else 0.5f
-        binding.btnCanceledId.alpha = if (isPending) 1f else 0.5f
+        with(binding){
+            btnDeliveredId.isEnabled = isPending
+            btnCanceledId.isEnabled = isPending
+            btnDeliveredId.alpha = if (isPending) 1f else 0.5f
+            btnCanceledId.alpha = if (isPending) 1f else 0.5f
+        }
     }
 
     private fun updateState(){

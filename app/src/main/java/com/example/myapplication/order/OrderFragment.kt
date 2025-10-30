@@ -1,7 +1,9 @@
 package com.example.myapplication.order
 
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.common.BaseFragment
 import com.example.myapplication.databinding.FragmentOrderBinding
@@ -51,16 +53,20 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>(FragmentOrderBinding::i
 
     private fun observeStatus(){
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.statuses.collectLatest { statuses ->
-                statusAdapter.submitList(statuses)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.statuses.collectLatest { statuses ->
+                    statusAdapter.submitList(statuses)
+                }
             }
         }
     }
 
     private fun observeOrder(){
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.sortedOrders.collectLatest { orderList ->
-                orderAdapter.submitList(orderList)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.sortedOrders.collectLatest { orderList ->
+                    orderAdapter.submitList(orderList)
+                }
             }
         }
     }
