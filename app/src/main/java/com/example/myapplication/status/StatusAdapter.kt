@@ -2,9 +2,11 @@ package com.example.myapplication.status
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemStatusBinding
 
 class StatusAdapter(
@@ -18,12 +20,22 @@ class StatusAdapter(
             binding.tvStatusId.text = status.title
 
             val context = binding.root.context
-            val color = if (status.isSelected) android.R.color.holo_blue_light else android.R.color.transparent
-            binding.root.setBackgroundColor(context.getColor(color))
+            if (status.isSelected) {
+                binding.tvStatusId.background = ContextCompat.getDrawable(
+                    context,
+                    R.drawable.etext_selected
+                )
+            }else {
+                binding.tvStatusId.background = ContextCompat.getDrawable(
+                    context,
+                    R.drawable.etext_shape
+                )
+            }
 
-            val clickListener = { _: android.view.View -> onStatusClick(status) }
-            binding.root.setOnClickListener(clickListener)
-            binding.tvStatusId.setOnClickListener(clickListener)
+            binding.apply {
+                root.setOnClickListener { onStatusClick(status) }
+                tvStatusId.setOnClickListener { onStatusClick(status) }
+            }
         }
     }
 

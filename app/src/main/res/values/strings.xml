@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">My Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pending">Pending</string>
+    <string name="order_text">Order #0000</string>
+    <string name="date_text">00/00/0000</string>
+    <string name="tracking_number">Tracking number:</string>
+    <string name="tracking_number_text">IK987362341</string>
+    <string name="quantity">Quantity:</string>
+    <string name="quantity_text">2</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="subtotal_text">$110</string>
+    <string name="status">DELIVERED</string>
+    <string name="btn_text">Details</string>
+    <string name="my_orders_text">My Orders</string>
+    <string name="order_status_text">Order Status</string>
+    <string name="btn_delivered">Mark As Delivered</string>
+    <string name="btn_canceled">Mark As Canceled</string>
+    <string name="dd_mm_yyyy">dd/MM/yyyy</string>
+    <string name="order">Order #%1$d</string>
+    <string name="subtotal_">Subtotal: $%.2f</string>
 </resources>

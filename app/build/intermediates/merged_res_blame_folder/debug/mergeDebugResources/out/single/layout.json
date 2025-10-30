@@ -1,26 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\fragment_details.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_details.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/fragment_order.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/fragment_order.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\item_status.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\item_status.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/activity_main.xml"
     },
     {
         "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/item_status.xml",
         "source": "com.example.myapplication.app-main-47:/layout/item_status.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\item_order.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\item_order.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/item_order.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/item_order.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-mergeDebugResources-44:\\layout\\fragment_order.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.myapplication.app-main-47:\\layout\\fragment_order.xml"
+        "merged": "com.example.myapplication.app-mergeDebugResources-44:/layout/fragment_details.xml",
+        "source": "com.example.myapplication.app-main-47:/layout/fragment_details.xml"
     }
 ]

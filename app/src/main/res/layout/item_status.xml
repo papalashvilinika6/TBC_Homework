@@ -10,13 +10,13 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/tvStatusId"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pending"
+        android:layout_height="45dp"
+        android:text="@string/pending"
         android:textSize="12sp"
         android:background="@drawable/etext_shape"
         android:minHeight="0dp"
         android:minWidth="0dp"
-        android:paddingVertical="4dp"
+        android:paddingVertical="0dp"
         android:paddingHorizontal="12dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

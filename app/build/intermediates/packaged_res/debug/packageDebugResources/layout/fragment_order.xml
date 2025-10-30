@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="48dp"
-        android:text="My Orders"
+        android:text="@string/my_orders_text"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/ibListId"

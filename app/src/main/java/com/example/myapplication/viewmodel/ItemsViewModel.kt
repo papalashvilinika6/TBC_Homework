@@ -52,10 +52,6 @@ class ItemsViewModel : ViewModel() {
         _selectedStatusId.value = selected.id
     }
 
-    fun clearSelectedStatus() {
-        _statuses.value = _statuses.value.map { it.copy(isSelected = false) }
-        _selectedStatusId.value = null
-    }
 
     fun updateOrderStatus(orderId: Int, newStatus: String) {
         _orders.value = _orders.value.map { order ->

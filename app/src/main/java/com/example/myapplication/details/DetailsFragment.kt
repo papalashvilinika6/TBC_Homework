@@ -11,17 +11,29 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     private val viewModel: ItemsViewModel by activityViewModels()
 
     override fun listeners() {
-        binding.btnDeliveredId.setOnClickListener {
-            val orderId = viewModel.selectedOrderId.value ?: return@setOnClickListener
-            val order = viewModel.orders.value.firstOrNull { it.id == orderId } ?: return@setOnClickListener
-            if (order.status == "PENDING") {
-                viewModel.updateOrderStatus(orderId, "DELIVERED")
-                updateButtonsVisibility("DELIVERED")
-                viewModel.selectStatusByTitle("DELIVERED")
-                findNavController().popBackStack()
-            }
-        }
+        btnDelivered()
+        btnCanceled()
+    }
 
+    override fun bind() {
+        updateState()
+    }
+
+    private fun updateButtonsVisibility(status: String) {
+        val isPending = status == "PENDING"
+        binding.btnDeliveredId.isEnabled = isPending
+        binding.btnCanceledId.isEnabled = isPending
+        binding.btnDeliveredId.alpha = if (isPending) 1f else 0.5f
+        binding.btnCanceledId.alpha = if (isPending) 1f else 0.5f
+    }
+
+    private fun updateState(){
+        val orderId = viewModel.selectedOrderId.value
+        val currentStatus = viewModel.orders.value.firstOrNull { it.id == orderId }?.status ?: "PENDING"
+        updateButtonsVisibility(currentStatus)
+    }
+
+    private fun btnCanceled() {
         binding.btnCanceledId.setOnClickListener {
             val orderId = viewModel.selectedOrderId.value ?: return@setOnClickListener
             val order = viewModel.orders.value.firstOrNull { it.id == orderId } ?: return@setOnClickListener
@@ -34,21 +46,16 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
         }
     }
 
-    override fun bind() {
-        val orderId = viewModel.selectedOrderId.value
-        val currentStatus = viewModel.orders.value.firstOrNull { it.id == orderId }?.status ?: "PENDING"
-        updateButtonsVisibility(currentStatus)
-    }
-
-    override fun observers() {
-        // No-op for now
-    }
-
-    private fun updateButtonsVisibility(status: String) {
-        val isPending = status == "PENDING"
-        binding.btnDeliveredId.isEnabled = isPending
-        binding.btnCanceledId.isEnabled = isPending
-        binding.btnDeliveredId.alpha = if (isPending) 1f else 0.5f
-        binding.btnCanceledId.alpha = if (isPending) 1f else 0.5f
+    private fun btnDelivered(){
+        binding.btnDeliveredId.setOnClickListener {
+            val orderId = viewModel.selectedOrderId.value ?: return@setOnClickListener
+            val order = viewModel.orders.value.firstOrNull { it.id == orderId } ?: return@setOnClickListener
+            if (order.status == "PENDING") {
+                viewModel.updateOrderStatus(orderId, "DELIVERED")
+                updateButtonsVisibility("DELIVERED")
+                viewModel.selectStatusByTitle("DELIVERED")
+                findNavController().popBackStack()
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 class OrderFragment : BaseFragment<FragmentOrderBinding>(FragmentOrderBinding::inflate) {
 
-    lateinit var adapter: OrderAdapter
+    lateinit var orderAdapter: OrderAdapter
     lateinit var statusAdapter: StatusAdapter
     private val viewModel : ItemsViewModel by activityViewModels()
 
@@ -22,34 +22,47 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>(FragmentOrderBinding::i
     }
 
     override fun bind() {
+        setupOrders()
+        setupStatus()
     }
 
+
     override fun observers() {
-        adapter = OrderAdapter { order ->
+        observeOrder()
+        observeStatus()
+    }
+
+    private fun setupOrders(){
+        orderAdapter = OrderAdapter { order ->
             viewModel.selectOrder(order.id)
             findNavController().navigate(R.id.action_orderFragment_to_detailsFragment)
         }
         binding.rvOrdersId.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvOrdersId.adapter = adapter
+        binding.rvOrdersId.adapter = orderAdapter
+    }
 
+    private fun setupStatus(){
         statusAdapter = StatusAdapter { selected ->
             viewModel.selectStatus(selected)
         }
         binding.rvStatusId.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvStatusId.adapter = statusAdapter
+    }
 
+    private fun observeStatus(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.statuses.collectLatest { statuses ->
                 statusAdapter.submitList(statuses)
             }
         }
+    }
 
+    private fun observeOrder(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.sortedOrders.collectLatest { orderList ->
-                adapter.submitList(orderList)
+                orderAdapter.submitList(orderList)
             }
         }
     }
-
 
 }

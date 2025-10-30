@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
-        android:text="Order Status"
+        android:text="@string/order_status_text"
         android:textSize="30sp"
         android:gravity="center">
 
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvOrderId"
         android:layout_marginTop="20dp"
         android:background="@drawable/etext_shape"
-        android:text="Mark As Delivered">
+        android:text="@string/btn_delivered">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnDeliveredId"
         android:layout_marginTop="10dp"
         android:background="@drawable/etext_shape"
-        android:text="Mark As Canceled">
+        android:text="@string/btn_canceled">
 
     </androidx.appcompat.widget.AppCompatButton>
 
