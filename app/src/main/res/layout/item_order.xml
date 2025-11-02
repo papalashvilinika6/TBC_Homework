@@ -4,72 +4,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/order_card"
-    android:padding="16dp"
-    android:layout_marginBottom="12dp">
+    android:padding="12dp"
+    android:background="@drawable/item_background"
+    android:elevation="4dp"
+    android:layout_marginBottom="8dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvOrderId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/order_text"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="#000000"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivProduct"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/date_text"
-        android:textSize="14sp"
-        android:textColor="#A0A0A0"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTrackingLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tracking_number"
-        android:textSize="14sp"
-        android:textColor="#7E7E7E"
-        app:layout_constraintTop_toBottomOf="@id/tvOrderId"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="12dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    </androidx.appcompat.widget.AppCompatTextView>
+    </androidx.appcompat.widget.AppCompatImageView>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTrackingNumber"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvOrderTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tracking_number_text"
-        android:textSize="14sp"
-        android:textColor="#000000"
+        android:text="@string/product_title"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvTrackingLabel"
-        app:layout_constraintStart_toEndOf="@id/tvTrackingLabel"
-        android:layout_marginStart="6dp">
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintStart_toEndOf="@id/ivProduct"
+        app:layout_constraintTop_toTopOf="@id/ivProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="12dp">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvQuantityLabel"
+        android:id="@+id/tvColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quantity"
+        android:text="@string/black"
         android:textSize="14sp"
-        android:textColor="#7E7E7E"
-        app:layout_constraintTop_toBottomOf="@id/tvTrackingLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp">
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="@id/tvOrderTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderTitle"
+        android:layout_marginTop="4dp">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -77,39 +54,12 @@
         android:id="@+id/tvQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quantity_text"
+        android:text="@string/qty_1"
         android:textSize="14sp"
-        android:textColor="#000000"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvQuantityLabel"
-        app:layout_constraintStart_toEndOf="@id/tvQuantityLabel"
-        android:layout_marginStart="6dp">
-
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvSubtotalLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subtotal"
-        android:textSize="14sp"
-        android:textColor="#7E7E7E"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvQuantityLabel"
-        app:layout_constraintEnd_toStartOf="@id/tvSubtotalValue"
-        android:layout_marginEnd="3dp">
-
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvSubtotalValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subtotal_text"
-        android:textSize="14sp"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvQuantityLabel"
-        android:layout_marginEnd="12dp">
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/tvColor"
+        app:layout_constraintTop_toTopOf="@id/tvColor"
+        android:layout_marginStart="8dp">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -117,27 +67,61 @@
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/status"
-        android:textSize="14sp"
-        android:textColor="#2EAF58"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvQuantityLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp">
+        android:text="@string/completed"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:background="@drawable/item_background"
+        app:layout_constraintStart_toStartOf="@id/tvOrderTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvColor"
+        android:layout_marginTop="4dp">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnDetails"
-        android:layout_width="110dp"
-        android:layout_height="38dp"
-        android:text="@string/btn_text"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:background="@drawable/button_outline"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_99_99"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/tvOrderTitle"
         app:layout_constraintEnd_toEndOf="parent">
 
+    </androidx.appcompat.widget.AppCompatTextView>
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btnReview"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@drawable/etext_shape"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:text="@string/leave_review"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvStatus">-->
+
+<!--    </androidx.appcompat.widget.AppCompatButton>-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="@drawable/etext_shape"
+        android:text="@string/leave_review"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone" >
+
     </androidx.appcompat.widget.AppCompatButton>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
@@ -21,52 +22,38 @@ public final class ItemOrderBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final AppCompatButton btnDetails;
+  public final AppCompatButton btnAction;
 
   @NonNull
-  public final AppCompatTextView tvDate;
+  public final AppCompatImageView ivProduct;
 
   @NonNull
-  public final AppCompatTextView tvOrderId;
+  public final AppCompatTextView tvColor;
+
+  @NonNull
+  public final AppCompatTextView tvOrderTitle;
+
+  @NonNull
+  public final AppCompatTextView tvPrice;
 
   @NonNull
   public final AppCompatTextView tvQuantity;
 
   @NonNull
-  public final AppCompatTextView tvQuantityLabel;
-
-  @NonNull
   public final AppCompatTextView tvStatus;
 
-  @NonNull
-  public final AppCompatTextView tvSubtotalLabel;
-
-  @NonNull
-  public final AppCompatTextView tvSubtotalValue;
-
-  @NonNull
-  public final AppCompatTextView tvTrackingLabel;
-
-  @NonNull
-  public final AppCompatTextView tvTrackingNumber;
-
-  private ItemOrderBinding(@NonNull ConstraintLayout rootView, @NonNull AppCompatButton btnDetails,
-      @NonNull AppCompatTextView tvDate, @NonNull AppCompatTextView tvOrderId,
-      @NonNull AppCompatTextView tvQuantity, @NonNull AppCompatTextView tvQuantityLabel,
-      @NonNull AppCompatTextView tvStatus, @NonNull AppCompatTextView tvSubtotalLabel,
-      @NonNull AppCompatTextView tvSubtotalValue, @NonNull AppCompatTextView tvTrackingLabel,
-      @NonNull AppCompatTextView tvTrackingNumber) {
+  private ItemOrderBinding(@NonNull ConstraintLayout rootView, @NonNull AppCompatButton btnAction,
+      @NonNull AppCompatImageView ivProduct, @NonNull AppCompatTextView tvColor,
+      @NonNull AppCompatTextView tvOrderTitle, @NonNull AppCompatTextView tvPrice,
+      @NonNull AppCompatTextView tvQuantity, @NonNull AppCompatTextView tvStatus) {
     this.rootView = rootView;
-    this.btnDetails = btnDetails;
-    this.tvDate = tvDate;
-    this.tvOrderId = tvOrderId;
+    this.btnAction = btnAction;
+    this.ivProduct = ivProduct;
+    this.tvColor = tvColor;
+    this.tvOrderTitle = tvOrderTitle;
+    this.tvPrice = tvPrice;
     this.tvQuantity = tvQuantity;
-    this.tvQuantityLabel = tvQuantityLabel;
     this.tvStatus = tvStatus;
-    this.tvSubtotalLabel = tvSubtotalLabel;
-    this.tvSubtotalValue = tvSubtotalValue;
-    this.tvTrackingLabel = tvTrackingLabel;
-    this.tvTrackingNumber = tvTrackingNumber;
   }
 
   @Override
@@ -96,21 +83,33 @@ public final class ItemOrderBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnDetails;
-      AppCompatButton btnDetails = ViewBindings.findChildViewById(rootView, id);
-      if (btnDetails == null) {
+      id = R.id.btnAction;
+      AppCompatButton btnAction = ViewBindings.findChildViewById(rootView, id);
+      if (btnAction == null) {
         break missingId;
       }
 
-      id = R.id.tvDate;
-      AppCompatTextView tvDate = ViewBindings.findChildViewById(rootView, id);
-      if (tvDate == null) {
+      id = R.id.ivProduct;
+      AppCompatImageView ivProduct = ViewBindings.findChildViewById(rootView, id);
+      if (ivProduct == null) {
         break missingId;
       }
 
-      id = R.id.tvOrderId;
-      AppCompatTextView tvOrderId = ViewBindings.findChildViewById(rootView, id);
-      if (tvOrderId == null) {
+      id = R.id.tvColor;
+      AppCompatTextView tvColor = ViewBindings.findChildViewById(rootView, id);
+      if (tvColor == null) {
+        break missingId;
+      }
+
+      id = R.id.tvOrderTitle;
+      AppCompatTextView tvOrderTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvOrderTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPrice;
+      AppCompatTextView tvPrice = ViewBindings.findChildViewById(rootView, id);
+      if (tvPrice == null) {
         break missingId;
       }
 
@@ -120,45 +119,14 @@ public final class ItemOrderBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvQuantityLabel;
-      AppCompatTextView tvQuantityLabel = ViewBindings.findChildViewById(rootView, id);
-      if (tvQuantityLabel == null) {
-        break missingId;
-      }
-
       id = R.id.tvStatus;
       AppCompatTextView tvStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvStatus == null) {
         break missingId;
       }
 
-      id = R.id.tvSubtotalLabel;
-      AppCompatTextView tvSubtotalLabel = ViewBindings.findChildViewById(rootView, id);
-      if (tvSubtotalLabel == null) {
-        break missingId;
-      }
-
-      id = R.id.tvSubtotalValue;
-      AppCompatTextView tvSubtotalValue = ViewBindings.findChildViewById(rootView, id);
-      if (tvSubtotalValue == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTrackingLabel;
-      AppCompatTextView tvTrackingLabel = ViewBindings.findChildViewById(rootView, id);
-      if (tvTrackingLabel == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTrackingNumber;
-      AppCompatTextView tvTrackingNumber = ViewBindings.findChildViewById(rootView, id);
-      if (tvTrackingNumber == null) {
-        break missingId;
-      }
-
-      return new ItemOrderBinding((ConstraintLayout) rootView, btnDetails, tvDate, tvOrderId,
-          tvQuantity, tvQuantityLabel, tvStatus, tvSubtotalLabel, tvSubtotalValue, tvTrackingLabel,
-          tvTrackingNumber);
+      return new ItemOrderBinding((ConstraintLayout) rootView, btnAction, ivProduct, tvColor,
+          tvOrderTitle, tvPrice, tvQuantity, tvStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/orderFragment">
+    app:startDestination="@id/ordersFragment">
 
     <fragment
-        android:id="@+id/orderFragment"
-        android:name="com.example.myapplication.order.OrderFragment"
-        android:label="Orders">
-        <action
-            android:id="@+id/action_orderFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.example.myapplication.details.DetailsFragment"
-        android:label="Order Details" />
+        android:id="@+id/ordersFragment"
+        android:name="com.example.myapplication.order.OrdersFragment"
+        android:label="My Orders" />
 
 </navigation>

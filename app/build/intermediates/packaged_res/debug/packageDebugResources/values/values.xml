@@ -3,36 +3,50 @@
     <color name="black">#000000</color>
     <color name="blue">#2196F3</color>
     <color name="brown">#343434</color>
+    <color name="dark_background">#0E0E10</color>
+    <color name="gray">#AAAAAA</color>
+    <color name="gray_button">#2A2A2C</color>
     <color name="green">#2EAF58</color>
-    <color name="grey">#1F2E35</color>
     <color name="light_grey">#96A7AF</color>
     <color name="red">#F44336</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_700">#00897B</color>
+    <color name="teal_800">#00695C</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFC107</color>
+    <string name="_280_00">$280.00</string>
+    <string name="_99_99">$99.99</string>
     <string name="app_name" translatable="false">My Application</string>
-    <string name="btn_canceled">Mark As Canceled</string>
-    <string name="btn_delivered">Mark As Delivered</string>
-    <string name="btn_text">Details</string>
-    <string name="date_text">00/00/0000</string>
-    <string name="dd_mm_yyyy">dd/MM/yyyy</string>
-    <string name="my_orders_text">My Orders</string>
-    <string name="order">Order #%1$d</string>
-    <string name="order_status_text">Order Status</string>
-    <string name="order_text">Order #0000</string>
-    <string name="pending">Pending</string>
-    <string name="quantity">Quantity:</string>
-    <string name="quantity_text">2</string>
-    <string name="status">DELIVERED</string>
-    <string name="subtotal">Subtotal:</string>
-    <string name="subtotal_">Subtotal: $%.2f</string>
-    <string name="subtotal_text">$110</string>
-    <string name="tracking_number">Tracking number:</string>
-    <string name="tracking_number_text">IK987362341</string>
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        
-        
+    <string name="black">Black</string>
+    <string name="black_qty_2">Black | Qty = 2</string>
+    <string name="buy_again">Buy Again</string>
+    <string name="buy_again_1">Buy Again</string>
+    <string name="cancel">Cancel</string>
+    <string name="completed">Completed</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="how_is_your_order">How is your order?</string>
+    <string name="leave_a_review">Leave a Review</string>
+    <string name="leave_review">Leave Review</string>
+    <string name="leave_review_1">Leave Review</string>
+    <string name="modern_wingback">Modern Wingback</string>
+    <string name="my_orders">My Orders</string>
+    <string name="order_quantity">Qty = %1$d</string>
+    <string name="please_give_your_rating_amp_also_your_review"><![CDATA[Please give your rating & also your review...]]></string>
+    <string name="product_title">Product Title</string>
+    <string name="qty_1">Qty = 1</string>
+    <string name="submit">Submit</string>
+    <string name="write_your_review">Write your review...</string>
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/teal_700</item>
+        <item name="colorPrimaryVariant">@color/teal_800</item>
+        <item name="colorSecondary">@color/teal_200</item>
     </style>
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication"/>
+    <style name="TransparentBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="TransparentBottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheetStyle</item>
+    </style>
     <style name="imageShape">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
