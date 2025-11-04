@@ -1,8 +1,8 @@
-package com.example.myapplication
+package com.example.myapplication.chat
 
 import android.icu.text.SimpleDateFormat
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.common.ChatMessage
+import com.example.myapplication.chat_message.ChatMessage
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.Date
 import java.util.Locale
@@ -26,7 +26,7 @@ class ChatViewModel : ViewModel() {
             id = id,
             text = text,
             date = formattedDate,
-            isRightAligned = isRight
+            isSentByMe = isRight
         )
 
         _messages.value = listOf(newMessage) + currentList

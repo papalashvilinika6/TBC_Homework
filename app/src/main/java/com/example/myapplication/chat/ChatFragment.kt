@@ -1,15 +1,16 @@
-package com.example.myapplication
+package com.example.myapplication.chat
 
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.chat_message.ChatAdapter
 import com.example.myapplication.common.BaseFragment
 import com.example.myapplication.databinding.FragmentChatBinding
 import kotlinx.coroutines.launch
 
 class ChatFragment : BaseFragment<FragmentChatBinding>(FragmentChatBinding::inflate)  {
 
-    private val viewModel: ChatViewModel by activityViewModels()
+    private val viewModel: ChatViewModel by viewModels()
     private lateinit var adapter: ChatAdapter
 
     override fun listeners() {
