@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/">
+    app:startDestination="@id/paymentFragment">
 
 
     <fragment
-        android:id="@+id/"
-        android:name="com.example.myapplication."
-        android:label="" >
+        android:id="@+id/paymentFragment"
+        android:name="com.example.myapplication.payment.PaymentFragment"
+        android:label="PaymentFragment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_addNewFragment"
+            app:destination="@id/addNewFragment" />
+        <action
+            android:id="@+id/action_paymentFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewFragment"
+        android:name="com.example.myapplication.add_new.AddNewFragment"
+        android:label="AddNewFragment" >
+        <action
+            android:id="@+id/action_addNewFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/bottomSheetFragment"
+        android:name="com.example.myapplication.bottom_sheet.BottomSheetFragment"
+        android:label="BottomSheetFragment" >
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
 </navigation>

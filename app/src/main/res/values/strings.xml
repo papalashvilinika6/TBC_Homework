@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="payment">Payment</string>
+    <string name="card_managment">Card Managment</string>
+    <string name="add_btn">Add new+</string>
+    <string name="or_check_out_with">or check out with</string>
+    <string name="add_new_card">Add new card</string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="expires">Expires</string>
+    <string name="cvv">CVV</string>
+    <string name="add_card">Add card</string>
+    <string name="text">Are you sure you want to delete the selected card?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="string">****       ****       ****       ****</string>
+    <string name="name">NAME</string>
+    <string name="valid_thru">VALID THRU</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="mastercard">MasterCard</string>
+    <string name="visa">Visa</string>
 </resources>
