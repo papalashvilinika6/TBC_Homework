@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "cardNumber": "1234     5678     9012     3456",
+      "name": "John Doe",
+      "valid": "12/26",
+      "cvv": 123,
+      "type": "VISA"
+    },
+    {
+      "id": 2,
+      "cardNumber": "5555     4444     3333     2222",
+      "name": "Alice Smith",
+      "valid": "05/27",
+      "cvv": 456,
+      "type": "MASTERCARD"
+    },
+    {
+      "id": 3,
+      "cardNumber": "9876     5432     1098     7654",
+      "name": "Bob Johnson",
+      "valid": "09/28",
+      "cvv": 789,
+      "type": "VISA"
+    }
+  ]
+}
