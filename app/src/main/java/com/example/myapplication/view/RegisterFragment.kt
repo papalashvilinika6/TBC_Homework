@@ -1,5 +1,6 @@
 package com.example.myapplication.view
 
+import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +23,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun observers() {
         observeRegisterResult()
+        btnEye()
     }
 
     private fun observeRegisterResult() {
@@ -77,6 +79,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
             showSnackbar(binding.root, getString(R.string.password_empty))
             false
         } else true
+
+    }
+
+    fun btnEye() = with(binding) {
+        togglePasswordButton.setOnClickListener {
+            if (etPassword.transformationMethod is PasswordTransformationMethod) {
+                etPassword.transformationMethod = null
+                togglePasswordButton.setImageResource(R.drawable.ic_eye)
+            } else {
+                etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                togglePasswordButton.setImageResource(R.drawable.eye_off)
+            }
+            etPassword.setSelection(etPassword.text?.length ?: 0)
+        }
 
     }
 }
