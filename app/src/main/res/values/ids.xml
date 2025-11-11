@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="iconPassword" type="id" />
+    <item name="etPassword" type="id" />
+    <item name="btnRegister" type="id" />
+    <item name="etUsername" type="id" />
+    <item name="iconUsername" type="id" />
+    <item name="iconEmail" type="id" />
+</resources>
