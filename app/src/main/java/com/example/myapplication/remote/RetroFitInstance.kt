@@ -1,7 +1,6 @@
 package com.example.myapplication.remote
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -23,9 +22,15 @@ object RetroFitInstance {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(logging)
+        .addInterceptor { chain ->
+            val newRequest = chain.request().newBuilder()
+                .addHeader("x-api-key", "reqres-free-v1")
+                .build()
+            chain.proceed(newRequest)
+        }
         .build()
 
-    @OptIn(ExperimentalSerializationApi::class)
+
     private val retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)

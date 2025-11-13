@@ -1,10 +1,12 @@
 package com.example.myapplication.view
 
+import TokenManager
 import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.common.BaseFragment
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.viewmodel.UserViewModel
@@ -12,9 +14,11 @@ import com.example.myapplication.R
 import kotlinx.coroutines.launch
 import com.example.myapplication.utils.showSnackbar
 
+
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     private val viewModel: UserViewModel by viewModels()
+    private lateinit var tokenManager: TokenManager
 
     override fun listeners() {
         btnLogin()
@@ -26,11 +30,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     private fun observeLoginResult() {
+        val token = "user_token_from_api"
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.loginResult.collect { result ->
                     result?.onSuccess {
                         showSnackbar(binding.root, getString(R.string.successful))
+                        tokenManager.saveToken(token)
+                        findNavController().navigate(R.id.action_loginFragment_to_loggedInFragment)
                     }
                     result?.onFailure { error ->
                         showSnackbar(binding.root, getString(R.string.failed))

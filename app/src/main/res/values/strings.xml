@@ -13,4 +13,6 @@
     <string name="password_empty">Password cannot be empty</string>
     <string name="successful">Log in successful</string>
     <string name="failed">Log in Failed:</string>
+    <string name="log_in_successfuly">Log in Successfuly</string>
+    <string name="sign_out">Sign out</string>
 </resources>
