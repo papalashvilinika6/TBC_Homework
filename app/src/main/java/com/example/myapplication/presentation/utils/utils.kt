@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package com.example.myapplication.presentation.utils
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar

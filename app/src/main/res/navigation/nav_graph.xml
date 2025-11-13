@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.myapplication.view.WelcomeFragment"
+        android:name="com.example.myapplication.presentation.screen.WelcomeFragment"
         android:label="WelcomeFragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.myapplication.view.LoginFragment"
+        android:name="com.example.myapplication.presentation.screen.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_loggedInFragment"
@@ -29,11 +29,11 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.myapplication.view.RegisterFragment"
+        android:name="com.example.myapplication.presentation.screen.RegisterFragment"
         android:label="RegisterFragment" />
     <fragment
         android:id="@+id/loggedInFragment"
-        android:name="com.example.myapplication.LoggedInFragment"
+        android:name="com.example.myapplication.presentation.screen.LoggedInFragment"
         android:label="fragment_logged_in"
         tools:layout="@layout/fragment_logged_in" >
         <action
