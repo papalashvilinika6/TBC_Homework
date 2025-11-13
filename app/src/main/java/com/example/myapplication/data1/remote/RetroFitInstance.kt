@@ -1,4 +1,4 @@
-package com.example.myapplication.remote
+package com.example.myapplication.data1.remote
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json

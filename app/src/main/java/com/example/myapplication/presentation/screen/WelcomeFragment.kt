@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.myapplication.presentation.screen
 
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R

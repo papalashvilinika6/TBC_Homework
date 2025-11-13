@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.myapplication.presentation.screen
 
 import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.viewModels
@@ -8,8 +8,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.myapplication.R
 import com.example.myapplication.common.BaseFragment
 import com.example.myapplication.databinding.FragmentRegisterBinding
-import com.example.myapplication.utils.showSnackbar
-import com.example.myapplication.viewmodel.UserViewModel
+import com.example.myapplication.presentation.viewmodel.UserViewModel
+import com.example.myapplication.presentation.utils.showSnackbar
 import kotlinx.coroutines.launch
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
@@ -68,7 +68,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
     private fun isEmailValid(): Boolean {
         val email = binding.etEmail.text.toString().trim()
         return if (email.isEmpty()) {
-           showSnackbar(binding.root, getString(R.string.email_empty))
+            showSnackbar(binding.root, getString(R.string.email_empty))
             false
         } else true
     }

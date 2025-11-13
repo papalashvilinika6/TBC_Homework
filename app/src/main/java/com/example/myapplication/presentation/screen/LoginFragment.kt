@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.myapplication.presentation.screen
 
 import TokenManager
 import android.text.method.PasswordTransformationMethod
@@ -7,13 +7,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.R
 import com.example.myapplication.common.BaseFragment
 import com.example.myapplication.databinding.FragmentLoginBinding
-import com.example.myapplication.viewmodel.UserViewModel
-import com.example.myapplication.R
+import com.example.myapplication.presentation.viewmodel.UserViewModel
+import com.example.myapplication.presentation.utils.showSnackbar
 import kotlinx.coroutines.launch
-import com.example.myapplication.utils.showSnackbar
-
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 

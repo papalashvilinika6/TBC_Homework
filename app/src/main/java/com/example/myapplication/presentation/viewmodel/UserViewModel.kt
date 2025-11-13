@@ -1,16 +1,16 @@
-package com.example.myapplication.viewmodel
+package com.example.myapplication.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.model.LoginRequest
-import com.example.myapplication.model.LoginResponse
-import com.example.myapplication.model.RegisterRequest
-import com.example.myapplication.model.RegisterResponse
-import com.example.myapplication.remote.RetroFitInstance
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
+import com.example.myapplication.data1.model.LoginRequest
+import com.example.myapplication.data1.model.LoginResponse
+import com.example.myapplication.data1.model.RegisterRequest
+import com.example.myapplication.data1.model.RegisterResponse
+import com.example.myapplication.data1.remote.RetroFitInstance
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class UserViewModel : ViewModel() {
