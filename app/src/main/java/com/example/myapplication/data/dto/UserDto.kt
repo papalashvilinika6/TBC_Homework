@@ -1,23 +1,27 @@
 package com.example.myapplication.data.dto
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class UserResponse(
     val page: Int,
-    @SerializedName("per_page")
+    @SerialName("per_page")
     val perPage: Int,
     val total: Int,
-    @SerializedName("total_pages")
+    @SerialName("total_pages")
     val totalPages: Int,
     val data: List<User>
 )
 
+@Serializable
 data class User(
     val id: Int,
     val email: String,
-    @SerializedName("first_name")
+    @SerialName("first_name")
     val firstName: String,
-    @SerializedName("last_name")
+    @SerialName("last_name")
     val lastName: String,
     val avatar: String
 )
+

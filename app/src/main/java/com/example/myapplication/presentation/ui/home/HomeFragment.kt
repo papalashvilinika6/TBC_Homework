@@ -11,8 +11,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.Lifecycle
 import com.example.myapplication.data.network.RetrofitClient
 import com.example.myapplication.data.repository.UsersRepository
+import com.example.myapplication.presentation.adapter.UsersAdapter
 import com.example.myapplication.presentation.viewmodel.UsersViewModel
 import com.example.myapplication.presentation.viewmodel.UsersViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inflate) {
@@ -20,14 +22,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inf
     private val viewModel: UsersViewModel by viewModels {
         UsersViewModelFactory(UsersRepository(RetrofitClient.usersApi))
     }
+    private val adapter = UsersAdapter(emptyList())
 
     override fun listeners() {
         profileBtn()
+        viewModel.fetchUsers()
     }
 
     override fun bind() {
-        fetchUsers()
         setupRecycler()
+    }
+
+    override fun observers() {
+        observeUsers()
+        observeErrors()
     }
 
     fun profileBtn() {
@@ -38,17 +46,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inf
 
     private fun setupRecycler() = with(binding) {
         rvUsers.layoutManager = LinearLayoutManager(requireContext())
+        rvUsers.adapter = adapter
     }
 
-    private fun fetchUsers() {
+    private fun observeUsers() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.users.collect { list ->
-                    binding.rvUsers.adapter = UsersAdapter(list)
+                    adapter.updateList(list)
                 }
             }
         }
-        viewModel.fetchUsers()
+    }
+
+    private fun observeErrors() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.error.collect { err ->
+                    err?.let { Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show() }
+                }
+            }
+        }
     }
 
 }

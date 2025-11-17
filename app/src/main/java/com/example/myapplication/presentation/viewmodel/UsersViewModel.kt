@@ -16,10 +16,10 @@ class UsersViewModel(private val repository: UsersRepository) : ViewModel() {
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> get() = _error
 
-    fun fetchUsers() {
+    fun fetchUsers(page: Int = 1) {
         viewModelScope.launch {
             try {
-                val list = repository.getUsers()
+                val list = repository.getUsers(page)
                 _users.value = list
             } catch (e: Exception) {
                 _error.value = e.message
@@ -27,3 +27,4 @@ class UsersViewModel(private val repository: UsersRepository) : ViewModel() {
         }
     }
 }
+
