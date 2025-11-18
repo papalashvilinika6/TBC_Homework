@@ -7,16 +7,24 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.data.datastore.DataStoreManager
+import com.example.myapplication.data.network.RetrofitClient
+import com.example.myapplication.data.repository.AuthRepository
 import com.example.myapplication.data.utils.utils
 import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.databinding.FragmentRegisterBinding
-import com.example.myapplication.presentation.ui.register.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding> (FragmentRegisterBinding::inflate) {
 
-    val viewModel : RegisterViewModel by viewModels()
+    private val viewModel: RegisterViewModel by viewModels {
+        RegisterViewModelFactory(AuthRepository(
+            loginApi = RetrofitClient.loginApiService,
+            dataStore = DataStoreManager(requireContext()),
+            registerApi = RetrofitClient.registerApiService
+        ))
+    }
 
     override fun listeners() {
         btnRegister()
