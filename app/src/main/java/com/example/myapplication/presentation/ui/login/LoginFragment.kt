@@ -9,11 +9,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.data.datastore.DataStoreManager
+import com.example.myapplication.data.utils.Resource
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
-import com.example.myapplication.presentation.viewmodel.LoginEvent
-import com.example.myapplication.presentation.viewmodel.LoginViewModel
-import com.example.myapplication.presentation.viewmodel.LoginViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -26,7 +24,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     override fun listeners() {
         setLoginButtonListener()
         setRegisterButtonListener()
-       // checkAutoLogin() ar imushava
     }
 
     override fun bind() {
@@ -47,7 +44,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             val rememberMe = cbRemember.isChecked
 
             sendData(email)
-            viewModel.login(email, password, rememberMe)
+            viewModel.onEvent(LoginEvent.Login(email, password, rememberMe))
         }
     }
 
@@ -59,11 +56,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun setEmailPasswordListeners() = with(binding) {
         etEmail.addTextChangedListener { text ->
-            viewModel.onEmailChanged(text.toString())
+            viewModel.onEvent(LoginEvent.OnEmailChanged(text.toString()))
         }
 
         etPassword.addTextChangedListener { text ->
-            viewModel.onPasswordChanged(text.toString())
+            viewModel.onEvent(LoginEvent.OnPasswordChanged(text.toString()))
+        }
+
+        etEmail.setOnFocusChangeListener { text, hasFocus ->
+            if (hasFocus) LoginEvent.OnPasswordChanged(text.toString())
         }
     }
 
@@ -73,14 +74,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 val shouldNavigate = viewModel.hasSavedToken()
                 if (shouldNavigate) {
-                    viewModel.emitSuccessNavigation()
+                    viewModel.onEvent(LoginEvent.EmitSuccessNavigation)
                 }
             }
         }
     }
 
     private fun observeButtonState() = with(binding) {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.isButtonEnabled.collect { enabled ->
                     btnLogin.isEnabled = enabled
@@ -93,10 +94,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private fun observeNavigationEvents() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.navigationEvent.collect { event ->
+                viewModel.loginState.collect { event ->
                     when (event) {
-                        is LoginEvent.Success -> navigateToHome()
-                        is LoginEvent.Error -> showError(event.message)
+                        is Resource.Success -> navigateToHome()
+                        is Resource.Error -> showError(event.message ?: "Unknown error")
+                        is Resource.Loading -> {}
                     }
                 }
             }

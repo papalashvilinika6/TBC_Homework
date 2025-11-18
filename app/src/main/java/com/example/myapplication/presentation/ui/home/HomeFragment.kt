@@ -12,8 +12,8 @@ import androidx.lifecycle.Lifecycle
 import com.example.myapplication.data.network.RetrofitClient
 import com.example.myapplication.data.repository.UsersRepository
 import com.example.myapplication.presentation.adapter.UsersAdapter
-import com.example.myapplication.presentation.viewmodel.UsersViewModel
-import com.example.myapplication.presentation.viewmodel.UsersViewModelFactory
+import com.example.myapplication.presentation.ui.home.UsersViewModel
+import com.example.myapplication.presentation.ui.home.UsersViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inf
 
     override fun listeners() {
         profileBtn()
-        viewModel.fetchUsers()
+        viewModel.onEvent(HomeEvent.FetchUsers())
     }
 
     override fun bind() {

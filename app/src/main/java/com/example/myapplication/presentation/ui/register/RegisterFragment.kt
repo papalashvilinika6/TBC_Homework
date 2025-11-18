@@ -10,7 +10,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.utils.utils
 import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.databinding.FragmentRegisterBinding
-import com.example.myapplication.presentation.viewmodel.RegisterViewModel
+import com.example.myapplication.presentation.ui.register.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -37,7 +37,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding> (FragmentRegister
             if(!validateInputs(email, password)) return@setOnClickListener
             if(!repeatPassword(password, repeatPassword)) return@setOnClickListener
 
-            viewModel.register(email = email, password = password)
+            viewModel.onEvent(RegisterEvent.Register(email, password))
         }
     }
 
@@ -48,7 +48,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding> (FragmentRegister
     }
 
     private fun observeLoginState() = with(binding) {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.registerResult.collect { result ->
                     result?.let {

@@ -7,8 +7,9 @@ import com.example.myapplication.R
 import com.example.myapplication.data.datastore.DataStoreManager
 import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.databinding.FragmentProfileBinding
-import com.example.myapplication.presentation.viewmodel.LoginViewModel
-import com.example.myapplication.presentation.viewmodel.LoginViewModelFactory
+import com.example.myapplication.presentation.ui.login.LoginEvent
+import com.example.myapplication.presentation.ui.login.LoginViewModel
+import com.example.myapplication.presentation.ui.login.LoginViewModelFactory
 import kotlin.getValue
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding> (FragmentProfileBinding::inflate) {
@@ -28,7 +29,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding> (FragmentProfileBin
 
     fun btnLogout() {
         binding.btnLogout.setOnClickListener {
-            viewModel.clearToken()
+            viewModel.onEvent(LoginEvent.ClearToken)
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
     }

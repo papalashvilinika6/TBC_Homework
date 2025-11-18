@@ -5,6 +5,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 
+
 }
 
 android {
@@ -43,6 +44,9 @@ android {
         jvmTarget = "11"
     }
 
+    packagingOptions {
+        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
+    }
 }
 
 dependencies {
@@ -55,6 +59,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
+    testImplementation("androidx.room:room-compiler-processing-testing:2.8.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")

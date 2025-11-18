@@ -1,20 +1,18 @@
-package com.example.myapplication.presentation.viewmodel
+package com.example.myapplication.presentation.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.dto.LoginResponseDto
 import com.example.myapplication.data.utils.utils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import com.example.myapplication.data.repository.AuthRepository
+import com.example.myapplication.data.utils.Resource
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
-sealed class LoginEvent {
-    object Success : LoginEvent()
-    data class Error(val message: String) : LoginEvent()
-}
 
 class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
 
@@ -27,6 +25,17 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
     private val _isButtonEnabled = MutableStateFlow(false)
     val isButtonEnabled: StateFlow<Boolean> get() = _isButtonEnabled
 
+    fun onEvent(event: LoginEvent) = when (event) {
+        is LoginEvent.OnEmailChanged      -> onEmailChanged(event.email)
+        is LoginEvent.OnPasswordChanged  -> onPasswordChanged(event.password)
+        is LoginEvent.Login               -> login(event.email, event.password, event.rememberMe)
+        LoginEvent.ClearToken             -> clearToken()
+        LoginEvent.EmitSuccessNavigation  -> emitSuccessNavigation()
+        else -> {
+            throw Exception("Invalid Event")
+        }
+    }
+
     init {
         viewModelScope.launch {
             combine(_email, _password) { email, password ->
@@ -37,30 +46,29 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
         }
     }
 
-    fun onEmailChanged(value: String) { _email.value = value }
-    fun onPasswordChanged(value: String) { _password.value = value }
+    private fun onEmailChanged(value: String) { _email.value = value }
+    private fun onPasswordChanged(value: String) { _password.value = value }
 
     private val _navigationEvent = MutableSharedFlow<LoginEvent>()
     val navigationEvent = _navigationEvent.asSharedFlow()
 
+    private val _loginState = MutableStateFlow<Resource<LoginResponseDto>>(Resource.Loading(isLoading = false))
+    val loginState = _loginState
+
     fun login(email: String, password: String, rememberMe: Boolean) {
         viewModelScope.launch {
-            try {
-                repository.login(email, password, rememberMe)
-                _navigationEvent.emit(LoginEvent.Success)
-            } catch (e: Exception) {
-                _navigationEvent.emit(LoginEvent.Error(e.message ?: "Unknown error"))
-            }
+            _loginState.value = Resource.Loading(true)
+            _loginState.value = repository.login(email, password, rememberMe)
         }
     }
 
-    fun clearToken() {
+    private fun clearToken() {
         viewModelScope.launch {
             repository.clearToken()
         }
     }
 
-    fun emitSuccessNavigation() {
+    private fun emitSuccessNavigation() {
         viewModelScope.launch {
             _navigationEvent.emit(LoginEvent.Success)
         }

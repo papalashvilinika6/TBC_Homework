@@ -1,4 +1,4 @@
-package com.example.myapplication.presentation.viewmodel
+package com.example.myapplication.presentation.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,7 +16,13 @@ class UsersViewModel(private val repository: UsersRepository) : ViewModel() {
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> get() = _error
 
-    fun fetchUsers(page: Int = 1) {
+    fun onEvent(event: HomeEvent) {
+        when (event) {
+            is HomeEvent.FetchUsers -> fetchUsers(event.page)
+        }
+    }
+
+    private fun fetchUsers(page: Int = 1) {
         viewModelScope.launch {
             try {
                 val list = repository.getUsers(page)
@@ -27,4 +33,3 @@ class UsersViewModel(private val repository: UsersRepository) : ViewModel() {
         }
     }
 }
-
