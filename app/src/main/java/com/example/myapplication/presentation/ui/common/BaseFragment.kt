@@ -9,8 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment <VB : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> VB)
-    : Fragment() {
+abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> VB) : Fragment() {
     private var _binding: VB? = null
     protected val binding get() = _binding!!
 
@@ -25,13 +24,11 @@ abstract class BaseFragment <VB : ViewBinding>(private val inflate: (LayoutInfla
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         listeners()
         bind()
         observers()
@@ -45,5 +42,4 @@ abstract class BaseFragment <VB : ViewBinding>(private val inflate: (LayoutInfla
         super.onDestroyView()
         _binding = null
     }
-
 }

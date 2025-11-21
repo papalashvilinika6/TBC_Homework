@@ -5,3 +5,5 @@ sealed interface SplashSideEffect {
     data object NavigateToHome : SplashSideEffect
 }
 
+
+

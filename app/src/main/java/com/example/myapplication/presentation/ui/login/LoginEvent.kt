@@ -7,5 +7,4 @@ sealed interface LoginEvent {
     data object ClearToken : LoginEvent
     data object EmitSuccessNavigation : LoginEvent
     data object Success : LoginEvent
-
 }

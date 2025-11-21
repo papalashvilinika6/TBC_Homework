@@ -8,18 +8,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.datastore.DataStoreManager
 import com.example.myapplication.data.utils.Resource
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
-    private val viewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(DataStoreManager(requireContext()))
-    }
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun listeners() {
         setLoginButtonListener()
@@ -35,7 +34,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         observeButtonState()
         observeNavigationEvents()
     }
-
 
     private fun setLoginButtonListener() = with(binding) {
         btnLogin.setOnClickListener {
@@ -58,25 +56,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         etEmail.addTextChangedListener { text ->
             viewModel.onEvent(LoginEvent.OnEmailChanged(text.toString()))
         }
-
         etPassword.addTextChangedListener { text ->
             viewModel.onEvent(LoginEvent.OnPasswordChanged(text.toString()))
         }
-
         etEmail.setOnFocusChangeListener { text, hasFocus ->
             if (hasFocus) LoginEvent.OnPasswordChanged(text.toString())
-        }
-    }
-
-
-    private fun checkAutoLogin() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                val shouldNavigate = viewModel.hasSavedToken()
-                if (shouldNavigate) {
-                    viewModel.onEvent(LoginEvent.EmitSuccessNavigation)
-                }
-            }
         }
     }
 
@@ -98,7 +82,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     when (event) {
                         is Resource.Success -> navigateToHome()
                         is Resource.Error -> showError(event.message ?: "Unknown error")
-                        is Resource.Loading -> {}
+                        is Resource.Loader -> { }
                     }
                 }
             }
@@ -136,5 +120,3 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         parentFragmentManager.setFragmentResult("loginKey", bundle)
     }
 }
-
-

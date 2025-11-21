@@ -6,11 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class UserResponse(
     val page: Int,
-    @SerialName("per_page")
-    val perPage: Int,
+    @SerialName("per_page") val perPage: Int,
     val total: Int,
-    @SerialName("total_pages")
-    val totalPages: Int,
+    @SerialName("total_pages") val totalPages: Int,
     val data: List<User>
 )
 
@@ -18,10 +16,7 @@ data class UserResponse(
 data class User(
     val id: Int,
     val email: String,
-    @SerialName("first_name")
-    val firstName: String,
-    @SerialName("last_name")
-    val lastName: String,
+    @SerialName("first_name") val firstName: String,
+    @SerialName("last_name") val lastName: String,
     val avatar: String
 )
-

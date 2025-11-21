@@ -1,11 +1,11 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
-    id("androidx.navigation.safeargs.kotlin")
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
-
-
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.navigationSafeArgs)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -44,15 +44,15 @@ android {
         jvmTarget = "11"
     }
 
-    packagingOptions {
-        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
-    }
+//    packagingOptions {
+//        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
+//    }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.17.0")
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.13.0")
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
     implementation("androidx.activity:activity-ktx:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.9.6")
@@ -70,5 +70,12 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.navigationFragment)
+    implementation(libs.navigationUi)
 
 }
+
+
+

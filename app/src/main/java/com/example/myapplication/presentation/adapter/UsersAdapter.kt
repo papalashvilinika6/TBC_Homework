@@ -1,5 +1,3 @@
-package com.example.myapplication.presentation.adapter
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -28,4 +26,3 @@ class UsersAdapter(private var users: List<User>) : RecyclerView.Adapter<UsersAd
         notifyDataSetChanged()
     }
 }
-

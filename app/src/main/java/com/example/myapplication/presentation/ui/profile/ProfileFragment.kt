@@ -1,22 +1,18 @@
 package com.example.myapplication.presentation.ui.profile
 
-
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.datastore.DataStoreManager
-import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.databinding.FragmentProfileBinding
+import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.presentation.ui.login.LoginEvent
 import com.example.myapplication.presentation.ui.login.LoginViewModel
-import com.example.myapplication.presentation.ui.login.LoginViewModelFactory
-import kotlin.getValue
+import dagger.hilt.android.AndroidEntryPoint
 
-class ProfileFragment : BaseFragment<FragmentProfileBinding> (FragmentProfileBinding::inflate) {
+@AndroidEntryPoint
+class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    private val viewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(DataStoreManager(requireContext()))
-    }
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun listeners() {
         btnLogout()
@@ -26,8 +22,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding> (FragmentProfileBin
         setupFragmentResultListener()
     }
 
-
-    fun btnLogout() {
+    private fun btnLogout() {
         binding.btnLogout.setOnClickListener {
             viewModel.onEvent(LoginEvent.ClearToken)
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
@@ -40,9 +35,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding> (FragmentProfileBin
             viewLifecycleOwner
         ) { _, bundle ->
             val email = bundle.getString("emailKey") ?: ""
-
             binding.tvProfileEmail.text = email
-
         }
     }
 }

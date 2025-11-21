@@ -1,27 +1,23 @@
 package com.example.myapplication.presentation.ui.home
 
+import UsersAdapter
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.example.myapplication.databinding.FragmentHomeBinding
+import com.example.myapplication.presentation.ui.common.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.Lifecycle
-import com.example.myapplication.data.network.RetrofitClient
-import com.example.myapplication.data.repository.UsersRepository
-import com.example.myapplication.presentation.adapter.UsersAdapter
-import com.example.myapplication.presentation.ui.home.UsersViewModel
-import com.example.myapplication.presentation.ui.home.UsersViewModelFactory
-import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inflate) {
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
-    private val viewModel: UsersViewModel by viewModels {
-        UsersViewModelFactory(UsersRepository(RetrofitClient.usersApi))
-    }
+    private val viewModel: UsersViewModel by viewModels()
     private val adapter = UsersAdapter(emptyList())
 
     override fun listeners() {
@@ -38,7 +34,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inf
         observeErrors()
     }
 
-    fun profileBtn() {
+    private fun profileBtn() {
         binding.btnProfile.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
@@ -68,5 +64,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inf
             }
         }
     }
-
 }
