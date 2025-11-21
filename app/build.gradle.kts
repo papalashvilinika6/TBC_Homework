@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    id("kotlin-kapt")
 }
 
 android {
@@ -74,7 +75,13 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.navigationFragment)
     implementation(libs.navigationUi)
-
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.moshi.adapters)
+    implementation(libs.retrofit.moshi)
+    ksp(libs.moshi.ksp)
+    ksp("com.github.bumptech.glide:ksp:4.16.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
 
 

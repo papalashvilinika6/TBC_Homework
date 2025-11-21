@@ -15,4 +15,9 @@
     <string name="log_out">Log Out</string>
     <string name="email_example_com">email@example.com</string>
     <string name="full_name">Full Name</string>
+    <string name="_3">3</string>
+    <string name="text">Great. I will have a look</string>
+    <string name="time">4:20 PM</string>
+    <string name="name">Alice Smith</string>
+    <string name="search">Search</string>
 </resources>

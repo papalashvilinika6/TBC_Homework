@@ -6,4 +6,7 @@
     <color name="primary">#6200EE</color>
     <color name="primary_variant">#3700B3</color>
     <color name="secondary">#03DAC6</color>
+    <color name="dark_blue">#0F1A1E</color>
+    <color name="light_grey">#5B6467</color>
+
 </resources>
