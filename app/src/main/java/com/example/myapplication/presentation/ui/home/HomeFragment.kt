@@ -1,8 +1,6 @@
 package com.example.myapplication.presentation.ui.home
 
-import UsersAdapter
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
@@ -11,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.myapplication.presentation.adapter.UsersPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -18,7 +17,8 @@ import kotlinx.coroutines.launch
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val viewModel: UsersViewModel by viewModels()
-    private val adapter = UsersAdapter(emptyList())
+    private val adapter = UsersPagingAdapter()
+
 
     override fun listeners() {
         profileBtn()
@@ -26,11 +26,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun bind() {
-        setupRecycler()
+        binding.rvUsers.adapter = adapter
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.usersPaging.collect { pagingData ->
+                    adapter.submitData(pagingData)
+                }
+            }
+        }
+//        setupRecycler()
     }
 
     override fun observers() {
-        observeUsers()
+//        observeUsers()
         observeErrors()
     }
 
@@ -40,20 +49,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
-    private fun setupRecycler() = with(binding) {
-        rvUsers.layoutManager = LinearLayoutManager(requireContext())
-        rvUsers.adapter = adapter
-    }
+//    private fun setupRecycler() = with(binding) {
+//        rvUsers.layoutManager = LinearLayoutManager(requireContext())
+//        rvUsers.adapter = adapter
+//    }
 
-    private fun observeUsers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.users.collect { list ->
-                    adapter.updateList(list)
-                }
-            }
-        }
-    }
+//    private fun observeUsers() {
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.users.collect { list ->
+//                    adapter.updateList(list)
+//                }
+//            }
+//        }
+//    }
 
     private fun observeErrors() {
         viewLifecycleOwner.lifecycleScope.launch {

@@ -1,28 +1,46 @@
+package com.example.myapplication.presentation.adapter
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.dto.User
 import com.example.myapplication.databinding.ItemUserBinding
 
-class UsersAdapter(private var users: List<User>) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
+class UsersPagingAdapter :
+    PagingDataAdapter<User, UsersPagingAdapter.UserViewHolder>(Diff) {
 
-    inner class UserViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
+    object Diff : DiffUtil.ItemCallback<User>() {
+        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
+            oldItem.id == newItem.id   // use your real id
+
+        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
+            oldItem == newItem
+    }
+
+    inner class UserViewHolder(
+        private val binding: ItemUserBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: User?) = with(binding) {
+            // item can be null while loading placeholders
+            tvName.text = item?.firstName ?: "Loading..."
+            // etc...
+            // Glide.with(imgAvatar).load(item?.avatar).into(imgAvatar)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemUserBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return UserViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val user = users[position]
-        holder.binding.tvName.text = "${user.firstName} ${user.lastName}"
-        holder.binding.tvEmail.text = user.email
-    }
-
-    override fun getItemCount(): Int = users.size
-
-    fun updateList(newList: List<User>) {
-        users = newList
-        notifyDataSetChanged()
+        holder.bind(getItem(position))
     }
 }

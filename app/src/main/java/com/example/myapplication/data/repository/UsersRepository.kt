@@ -1,10 +1,15 @@
 package com.example.myapplication.data.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.example.myapplication.data.common.HandleResponse
 import com.example.myapplication.data.dto.User
 import com.example.myapplication.data.dto.UserResponse
 import com.example.myapplication.data.network.UsersApi
+import com.example.myapplication.data.paging.UsersPagingSource
 import com.example.myapplication.data.utils.Resource
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
@@ -21,6 +26,16 @@ class UsersRepository @Inject constructor(private val api: UsersApi) {
             .firstOrNull()
 
         return result?.data?.data ?: emptyList()
+    }
+
+    fun getUsersPaging(): Flow<PagingData<User>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 6,              // reqres has 6 users per page
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { UsersPagingSource(api) }
+        ).flow
     }
 
 }

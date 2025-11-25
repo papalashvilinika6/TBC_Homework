@@ -70,6 +70,7 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("androidx.paging:paging-runtime-ktx:3.3.2")
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.navigationFragment)
