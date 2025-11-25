@@ -1,7 +1,5 @@
 package com.example.myapplication.di
 
-import android.content.Context
-import com.example.myapplication.data.datastore.DataStoreManager
 import com.example.myapplication.data.network.LoginApi
 import com.example.myapplication.data.network.RegisterApi
 import com.example.myapplication.data.network.UsersApi
@@ -11,7 +9,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -72,15 +69,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDataStoreManager(@ApplicationContext context: Context): DataStoreManager = DataStoreManager(context)
-
-    @Provides
-    @Singleton
     fun provideAuthRepository(
         loginApi: LoginApi,
-        dataStore: DataStoreManager,
         registerApi: RegisterApi,
-    ): AuthRepository = AuthRepository(loginApi, dataStore, registerApi)
+    ): AuthRepository = AuthRepository(loginApi, registerApi)
 
     @Provides
     @Singleton

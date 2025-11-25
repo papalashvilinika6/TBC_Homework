@@ -13,7 +13,7 @@ class UsersPagingAdapter :
 
     object Diff : DiffUtil.ItemCallback<User>() {
         override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
-            oldItem.id == newItem.id   // use your real id
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
             oldItem == newItem
@@ -24,10 +24,7 @@ class UsersPagingAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: User?) = with(binding) {
-            // item can be null while loading placeholders
-            tvName.text = item?.firstName ?: "Loading..."
-            // etc...
-            // Glide.with(imgAvatar).load(item?.avatar).into(imgAvatar)
+            tvName.text = item?.firstName
         }
     }
 

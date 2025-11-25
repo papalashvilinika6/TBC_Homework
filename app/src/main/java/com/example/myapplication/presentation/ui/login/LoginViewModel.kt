@@ -11,7 +11,6 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
@@ -30,7 +29,6 @@ class LoginViewModel @Inject constructor(
     val isButtonEnabled: StateFlow<Boolean> get() = _isButtonEnabled
 
     private val _navigationEvent = MutableSharedFlow<LoginEvent>()
-    val navigationEvent = _navigationEvent.asSharedFlow()
 
     private val _loginState = MutableStateFlow<Resource<LoginResponseDto>>(Resource.Loader(isLoading = false))
     val loginState = _loginState
@@ -48,8 +46,7 @@ class LoginViewModel @Inject constructor(
     fun onEvent(event: LoginEvent) = when (event) {
         is LoginEvent.OnEmailChanged -> onEmailChanged(event.email)
         is LoginEvent.OnPasswordChanged -> onPasswordChanged(event.password)
-        is LoginEvent.Login -> login(event.email, event.password, event.rememberMe)
-        LoginEvent.ClearToken -> clearToken()
+        is LoginEvent.Login -> login(event.email, event.password)
         LoginEvent.EmitSuccessNavigation -> emitSuccessNavigation()
         else -> throw Exception("Invalid Event")
     }
@@ -57,9 +54,9 @@ class LoginViewModel @Inject constructor(
     private fun onEmailChanged(value: String) { _email.value = value }
     private fun onPasswordChanged(value: String) { _password.value = value }
 
-    private fun login(email: String, password: String, rememberMe: Boolean) {
+    private fun login(email: String, password: String) {
         viewModelScope.launch {
-            repository.login(email, password, rememberMe).collect { result ->
+            repository.login(email, password).collect { result ->
                 _loginState.value = result
                 if (result is Resource.Success) {
                     _navigationEvent.emit(LoginEvent.Success)
@@ -68,17 +65,8 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    private fun clearToken() {
-        viewModelScope.launch { repository.clearToken() }
-    }
-
     private fun emitSuccessNavigation() {
         viewModelScope.launch { _navigationEvent.emit(LoginEvent.Success) }
     }
 
-    suspend fun hasSavedToken(): Boolean {
-        val remember = repository.getRememberMe()
-        val token = repository.getToken()
-        return remember && !token.isNullOrEmpty()
-    }
 }

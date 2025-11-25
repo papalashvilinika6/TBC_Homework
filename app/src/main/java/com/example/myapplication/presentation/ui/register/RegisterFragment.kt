@@ -75,7 +75,7 @@ class RegisterFragment :
                 viewModel.registerState.collect { result ->
                     when (result) {
                         is Resource.Error ->
-                            Snackbar.make(binding.root, result.message ?: "Error", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(binding.root, result.message, Snackbar.LENGTH_LONG).show()
 
                         else -> {}
                     }
