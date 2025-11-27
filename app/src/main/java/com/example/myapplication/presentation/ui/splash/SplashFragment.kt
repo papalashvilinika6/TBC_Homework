@@ -31,8 +31,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.sideEffect.collect { it ->
                     when(it) {
-                        SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
-                        SplashSideEffect.NavigateToLogin ->   findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                        SplashSideEffect.NavigateToUser -> findNavController().navigate(R.id.action_splashFragment_to_userFragment)
                     }
 
                 }

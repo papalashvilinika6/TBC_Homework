@@ -6,7 +6,9 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.protobuf) // ← MOVE THIS TO THE BOTTOM
 }
+
 
 android {
     namespace = "com.example.myapplication"
@@ -44,9 +46,7 @@ android {
         jvmTarget = "11"
     }
 
-//    packagingOptions {
-//        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
-//    }
+
 }
 
 dependencies {
@@ -75,7 +75,25 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.navigationFragment)
     implementation(libs.navigationUi)
+    implementation("androidx.datastore:datastore-core:1.1.1")
+    implementation("com.google.protobuf:protobuf-javalite:3.18.0")
 
+}
+
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.18.0"
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+        }
+    }
 }
 
 

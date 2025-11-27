@@ -25,7 +25,7 @@ class SplashViewModel : ViewModel() {
     private fun onStartSplash() {
         splashJob = viewModelScope.launch {
             delay(DELAY)
-            _sideEffect.emit(SplashSideEffect.NavigateToLogin)
+            _sideEffect.emit(SplashSideEffect.NavigateToUser)
         }
     }
 

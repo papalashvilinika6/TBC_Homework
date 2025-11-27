@@ -8,6 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.example.myapplication.presentation.ui.user.UserFragment
+import com.example.myapplication.presentation.ui.user.UserViewModel
+import kotlin.properties.ReadOnlyProperty
 
 abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> VB) : Fragment() {
     private var _binding: VB? = null
@@ -42,4 +45,5 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
         super.onDestroyView()
         _binding = null
     }
+
 }

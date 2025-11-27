@@ -2,7 +2,7 @@ package com.example.myapplication.data.utils
 
 import android.util.Patterns
 
-object utils {
+object Utils {
     fun isEmailValid(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
