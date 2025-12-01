@@ -8,10 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.utils.Resource
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -78,24 +76,24 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private fun observeNavigationEvents() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.loginState.collect { event ->
+                viewModel.navigationEvent.collect { event ->
                     when (event) {
-                        is Resource.Success -> navigateToHome()
-                        is Resource.Error -> showError(event.message ?: "Unknown error")
-                        is Resource.Loader -> { }
+                        LoginEvent.Success -> navigateToHome()
+                        else -> Unit
                     }
                 }
             }
         }
     }
 
+
     private fun setupFragmentResultListener() {
         parentFragmentManager.setFragmentResultListener(
-            "requestKey",
+            REQUEST_KEY,
             viewLifecycleOwner
         ) { _, bundle ->
-            val email = bundle.getString("emailKey") ?: ""
-            val password = bundle.getString("passwordKey") ?: ""
+            val email = bundle.getString(EMAIL_KEY) ?: ""
+            val password = bundle.getString(PASSWORD_KEY) ?: ""
             fillLoginFields(email, password)
         }
     }
@@ -109,14 +107,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
     }
 
-    private fun showError(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
-    }
-
     private fun sendData(email: String) {
         val bundle = Bundle().apply {
-            putString("emailKey", email)
+            putString(EMAIL_KEY, email)
         }
-        parentFragmentManager.setFragmentResult("loginKey", bundle)
+        parentFragmentManager.setFragmentResult(LOGIN_KEY, bundle)
+    }
+
+    companion object {
+        const val REQUEST_KEY = "requestKey"
+        const val EMAIL_KEY = "emailKey"
+        const val LOGIN_KEY = "loginKey"
+        const val PASSWORD_KEY = "passwordKey"
     }
 }
+

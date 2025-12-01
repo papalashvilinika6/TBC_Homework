@@ -1,7 +1,7 @@
 package com.example.myapplication.data.common
 
 
-import com.example.myapplication.data.utils.Resource
+import com.example.myapplication.domain.model.Resource
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import okio.IOException

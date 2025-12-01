@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.utils.Resource
+import com.example.myapplication.domain.model.Resource
 import com.example.myapplication.databinding.FragmentRegisterBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
 import com.google.android.material.snackbar.Snackbar
@@ -99,9 +99,15 @@ class RegisterFragment :
 
     private fun sendDataBack() {
         val bundle = Bundle().apply {
-            putString("emailKey", binding.etRegEmail.text.toString())
-            putString("passwordKey", binding.etRegPassword.text.toString())
+            putString(EMAIL_KEY, binding.etRegEmail.text.toString())
+            putString(PASSWORD_KEY, binding.etRegPassword.text.toString())
         }
-        parentFragmentManager.setFragmentResult("requestKey", bundle)
+        parentFragmentManager.setFragmentResult(REQUEST_KEY, bundle)
+    }
+
+    companion object {
+        const val REQUEST_KEY = "requestKey"
+        const val EMAIL_KEY = "emailKey"
+        const val PASSWORD_KEY = "passwordKey"
     }
 }

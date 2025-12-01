@@ -15,4 +15,6 @@
     <string name="log_out">Log Out</string>
     <string name="email_example_com">email@example.com</string>
     <string name="full_name">Full Name</string>
+    <string name="error_invalid_event">Invalid Event</string>
+
 </resources>

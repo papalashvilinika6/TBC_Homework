@@ -5,14 +5,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentProfileBinding
 import com.example.myapplication.presentation.ui.common.BaseFragment
-import com.example.myapplication.presentation.ui.login.LoginEvent
-import com.example.myapplication.presentation.ui.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    private val viewModel: LoginViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun listeners() {
         btnLogout()
@@ -24,18 +22,25 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     private fun btnLogout() {
         binding.btnLogout.setOnClickListener {
-            viewModel.onEvent(LoginEvent.ClearToken)
+            viewModel.logout()
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
     }
 
     private fun setupFragmentResultListener() {
         parentFragmentManager.setFragmentResultListener(
-            "loginKey",
+            LOGIN_KEY,
             viewLifecycleOwner
         ) { _, bundle ->
-            val email = bundle.getString("emailKey") ?: ""
+            val email = bundle.getString(EMAIL_KEY) ?: ""
             binding.tvProfileEmail.text = email
         }
+    }
+
+
+
+    companion object {
+        const val EMAIL_KEY = "emailKey"
+        const val LOGIN_KEY = "loginKey"
     }
 }

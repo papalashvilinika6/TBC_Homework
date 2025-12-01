@@ -2,21 +2,29 @@ package com.example.myapplication.presentation.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.dto.LoginResponseDto
-import com.example.myapplication.data.repository.AuthRepository
-import com.example.myapplication.data.utils.Resource
-import com.example.myapplication.data.utils.utils
+import com.example.myapplication.domain.model.Resource
+import com.example.myapplication.domain.model.LoginResult
+import com.example.myapplication.domain.usecase.auth.LoginUseCase
+import com.example.myapplication.domain.usecase.local.SaveRememberMeUseCase
+import com.example.myapplication.domain.usecase.local.SaveTokenUseCase
+import com.example.myapplication.domain.usecase.validate.ValidateEmailUseCase
+import com.example.myapplication.domain.usecase.validate.ValidatePasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: AuthRepository,
+    private val loginUseCase: LoginUseCase,
+    private val validateEmail: ValidateEmailUseCase,
+    private val validatePassword: ValidatePasswordUseCase,
+    private val saveTokenUseCase: SaveTokenUseCase,
+    private val saveRememberMeUseCase: SaveRememberMeUseCase
 ) : ViewModel() {
 
     private val _email = MutableStateFlow("")
@@ -29,36 +37,46 @@ class LoginViewModel @Inject constructor(
     val isButtonEnabled: StateFlow<Boolean> get() = _isButtonEnabled
 
     private val _navigationEvent = MutableSharedFlow<LoginEvent>()
+    val navigationEvent = _navigationEvent.asSharedFlow()
 
-    private val _loginState = MutableStateFlow<Resource<LoginResponseDto>>(Resource.Loader(isLoading = false))
-    val loginState = _loginState
 
     init {
         viewModelScope.launch {
             combine(_email, _password) { email, password ->
-                utils.isEmailValid(email) && utils.isPasswordValid(password)
+                validateEmail(email) && validatePassword(password)
             }.collect { isValid ->
                 _isButtonEnabled.value = isValid
             }
         }
     }
 
-    fun onEvent(event: LoginEvent) = when (event) {
-        is LoginEvent.OnEmailChanged -> onEmailChanged(event.email)
-        is LoginEvent.OnPasswordChanged -> onPasswordChanged(event.password)
-        is LoginEvent.Login -> login(event.email, event.password)
-        LoginEvent.EmitSuccessNavigation -> emitSuccessNavigation()
-        else -> throw Exception("Invalid Event")
+    fun onEvent(event: LoginEvent) {
+        when (event) {
+            is LoginEvent.OnEmailChanged -> onEmailChanged(event.email)
+            is LoginEvent.OnPasswordChanged -> onPasswordChanged(event.password)
+            is LoginEvent.Login -> login(event.email, event.password, event.rememberMe)
+            LoginEvent.EmitSuccessNavigation -> emitSuccessNavigation()
+            LoginEvent.Success -> emitSuccessNavigation()
+            LoginEvent.ClearToken -> clearToken()
+        }
+    }
+
+    private fun clearToken() {
+        viewModelScope.launch {
+            saveTokenUseCase("")
+            saveRememberMeUseCase(false)
+        }
     }
 
     private fun onEmailChanged(value: String) { _email.value = value }
     private fun onPasswordChanged(value: String) { _password.value = value }
 
-    private fun login(email: String, password: String) {
+    private fun login(email: String, password: String, rememberMe: Boolean) {
         viewModelScope.launch {
-            repository.login(email, password).collect { result ->
-                _loginState.value = result
+            loginUseCase(email, password).collect { result ->
                 if (result is Resource.Success) {
+                    saveTokenUseCase(result.data.token)
+                    saveRememberMeUseCase(rememberMe)
                     _navigationEvent.emit(LoginEvent.Success)
                 }
             }

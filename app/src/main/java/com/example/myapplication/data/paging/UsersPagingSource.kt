@@ -2,16 +2,16 @@ package com.example.myapplication.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.myapplication.data.dto.User
+import com.example.myapplication.data.dto.UserResponseDto
 import com.example.myapplication.data.network.UsersApi
 
 class UsersPagingSource(
     private val api: UsersApi
-) : PagingSource<Int, User>() {
+) : PagingSource<Int, UserResponseDto.UserDto>() {
 
-    override fun getRefreshKey(state: PagingState<Int, User>): Int? = null
+    override fun getRefreshKey(state: PagingState<Int, UserResponseDto.UserDto>): Int? = null
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, User> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UserResponseDto.UserDto> {
         return try {
             val page = params.key ?: 1
 

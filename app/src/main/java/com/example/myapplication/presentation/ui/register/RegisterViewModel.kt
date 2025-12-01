@@ -2,10 +2,12 @@ package com.example.myapplication.presentation.ui.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.dto.RegisterResponseDto
-import com.example.myapplication.data.repository.AuthRepository
-import com.example.myapplication.data.utils.Resource
-import com.example.myapplication.data.utils.utils
+import com.example.myapplication.domain.model.Resource
+import com.example.myapplication.domain.model.RegisterResult
+import com.example.myapplication.domain.usecase.auth.RegisterUseCase
+import com.example.myapplication.domain.usecase.validate.ValidateEmailUseCase
+import com.example.myapplication.domain.usecase.validate.ValidatePasswordUseCase
+import com.example.myapplication.domain.usecase.validate.ValidateRepeatPasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.*
@@ -13,7 +15,10 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val repository: AuthRepository,
+    private val validateEmail: ValidateEmailUseCase,
+    private val validatePassword: ValidatePasswordUseCase,
+    private val validateRepeatPassword: ValidateRepeatPasswordUseCase,
+    private val registerUseCase: RegisterUseCase
 ) : ViewModel() {
 
     private val _email = MutableStateFlow("")
@@ -23,13 +28,14 @@ class RegisterViewModel @Inject constructor(
     val password: StateFlow<String> get() = _password
 
     private val _repeatPassword = MutableStateFlow("")
-    val repeatPassword: StateFlow<String> get() = _repeatPassword
 
     private val _isButtonEnabled = MutableStateFlow(false)
     val isButtonEnabled: StateFlow<Boolean> get() = _isButtonEnabled
 
-    private val _registerState = MutableStateFlow<Resource<RegisterResponseDto>>(Resource.Loader(false))
-    val registerState = _registerState.asStateFlow()
+    private val _registerState =
+        MutableStateFlow<Resource<RegisterResult>>(Resource.Loader(false))
+
+    val registerState: StateFlow<Resource<RegisterResult>> = _registerState
 
     private val _navigationEvent = MutableSharedFlow<RegisterEvent>()
     val navigationEvent = _navigationEvent.asSharedFlow()
@@ -37,9 +43,9 @@ class RegisterViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             combine(_email, _password, _repeatPassword) { email, pass, repeat ->
-                utils.isEmailValid(email) &&
-                        utils.isPasswordValid(pass) &&
-                        pass == repeat
+                validateEmail(email) &&
+                        validatePassword(pass) &&
+                        validateRepeatPassword(pass, repeat)
             }.collect { valid ->
                 _isButtonEnabled.value = valid
             }
@@ -56,14 +62,16 @@ class RegisterViewModel @Inject constructor(
 
     private fun register(email: String, password: String) {
         viewModelScope.launch {
-            repository.register(email, password).collect { result ->
+            registerUseCase(email, password).collect { result ->
                 _registerState.value = result
 
-                if (result is Resource.Success)
+                if (result is Resource.Success) {
                     _navigationEvent.emit(RegisterEvent.Success)
+                }
             }
         }
     }
+
 
     private fun emitSuccess() {
         viewModelScope.launch {

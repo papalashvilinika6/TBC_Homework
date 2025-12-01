@@ -1,21 +1,21 @@
-package com.example.myapplication.presentation.adapter
+package com.example.myapplication.presentation.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.data.dto.User
 import com.example.myapplication.databinding.ItemUserBinding
+import com.example.myapplication.domain.model.GetUsers
 
 class UsersPagingAdapter :
-    PagingDataAdapter<User, UsersPagingAdapter.UserViewHolder>(Diff) {
+    PagingDataAdapter<GetUsers, UsersPagingAdapter.UserViewHolder>(Diff) {
 
-    object Diff : DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
+    object Diff : DiffUtil.ItemCallback<GetUsers>() {
+        override fun areItemsTheSame(oldItem: GetUsers, newItem: GetUsers): Boolean =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
+        override fun areContentsTheSame(oldItem: GetUsers, newItem: GetUsers): Boolean =
             oldItem == newItem
     }
 
@@ -23,7 +23,7 @@ class UsersPagingAdapter :
         private val binding: ItemUserBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: User?) = with(binding) {
+        fun bind(item: GetUsers?) = with(binding) {
             tvName.text = item?.firstName
         }
     }

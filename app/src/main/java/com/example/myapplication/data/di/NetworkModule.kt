@@ -1,10 +1,10 @@
-package com.example.myapplication.di
+package com.example.myapplication.data.di
 
+import android.content.Context
+import com.example.myapplication.data.local.AuthPreferences
 import com.example.myapplication.data.network.LoginApi
 import com.example.myapplication.data.network.RegisterApi
 import com.example.myapplication.data.network.UsersApi
-import com.example.myapplication.data.repository.AuthRepository
-import com.example.myapplication.data.repository.UsersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,10 +16,11 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
 
     private const val BASE_URL = "https://reqres.in/"
 
@@ -67,16 +68,6 @@ object AppModule {
     @Provides
     fun provideUsersApi(retrofit: Retrofit): UsersApi = retrofit.create(UsersApi::class.java)
 
-    @Provides
-    @Singleton
-    fun provideAuthRepository(
-        loginApi: LoginApi,
-        registerApi: RegisterApi,
-    ): AuthRepository = AuthRepository(loginApi, registerApi)
-
-    @Provides
-    @Singleton
-    fun provideUsersRepository(
-        api: UsersApi,
-    ): UsersRepository = UsersRepository(api)
+    @Provides @Singleton
+    fun provideAuthPreferences(@ApplicationContext context: Context) = AuthPreferences(context)
 }
