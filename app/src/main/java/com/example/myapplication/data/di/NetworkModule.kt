@@ -1,7 +1,5 @@
 package com.example.myapplication.data.di
 
-import android.content.Context
-import com.example.myapplication.data.local.AuthPreferences
 import com.example.myapplication.data.network.LoginApi
 import com.example.myapplication.data.network.RegisterApi
 import com.example.myapplication.data.network.UsersApi
@@ -16,7 +14,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -67,7 +64,4 @@ object NetworkModule {
 
     @Provides
     fun provideUsersApi(retrofit: Retrofit): UsersApi = retrofit.create(UsersApi::class.java)
-
-    @Provides @Singleton
-    fun provideAuthPreferences(@ApplicationContext context: Context) = AuthPreferences(context)
 }
