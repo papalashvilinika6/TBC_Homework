@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="390" height="844" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <rect width="390" height="844" fill="#F7F7F7"/>
+
+    <circle cx="60" cy="60" r="140" fill="url(#grad_yellow)" opacity="0.45"/>
+
+    <circle cx="360" cy="520" r="160" fill="url(#grad_green)" opacity="0.38"/>
+
+    <circle cx="80" cy="760" r="180" fill="url(#grad_pink)" opacity="0.38"/>
+
+    <defs>
+        <radialGradient id="grad_yellow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#FFEFA7"/>
+            <stop offset="70%" stop-color="#FFEFA7" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#FFEFA7" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="grad_green" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#A7F7B5"/>
+            <stop offset="70%" stop-color="#A7F7B5" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#A7F7B5" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="grad_pink" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#F7A7C4"/>
+            <stop offset="70%" stop-color="#F7A7C4" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#F7A7C4" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+</svg>
