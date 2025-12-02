@@ -28,8 +28,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.navigation.collect { event ->
                 when(event) {
-                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.homeFragment)
-                    SplashSideEffect.NavigateToLogin -> findNavController().navigate(R.id.loginFragment)
+                    SplashSideEffect.NavigateToSecurity -> findNavController().navigate(R.id.action_splashFragment_to_securityFragment)
                 }
             }
         }
