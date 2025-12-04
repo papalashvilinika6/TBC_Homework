@@ -25,17 +25,32 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {
+
+        debug {
+            isMinifyEnabled = true
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+            buildConfigField("String", "API_VERSION", "\"v1/\"")
+            buildConfigField("String", "ENDPOINT", "\"3668d139-e182-4fe2-b909-6259524117cb\"")
+        }
+
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+            buildConfigField("String", "API_VERSION", "\"v1/\"")
+            buildConfigField("String", "ENDPOINT", "\"3668d139-e182-4fe2-b909-6259524117cb\"")
         }
     }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -44,9 +59,6 @@ android {
         jvmTarget = "11"
     }
 
-//    packagingOptions {
-//        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
-//    }
 }
 
 dependencies {
@@ -75,6 +87,10 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.navigationFragment)
     implementation(libs.navigationUi)
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("io.coil-kt:coil:2.7.0")
 
 }
 

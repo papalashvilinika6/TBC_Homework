@@ -13,10 +13,9 @@ import kotlinx.coroutines.launch
 class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
 
     val viewModel : SplashViewModel by viewModels()
-    override fun listeners() {}
 
-
-    override fun bind() {
+    override fun onResume() {
+        super.onResume()
         viewModel.onEvent(SplashEvent.OnStartSplash)
     }
 
@@ -26,10 +25,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
 
     fun observeSplashSide() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.navigation.collect { event ->
+            viewModel.sideEffect.collect { event ->
                 when(event) {
-                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.homeFragment)
-                    SplashSideEffect.NavigateToLogin -> findNavController().navigate(R.id.loginFragment)
+                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.action_splashFragment_to_usersFragment)
                 }
             }
         }

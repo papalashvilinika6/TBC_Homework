@@ -2,42 +2,46 @@ package com.example.myapplication.presentation.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.myapplication.databinding.ItemUserBinding
-import com.example.myapplication.domain.model.GetUsers
+import com.example.myapplication.domain.model.User
+import com.example.myapplication.R
 
-class UsersPagingAdapter :
-    PagingDataAdapter<GetUsers, UsersPagingAdapter.UserViewHolder>(Diff) {
+class UsersAdapter :
+    ListAdapter<User, UsersAdapter.UserViewHolder>(Diff) {
 
-    object Diff : DiffUtil.ItemCallback<GetUsers>() {
-        override fun areItemsTheSame(oldItem: GetUsers, newItem: GetUsers): Boolean =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: GetUsers, newItem: GetUsers): Boolean =
-            oldItem == newItem
+    object Diff : DiffUtil.ItemCallback<User>() {
+        override fun areItemsTheSame(a: User, b: User) = a.id == b.id
+        override fun areContentsTheSame(a: User, b: User) = a == b
     }
 
-    inner class UserViewHolder(
-        private val binding: ItemUserBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    inner class UserViewHolder(val binding: ItemUserBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-        fun bind(item: GetUsers?) = with(binding) {
-            tvName.text = item?.firstName
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = ItemUserBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        UserViewHolder(
+            ItemUserBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
         )
-        return UserViewHolder(binding)
-    }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val item = getItem(position)
+        holder.binding.apply {
+            tvName.text = item.fullName
+            tvEmail.text = item.email
+            tvActivation.text = item.lastActiveDescription
+
+            imgAvatar.load(item.profileImageUrl) {
+                crossfade(true)
+                fallback(R.drawable.user)
+                error(R.drawable.loading)
+                transformations(CircleCropTransformation())
+            }
+        }
     }
 }

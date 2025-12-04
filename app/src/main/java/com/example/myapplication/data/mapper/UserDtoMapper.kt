@@ -1,35 +1,28 @@
 package com.example.myapplication.data.mapper
 
-import com.example.myapplication.data.dto.UserResponseDto
-import com.example.myapplication.domain.model.GetUsers
-import com.example.myapplication.presentation.ui.home.UserResponse
+import com.example.myapplication.data.local.UserEntity
+import com.example.myapplication.data.remote.UserDto
+import com.example.myapplication.domain.model.User
 
-fun UserResponseDto.toPresentation(): UserResponse {
-    return UserResponse(
-        page = page,
-        perPage = perPage,
-        total = total,
-        totalPages = totalPages,
-        data = data.map { user ->
-            UserResponse.User(
-                id = user.id,
-                email = user.email,
-                firstName = user.firstName,
-                lastName = user.lastName,
-                avatar = user.avatar
-            )
-        }
-    )
-}
+fun UserDto.toEntity() = UserEntity(
+    id = id,
+    fullName = fullName,
+    email = email,
+    activationStatus = activationStatus,
+    lastActiveDescription = lastActiveDescription,
+    lastActiveEpoch = lastActiveEpoch,
+    profileImageUrl = profileImageUrl
+)
 
-fun UserResponseDto.UserDto.toDomain(): GetUsers {
-    return GetUsers(
-        id = id,
-        email = email,
-        firstName = firstName,
-        lastName = lastName,
-        avatar = avatar
-    )
-}
+fun UserEntity.toDomain() = User(
+    id = id,
+    fullName = fullName,
+    email = email,
+    activationStatus = activationStatus,
+    lastActiveDescription = lastActiveDescription,
+    lastActiveEpoch = lastActiveEpoch,
+    profileImageUrl = profileImageUrl
+)
+
 
 
