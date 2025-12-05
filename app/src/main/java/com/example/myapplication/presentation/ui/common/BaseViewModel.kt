@@ -3,17 +3,18 @@ package com.example.myapplication.presentation.ui.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.presentation.ui.cards.CardState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel<State, Event, SideEffect>(
-    initialState: State
+abstract class BaseViewModel<Event, State, SideEffect>(
+    initialState: CardState
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(initialState)
+    val _state = MutableStateFlow(initialState)
     val state = _state.asStateFlow()
 
     private val _sideEffect = MutableSharedFlow<SideEffect>()
@@ -30,4 +31,5 @@ abstract class BaseViewModel<State, Event, SideEffect>(
             _sideEffect.emit(sideEffect)
         }
     }
+
 }

@@ -2,7 +2,7 @@ package com.example.myapplication.di
 
 
 import com.example.myapplication.BuildConfig
-import com.example.myapplication.data.network.UsersApi
+import com.example.myapplication.data.network.CardApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -13,9 +13,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import javax.inject.Singleton
-
-
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -45,6 +42,6 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideUsersApi(retrofit: Retrofit): UsersApi =
-        retrofit.create(UsersApi::class.java)
+    fun provideUsersApi(retrofit: Retrofit): CardApi =
+        retrofit.create(CardApi::class.java)
 }

@@ -20,5 +20,11 @@
     <string name="offline">Offline</string>
     <string name="y_online">You are Online</string>
     <string name="y_offline">You are Offline</string>
+    <string name="statistics">Statistics</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="_2500">2500</string>
+    <string name="natural_walk_nto_the_top">Natural walk\nto the top</string>
+    <string name="_120">$120</string>
+    <string name="error_loading_cards">Error Loading Cards</string>
 
 </resources>

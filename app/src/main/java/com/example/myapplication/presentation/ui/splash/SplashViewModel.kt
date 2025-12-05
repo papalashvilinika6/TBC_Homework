@@ -17,7 +17,7 @@ class SplashViewModel @Inject constructor(
 
     private var splashJob: Job? = null
 
-    override fun onEvent(event: SplashEvent) {
+    override fun onEvent(event: SplashState) {
         when (event) {
             SplashEvent.OnStartSplash -> onStartSplash()
             SplashEvent.OnStopSplash -> onStopSplash()

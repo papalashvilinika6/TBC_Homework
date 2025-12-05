@@ -12,13 +12,13 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
-            android:id="@+id/action_splashFragment_to_usersFragment"
-            app:destination="@id/usersFragment"
+            android:id="@+id/action_splashFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/usersFragment"
-        android:name="com.example.myapplication.presentation.ui.home.UsersFragment"
-        android:label="UsersFragment" />
+        android:id="@+id/cardFragment"
+        android:name="com.example.myapplication.presentation.ui.cards.CardFragment"
+        android:label="CardFragment" />
 
 </navigation>

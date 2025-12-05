@@ -19,6 +19,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         viewModel.onEvent(SplashEvent.OnStartSplash)
     }
 
+
     override fun observers() {
         observeSplashSide()
     }
@@ -27,7 +28,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.sideEffect.collect { event ->
                 when(event) {
-                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.action_splashFragment_to_usersFragment)
+                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.action_splashFragment_to_cardFragment)
                 }
             }
         }
