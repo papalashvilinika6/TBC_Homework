@@ -1,8 +1,8 @@
 package com.example.myapplication.di
 
-
 import com.example.myapplication.BuildConfig
-import com.example.myapplication.data.network.UsersApi
+import com.example.myapplication.data.remote.PostApi
+import com.example.myapplication.data.remote.StoryApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -11,11 +11,9 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import javax.inject.Singleton
-
-
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -27,10 +25,6 @@ object NetworkModule {
     @Singleton
     fun provideJson(): Json = Json { ignoreUnknownKeys = true }
 
-    @Provides
-    @Singleton
-    fun provideOkHttpClient(): OkHttpClient =
-        OkHttpClient.Builder().build()
 
     @Provides
     @Singleton
@@ -45,6 +39,23 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideUsersApi(retrofit: Retrofit): UsersApi =
-        retrofit.create(UsersApi::class.java)
+    fun provideOkHttp(): OkHttpClient {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+        return OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providePostApi(retrofit: Retrofit): PostApi =
+        retrofit.create(PostApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideStoryApi(retrofit: Retrofit): StoryApi =
+        retrofit.create(StoryApi::class.java)
+
 }

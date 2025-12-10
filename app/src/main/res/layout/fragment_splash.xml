@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ui.splash.SplashFragment"
-    android:background="@color/black">
+    android:background="@color/grey">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/splashScreenId"

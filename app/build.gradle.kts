@@ -29,12 +29,14 @@ android {
     }
 
     buildTypes {
-
         debug {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
+
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
             buildConfigField("String", "API_VERSION", "\"v1/\"")
-            buildConfigField("String", "ENDPOINT", "\"3668d139-e182-4fe2-b909-6259524117cb\"")
+
+            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
         }
 
         release {
@@ -44,11 +46,16 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
             buildConfigField("String", "API_VERSION", "\"v1/\"")
-            buildConfigField("String", "ENDPOINT", "\"3668d139-e182-4fe2-b909-6259524117cb\"")
+
+            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
         }
     }
+
+
 
 
     compileOptions {
@@ -91,6 +98,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("io.coil-kt:coil:2.7.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+
 
 }
 
