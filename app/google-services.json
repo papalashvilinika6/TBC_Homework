@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28044614984",
+    "project_id": "livef1",
+    "storage_bucket": "livef1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28044614984:android:d5eab7692ba1816c46a77d",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28044614984-e7vd0bbpo3vllp7u6v5npvv2c4tl6d48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvJz6qHw_fYWmP0mbVoGcL18H6FxwW94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28044614984-e7vd0bbpo3vllp7u6v5npvv2c4tl6d48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,6 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.BuildConfig
-import com.example.myapplication.data.remote.PostApi
-import com.example.myapplication.data.remote.StoryApi
+import com.example.myapplication.data.remote.DriversApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -19,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = BuildConfig.BASE_URL
+    private const val BASE_URL = "https://mocki.io/v1/"  //baseconfigshi gadaitane
 
     @Provides
     @Singleton
@@ -50,12 +48,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providePostApi(retrofit: Retrofit): PostApi =
-        retrofit.create(PostApi::class.java)
+    fun provideDriversApi(
+        retrofit: Retrofit
+    ): DriversApi {
+        return retrofit.create(DriversApi::class.java)
+    }
 
-    @Provides
-    @Singleton
-    fun provideStoryApi(retrofit: Retrofit): StoryApi =
-        retrofit.create(StoryApi::class.java)
 
 }

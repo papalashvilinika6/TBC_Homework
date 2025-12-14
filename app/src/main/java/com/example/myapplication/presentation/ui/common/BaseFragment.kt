@@ -24,11 +24,20 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
-            insets
-        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+                view.setPadding(
+                    systemBars.left + 34,
+                    systemBars.top + 34,
+                    systemBars.right + 34,
+                    systemBars.bottom + 34
+                )
+
+                insets
+            }
+
         listeners()
         bind()
         observers()

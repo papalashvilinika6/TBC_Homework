@@ -3,6 +3,7 @@ package com.example.myapplication.presentation.ui.splash
 import androidx.lifecycle.viewModelScope
 
 import com.example.myapplication.presentation.ui.common.BaseViewModel
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -11,6 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
+    private val auth: FirebaseAuth
 ) : BaseViewModel<SplashState, SplashEvent, SplashSideEffect>(
     initialState = SplashState()
 ) {
@@ -29,7 +31,12 @@ class SplashViewModel @Inject constructor(
 
         splashJob = viewModelScope.launch {
             delay(DELAY)
-            emitSideEffect(SplashSideEffect.NavigateToHome)
+
+            if (auth.currentUser != null) {
+                emitSideEffect(SplashSideEffect.NavigateToHome)
+            } else {
+                emitSideEffect(SplashSideEffect.NavigateToLogin)
+            }
         }
     }
 
@@ -42,3 +49,4 @@ class SplashViewModel @Inject constructor(
         private const val DELAY = 3000L
     }
 }
+

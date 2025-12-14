@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -28,32 +29,32 @@ android {
         buildConfig = true
     }
 
-    buildTypes {
-        debug {
-            isMinifyEnabled = false
-
-            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-            buildConfigField("String", "API_VERSION", "\"v1/\"")
-
-            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
-            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
-        }
-
-        release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-
-            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-            buildConfigField("String", "API_VERSION", "\"v1/\"")
-
-            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
-            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
-        }
-    }
+//    buildTypes {
+//        debug {
+//            isMinifyEnabled = false
+//
+//            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+//            buildConfigField("String", "API_VERSION", "\"v1/\"")
+//
+//            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+//            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
+//        }
+//
+//        release {
+//            isMinifyEnabled = true
+//            isShrinkResources = true
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"),
+//                "proguard-rules.pro"
+//            )
+//
+//            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+//            buildConfigField("String", "API_VERSION", "\"v1/\"")
+//
+//            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+//            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
+//        }
+//    }
 
 
 
@@ -100,6 +101,14 @@ dependencies {
     implementation("io.coil-kt:coil:2.7.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+    implementation("androidx.credentials:credentials:1.3.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+    implementation (platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
 
 
 }
