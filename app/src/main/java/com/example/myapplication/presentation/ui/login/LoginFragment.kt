@@ -1,8 +1,6 @@
 package com.example.myapplication.presentation.ui.login
 
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.Credential
@@ -74,13 +72,13 @@ class LoginFragment :
 
         binding.createAccountText.setOnClickListener {
             findNavController()
-                .navigate(R.id.action_loginFragment_to_registerFragment)
+                .navigate(R.id.action_login_to_register)
         }
     }
 
     private fun navigateToHome() {
         findNavController()
-            .navigate(R.id.action_loginFragment_to_homeFragment)
+            .navigate(R.id.action_login_to_main)
     }
 
     private suspend fun signInWithGoogle() {

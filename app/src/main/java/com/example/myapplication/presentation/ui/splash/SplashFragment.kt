@@ -39,11 +39,11 @@ class SplashFragment :
                 when (effect) {
                     SplashSideEffect.NavigateToHome ->
                         findNavController()
-                            .navigate(R.id.action_splashFragment_to_homeFragment)
+                            .navigate(R.id.action_splash_to_main)
 
                     SplashSideEffect.NavigateToLogin ->
                         findNavController()
-                            .navigate(R.id.action_splashFragment_to_loginFragment)
+                            .navigate(R.id.action_splash_to_login)
                 }
             }
         }

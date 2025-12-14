@@ -8,7 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::inflate) {
 
     override fun bind() {
-        binding.messageText.text = "Welcome Home!"
+//        binding.messageText.text = "Welcome Home!"
     }
 
 }

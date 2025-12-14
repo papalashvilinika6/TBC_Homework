@@ -79,7 +79,7 @@ class RegisterFragment :
 
     private fun navigateToHome() {
         findNavController()
-            .navigate(R.id.action_registerFragment_to_favDriverFragment)
+            .navigate(R.id.action_register_to_favDriver)
     }
 
     private suspend fun registerWithGoogle() {
