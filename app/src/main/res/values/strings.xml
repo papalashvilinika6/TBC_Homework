@@ -1,30 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="remember_me">Remember me</string>
-    <string name="log_in">Log In</string>
-    <string name="register">Register</string>
-    <string name="login">Login</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="repeat_password">Repeat Password</string>
-    <string name="profile">Profile</string>
-    <string name="example_email">email@example.com</string>
-    <string name="log_out">Log Out</string>
-    <string name="email_example_com">email@example.com</string>
-    <string name="full_name">Full Name</string>
-    <string name="error_invalid_event">Invalid Event</string>
-    <string name="activation_status">Activation Status</string>
-    <string name="offline">Offline</string>
-    <string name="y_online">You are Online</string>
-    <string name="y_offline">You are Offline</string>
-    <string name="when_you_wake_up">When you wake up</string>
-    <string name="hello_world">Hello world</string>
-    <string name="write_comment">Write comment…</string>
-    <string name="icon">👨🏻</string>
-    <string name="no_internet_connection">No internet connection</string>
-    <string name="share">\u0020Share</string>
-    <string name="likes">"  %1$d Likes"</string>
-    <string name="comments">"  %1$d Comments"</string>
+    <string name="permission_title">Location required</string>
+    <string name="permission_desc">Enable location to use the app. We center the map on your position.</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="open_settings">Open settings</string>
+    <string name="loading">Loading data…</string>
+    <string name="show_all">Show all</string>
+    <string name="zoom_in">Zoom in</string>
+    <string name="zoom_out">Zoom out</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="you_are_here">You are here</string>
+    <string name="place_sheet">place_sheet</string>
 </resources>

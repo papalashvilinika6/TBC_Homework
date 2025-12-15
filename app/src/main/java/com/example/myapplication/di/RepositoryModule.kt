@@ -1,30 +1,20 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.data.repository.PostRepositoryImpl
-import com.example.myapplication.data.repository.StoryRepositoryImpl
-import com.example.myapplication.domain.repository.PostRepository
-import com.example.myapplication.domain.repository.StoryRepository
-import dagger.Binds
+import com.example.myapplication.data.local.AppDatabase
+import com.example.myapplication.data.remote.ApiService
+import com.example.myapplication.data.repository.LocationRepositoryImpl
+import com.example.myapplication.domain.repository.LocationRepository
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
-
-    @Binds
-    @Singleton
-    abstract fun bindStoryRepository(
-        impl: StoryRepositoryImpl
-    ): StoryRepository
-
-    @Binds
-    @Singleton
-    abstract fun bindPostRepository(
-        impl: PostRepositoryImpl
-    ): PostRepository
-
+class RepositoryModule {
+    @Provides @Singleton
+    fun provideRepo(api: ApiService, db: AppDatabase, io: CoroutineDispatcher): LocationRepository =
+        LocationRepositoryImpl(api, db.placeDao(), io)
 }

@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlinAndroid)
@@ -7,6 +9,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
+
 
 android {
     namespace = "com.example.myapplication"
@@ -21,6 +24,19 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Read MAPS_API_KEY from local.properties or env
+        val mapsKey: String = run {
+            val props = Properties()
+            val f = rootProject.file("local.properties")
+            if (f.exists()) f.inputStream().use { props.load(it) }
+            (props.getProperty("MAPS_API_KEY") ?: System.getenv("MAPS_API_KEY") ?: "")
+        }.trim()
+
+        if (mapsKey.isEmpty() || mapsKey == "REPLACE_ME") {
+            throw GradleException("Missing MAPS_API_KEY. Add it to local.properties or env.")
+        }
+        manifestPlaceholders["MAPS_API_KEY"] = mapsKey
     }
 
     buildFeatures {
@@ -66,6 +82,8 @@ android {
         jvmTarget = "11"
     }
 
+
+
 }
 
 dependencies {
@@ -100,6 +118,9 @@ dependencies {
     implementation("io.coil-kt:coil:2.7.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("com.google.maps.android:android-maps-utils:3.8.2")
 
 
 }

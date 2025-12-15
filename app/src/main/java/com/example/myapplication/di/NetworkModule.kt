@@ -1,8 +1,6 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.BuildConfig
-import com.example.myapplication.data.remote.PostApi
-import com.example.myapplication.data.remote.StoryApi
+import com.example.myapplication.data.remote.ApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -19,43 +17,25 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = BuildConfig.BASE_URL
+    @Provides @Singleton fun provideJson(): Json = Json { ignoreUnknownKeys = true }
 
-    @Provides
-    @Singleton
-    fun provideJson(): Json = Json { ignoreUnknownKeys = true }
-
-
-    @Provides
-    @Singleton
-    fun provideRetrofit(json: Json, client: OkHttpClient): Retrofit {
-        val contentType = "application/json".toMediaType()
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(json.asConverterFactory(contentType))
-            .client(client)
+    @Provides @Singleton
+    fun provideOkHttp(): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
             .build()
-    }
 
-    @Provides
-    @Singleton
-    fun provideOkHttp(): OkHttpClient {
-        val logging = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-        return OkHttpClient.Builder()
-            .addInterceptor(logging)
+    @Provides @Singleton
+    fun provideRetrofit(json: Json, ok: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+            .baseUrl("https://mocki.io/")
+            .client(ok)
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
-    }
 
-    @Provides
-    @Singleton
-    fun providePostApi(retrofit: Retrofit): PostApi =
-        retrofit.create(PostApi::class.java)
+    @Provides @Singleton
+    fun provideApi(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 
-    @Provides
-    @Singleton
-    fun provideStoryApi(retrofit: Retrofit): StoryApi =
-        retrofit.create(StoryApi::class.java)
 
 }
+
