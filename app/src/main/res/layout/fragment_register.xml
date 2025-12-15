@@ -8,11 +8,12 @@
     android:background="@color/primary">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="84dp"
+        android:layout_height="64dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/f1_car"/>
+        android:src="@drawable/f1_car"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/titleText"

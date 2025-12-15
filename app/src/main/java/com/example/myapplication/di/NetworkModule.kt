@@ -1,6 +1,8 @@
 package com.example.myapplication.di
 
 import com.example.myapplication.data.remote.DriversApi
+import com.example.myapplication.data.remote.PostApi
+import com.example.myapplication.data.remote.StoryApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -53,6 +55,17 @@ object NetworkModule {
     ): DriversApi {
         return retrofit.create(DriversApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun providePostApi(retrofit: Retrofit): PostApi =
+        retrofit.create(PostApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideStoryApi(retrofit: Retrofit): StoryApi =
+        retrofit.create(StoryApi::class.java)
+
 
 
 }

@@ -14,9 +14,16 @@
     <string name="login">Login</string>
     <string name="login_to_get_started">Login to get started</string>
     <string name="forgot_password">Forgot Password?</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="my_drivers">MY DRIVERS</string>
     <string name="personilize">Enjoy a more personalised experience. You can change your picks at any time!</string>
+    <string name="no_internet_location">No Internet Location</string>
+    <string name="icon">👨🏻</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="share">\u0020Share</string>
+    <string name="likes">"  %1$d Likes"</string>
+    <string name="comments">"  %1$d Comments"</string>
+    <string name="write_comment">Write comment…</string>
+    <string name="f1_feed">F1 Feed</string>
 
 </resources>
