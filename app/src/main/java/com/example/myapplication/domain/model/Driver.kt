@@ -5,5 +5,6 @@ data class Driver(
     val firstName: String,
     val lastName: String,
     val photoUrl: String,
-    val teamColor: Int
+    val teamColor: Int,
+    val favDriverImage: String
 )

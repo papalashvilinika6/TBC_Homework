@@ -11,7 +11,8 @@ class DriverMapper @Inject constructor() {
             id = dto.id,
             fullName = "${dto.firstName} ${dto.lastName}",
             photoUrl = dto.photo,
-            backgroundColor = Color.parseColor(dto.color)
+            backgroundColor = Color.parseColor(dto.color),
+            favDriverImage = dto.favDriverImage
         )
     }
 

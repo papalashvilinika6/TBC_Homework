@@ -10,7 +10,8 @@ class DriverUiMapper @Inject constructor() {
             id = driver.id,
             fullName = "${driver.firstName} ${driver.lastName}",
             photoUrl = driver.photoUrl,
-            backgroundColor = driver.teamColor
+            backgroundColor = driver.teamColor,
+            favDriverImage = driver.favDriverImage
         )
 
     fun mapList(list: List<Driver>): List<DriverUiModel> =

@@ -25,5 +25,6 @@
     <string name="comments">"  %1$d Comments"</string>
     <string name="write_comment">Write comment…</string>
     <string name="f1_feed">F1 Feed</string>
+    <string name="my_driver">MY DRIVER</string>
 
 </resources>

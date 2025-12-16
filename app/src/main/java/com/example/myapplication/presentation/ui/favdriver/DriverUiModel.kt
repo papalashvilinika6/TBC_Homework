@@ -5,6 +5,7 @@ data class DriverUiModel(
     val fullName: String,
     val photoUrl: String,
     val backgroundColor: Int,
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
+    val favDriverImage: String
 )
 

@@ -6,7 +6,7 @@ import javax.inject.Inject
 class GetFavoriteDriverUseCase @Inject constructor(
     private val favoriteDriverRepository: FavoriteDriverRepository
 ) {
-    suspend operator fun invoke(userId: String): Result<Int?> =
-        favoriteDriverRepository.getFavoriteDriver(userId)
+    suspend operator fun invoke(): Result<Int?> =
+        favoriteDriverRepository.getFavoriteDriver()
 }
 
