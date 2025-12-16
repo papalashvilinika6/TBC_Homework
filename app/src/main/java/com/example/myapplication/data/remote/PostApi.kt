@@ -6,6 +6,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface PostApi {
-    @GET("1e3f40b1-19a5-4986-ad60-fdc80c27234b")
+    @GET("742b7a1e-f3f6-479f-8792-01449a072742")
     suspend fun getPosts(): Response<List<PostDto>>
 }

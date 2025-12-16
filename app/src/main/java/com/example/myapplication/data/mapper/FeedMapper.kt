@@ -16,10 +16,7 @@ fun PostDto.toDomain() = Post(
     avatar = avatar,
     fullName = "$firstName $lastName",
     images = images,
-    commentsCount = commentsCount,
     likesCount = likesCount,
     description = postDesc,
-    createdAtEpochMillis = postDate,
-    canComment = canComment,
-    canPostPhoto = canPostPhoto
+    createdAtEpochMillis = postDate
 )

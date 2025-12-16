@@ -106,6 +106,7 @@ dependencies {
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
     implementation (platform("com.google.firebase:firebase-bom:32.7.3"))
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation ("com.google.android.material:material:1.11.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 

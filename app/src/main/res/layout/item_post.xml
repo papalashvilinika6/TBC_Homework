@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    android:layout_marginVertical="10dp"
     android:layout_marginHorizontal="15dp"
-    android:background="@drawable/post_background">
+    android:background="@color/background_dark">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgAvatar"
@@ -113,26 +112,9 @@
             android:textColor="@android:color/white"
             android:textSize="13sp"
             android:drawableStart="@drawable/ic_like"
-            android:layout_marginEnd="42dp"/>
+            android:layout_marginEnd="42dp"
+            android:layout_marginStart="10dp"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvComments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_comment"
-            android:textColor="@android:color/white"
-            android:textSize="13sp"
-            android:layout_marginEnd="42dp"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvShares"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_share"
-            android:text="@string/share"
-            android:textColor="@android:color/white"
-            android:textSize="13sp"
-            android:paddingStart="5dp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -147,18 +129,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/imgCommentAvatar"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:scaleType="centerCrop"
-            android:text="@string/icon"
-            android:gravity="center"
-            android:background="@drawable/ic_avatar_placeholder"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etComment"
             android:layout_width="0dp"
@@ -169,10 +139,19 @@
             android:textColorHint="#AAAAAA"
             android:paddingStart="12dp"
             android:singleLine="true"
-            app:layout_constraintStart_toEndOf="@id/imgCommentAvatar"
-            app:layout_constraintTop_toTopOf="@id/imgCommentAvatar"
-            app:layout_constraintBottom_toBottomOf="@id/imgCommentAvatar"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:drawableRight="@drawable/send_button"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/commentContainer">
+
+    </View>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,10 +5,7 @@ data class Post(
     val avatar: String,
     val fullName: String,
     val images: List<String>,
-    val commentsCount: Int,
     val likesCount: Int,
     val description: String,
-    val createdAtEpochMillis: Long,
-    val canComment: Boolean,
-    val canPostPhoto: Boolean
+    val createdAtEpochMillis: Long
 )

@@ -1,11 +1,13 @@
 package com.example.myapplication.di
 
 import com.example.myapplication.data.repository.DriversRepositoryImpl
+import com.example.myapplication.data.repository.FavoriteDriverRepositoryImpl
 import com.example.myapplication.data.repository.FirebaseAuthRepository
 import com.example.myapplication.data.repository.PostRepositoryImpl
 import com.example.myapplication.data.repository.StoryRepositoryImpl
 import com.example.myapplication.domain.repository.AuthRepository
 import com.example.myapplication.domain.repository.DriversRepository
+import com.example.myapplication.domain.repository.FavoriteDriverRepository
 import com.example.myapplication.domain.repository.PostRepository
 import com.example.myapplication.domain.repository.StoryRepository
 import dagger.Binds
@@ -41,4 +43,10 @@ abstract class RepositoryModule {
     abstract fun bindPostRepository(
         impl: PostRepositoryImpl
     ): PostRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindFavoriteDriverRepository(
+        impl: FavoriteDriverRepositoryImpl
+    ): FavoriteDriverRepository
 }

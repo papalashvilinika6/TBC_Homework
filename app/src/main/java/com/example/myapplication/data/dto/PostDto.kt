@@ -10,9 +10,6 @@ data class PostDto(
     val firstName: String,
     val lastName: String,
     val images: List<String> = emptyList(),
-    @SerialName("commentsCount") val commentsCount: Int,
     @SerialName("likesCount") val likesCount: Int,
-    @SerialName("postDesc") val postDesc: String,
-    @SerialName("canComment") val canComment: Boolean,
-    @SerialName("canPostPhoto") val canPostPhoto: Boolean
+    @SerialName("postDesc") val postDesc: String
 )
