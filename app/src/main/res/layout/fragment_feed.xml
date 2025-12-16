@@ -4,8 +4,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
-    android:padding="16dp">
+    android:background="@color/primary">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rvFeed"
+        android:background="@color/background_dark">
+    </View>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -17,7 +26,8 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="9dp"/>
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="10dp"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoId"
@@ -27,7 +37,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/f1_car"
         android:scaleType="fitXY"
-        />
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFeed"
@@ -36,7 +47,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoId"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

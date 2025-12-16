@@ -29,9 +29,9 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 
                 view.setPadding(
-                    systemBars.left + 34,
-                    systemBars.top + 34,
-                    systemBars.right + 34,
+                    systemBars.left ,
+                    systemBars.top + 15,
+                    systemBars.right,
                     systemBars.bottom + 34
                 )
 
