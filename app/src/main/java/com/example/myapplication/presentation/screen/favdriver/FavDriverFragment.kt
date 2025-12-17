@@ -35,19 +35,12 @@ class FavDriverFragment :
     }
 
     override fun listeners() {
-        setupBackButton()
         setupNextButton()
     }
 
     override fun observers() {
         observeState()
         observeSideEffect()
-    }
-
-    private fun setupBackButton() {
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private fun setupNextButton() {

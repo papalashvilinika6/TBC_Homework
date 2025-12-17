@@ -2,12 +2,15 @@ package com.example.myapplication.presentation.screen.login
 
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.presentation.screen.common.BaseFragment
+import com.example.myapplication.presentation.utils.AuthValidation
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -31,17 +34,19 @@ class LoginFragment :
 
     private fun observeState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.state.collect { state ->
-                binding.progressBar.visibility =
-                    if (state.isLoading) View.VISIBLE else View.GONE
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { state ->
+                    binding.progressBar.visibility =
+                        if (state.isLoading) View.VISIBLE else View.GONE
 
-                binding.errorText.apply {
-                    text = state.error.orEmpty()
-                    visibility = if (state.error != null) View.VISIBLE else View.GONE
-                }
+                    binding.errorText.apply {
+                        text = state.error.orEmpty()
+                        visibility = if (state.error != null) View.VISIBLE else View.GONE
+                    }
 
-                if (state.user != null) {
-                    navigateToHome()
+                    if (state.user != null) {
+                        navigateToHome()
+                    }
                 }
             }
         }
@@ -49,23 +54,39 @@ class LoginFragment :
 
     private fun setListeners() {
         binding.loginButton.setOnClickListener {
+
+            val email = binding.emailEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
+
+            if (!AuthValidation.validateEmailAndPassword(
+                    rootView = binding.root,
+                    email = email,
+                    password = password
+                )
+            ) {
+                return@setOnClickListener
+            }
+
             viewModel.onEvent(
                 LoginEvent.SignInWithEmail(
-                    email = binding.emailEditText.text.toString().trim(),
-                    password = binding.passwordEditText.text.toString()
+                    email = email,
+                    password = password
                 )
             )
         }
+
         binding.createAccountText.setOnClickListener {
             findNavController()
                 .navigate(R.id.action_login_to_register)
         }
     }
 
+
     private fun navigateToHome() {
         findNavController()
             .navigate(R.id.action_login_to_main)
     }
+
 
 
 }

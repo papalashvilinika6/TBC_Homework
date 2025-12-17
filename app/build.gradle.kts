@@ -29,32 +29,35 @@ android {
         buildConfig = true
     }
 
-//    buildTypes {
-//        debug {
-//            isMinifyEnabled = false
-//
-//            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-//            buildConfigField("String", "API_VERSION", "\"v1/\"")
-//
-//            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
-//            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
-//        }
-//
-//        release {
-//            isMinifyEnabled = true
-//            isShrinkResources = true
-//            proguardFiles(
-//                getDefaultProguardFile("proguard-android-optimize.txt"),
-//                "proguard-rules.pro"
-//            )
-//
-//            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-//            buildConfigField("String", "API_VERSION", "\"v1/\"")
-//
-//            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
-//            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
-//        }
-//    }
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+            buildConfigField("String", "API_VERSION", "\"v1/\"")
+
+            buildConfigField("String", "DRIVERS_ENDPOINT", "\"f2aa0798-4693-4d02-a237-844e75982442\"")
+            buildConfigField("String", "POSTS_ENDPOINT", "\"acf19b09-c95c-41fb-aead-7db34733714a\"")
+            buildConfigField("String", "RACE_ENDPOINT", "\"a45f6590-e750-4712-a43d-2ac942b007e9\"")
+            buildConfigField("String", "STORIES_ENDPOINT", "\"d3f7ef2c-897b-4b2e-b700-d1b288470965\"")
+
+        }
+
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
+            buildConfigField("String", "API_VERSION", "\"v1/\"")
+
+            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
+        }
+    }
 
 
 

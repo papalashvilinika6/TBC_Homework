@@ -3,11 +3,11 @@ package com.example.myapplication.presentation.screen.race.adapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.example.myapplication.databinding.ItemRace2026Binding
+import com.example.myapplication.databinding.ItemRaceNowBinding
 import com.example.myapplication.presentation.model.RaceUiModel
 
-class RaceViewHolder2026(
-    private val binding: ItemRace2026Binding
+class RaceViewHolderNow(
+    private val binding: ItemRaceNowBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: RaceUiModel) = with(binding) {

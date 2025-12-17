@@ -2,12 +2,12 @@ package com.example.myapplication.presentation.screen.race.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.myapplication.databinding.ItemRace2025Binding
+import com.example.myapplication.databinding.ItemRacePreviousBinding
 import com.example.myapplication.presentation.model.RaceUiModel
 import java.util.Locale
 
-class RaceViewHolder2025(
-    private val binding: ItemRace2025Binding
+class RaceViewHolderPrevious(
+    private val binding: ItemRacePreviousBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: RaceUiModel) = with(binding) {

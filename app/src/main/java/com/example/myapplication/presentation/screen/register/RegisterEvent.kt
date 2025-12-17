@@ -7,5 +7,4 @@ sealed interface RegisterEvent {
         val password: String,
         val name: String
     ) : RegisterEvent
-    object SignOut : RegisterEvent
 }

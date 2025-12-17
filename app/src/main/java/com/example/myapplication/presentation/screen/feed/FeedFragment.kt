@@ -17,7 +17,9 @@ class FeedFragment :
     BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::inflate) {
 
     private val viewModel: FeedViewModel by viewModels()
-    private val adapter = FeedAdapter()
+    private val adapter: FeedAdapter by lazy {
+        FeedAdapter()
+    }
 
     override fun bind() {
         setupRecycler()

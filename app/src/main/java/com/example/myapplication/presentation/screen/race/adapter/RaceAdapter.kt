@@ -3,8 +3,8 @@ package com.example.myapplication.presentation.screen.race.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.databinding.ItemRace2025Binding
-import com.example.myapplication.databinding.ItemRace2026Binding
+import com.example.myapplication.databinding.ItemRaceNowBinding
+import com.example.myapplication.databinding.ItemRacePreviousBinding
 import com.example.myapplication.presentation.model.RaceUiModel
 
 class RaceAdapter :
@@ -34,20 +34,20 @@ class RaceAdapter :
 
         return when (viewType) {
             VIEW_2025 -> {
-                val binding = ItemRace2025Binding.inflate(
+                val binding = ItemRacePreviousBinding.inflate(
                     inflater,
                     parent,
                     false
                 )
-                RaceViewHolder2025(binding)
+                RaceViewHolderPrevious(binding)
             }
             else -> {
-                val binding = ItemRace2026Binding.inflate(
+                val binding = ItemRaceNowBinding.inflate(
                     inflater,
                     parent,
                     false
                 )
-                RaceViewHolder2026(binding)
+                RaceViewHolderNow(binding)
             }
         }
     }
@@ -58,8 +58,8 @@ class RaceAdapter :
     ) {
         val item = items[position]
         when (holder) {
-            is RaceViewHolder2025 -> holder.bind(item)
-            is RaceViewHolder2026 -> holder.bind(item)
+            is RaceViewHolderPrevious -> holder.bind(item)
+            is RaceViewHolderNow -> holder.bind(item)
         }
     }
 

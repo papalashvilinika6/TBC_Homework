@@ -2,7 +2,6 @@ package com.example.myapplication.presentation.screen.register
 
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.domain.usecase.GetCurrentUserUseCase
-import com.example.myapplication.domain.usecase.SignOutUseCase
 import com.example.myapplication.domain.usecase.SignUpWithEmailUseCase
 import com.example.myapplication.presentation.screen.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +14,6 @@ import javax.inject.Inject
 class RegisterViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val signUpWithEmailUseCase: SignUpWithEmailUseCase,
-    private val signOutUseCase: SignOutUseCase
 ) : BaseViewModel<RegisterState, RegisterEvent, RegisterSideEffect>(
     initialState = RegisterState()
 ) {
@@ -28,7 +26,6 @@ class RegisterViewModel @Inject constructor(
                 event.password,
                 event.name
             )
-            RegisterEvent.SignOut -> signOut()
         }
     }
 
@@ -73,31 +70,7 @@ class RegisterViewModel @Inject constructor(
                 updateState {
                     it.copy(
                         isLoading = false,
-                        error = e.localizedMessage
-                    )
-                }
-            }
-        }
-    }
-
-    private fun signOut() {
-        viewModelScope.launch {
-            updateState { it.copy(isLoading = true, error = null) }
-
-            runCatching {
-                signOutUseCase()
-            }.onSuccess {
-                updateState {
-                    it.copy(
-                        isLoading = false,
-                        user = null
-                    )
-                }
-            }.onFailure { e ->
-                updateState {
-                    it.copy(
-                        isLoading = false,
-                        error = e.localizedMessage
+                        error = "Invalid Fields!"
                     )
                 }
             }

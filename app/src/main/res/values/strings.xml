@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">LiveF1</string>
     <string name="default_web_client_id">28044614984-e7vd0bbpo3vllp7u6v5npvv2c4tl6d48.apps.googleusercontent.com</string>
     <string name="create_account">Create Account</string>
     <string name="sign_up_to_get_started">Sign up to get started</string>
@@ -38,5 +38,10 @@
     <string name="navigation_error">Navigation error: %1$s</string>
     <string name="relogin_required">relogin required\n</string>
     <string name="profile_load_failed">profile load failed\n</string>
+    <string name="error_email_empty">Email cannot be empty</string>
+    <string name="error_email_invalid">Invalid email format</string>
+    <string name="error_password_empty">Password cannot be empty</string>
+    <string name="error_password_short">Password must be at least 6 characters</string>
+
 
 </resources>

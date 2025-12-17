@@ -1,5 +1,6 @@
 package com.example.myapplication.di
 
+import com.example.myapplication.BuildConfig
 import com.example.myapplication.data.remote.DriversApi
 import com.example.myapplication.data.remote.PostApi
 import com.example.myapplication.data.remote.RaceApi
@@ -20,7 +21,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://mocki.io/v1/"  //baseconfigshi gadaitane
+    private const val BASE_URL = BuildConfig.BASE_URL + BuildConfig.API_VERSION
 
     @Provides
     @Singleton
