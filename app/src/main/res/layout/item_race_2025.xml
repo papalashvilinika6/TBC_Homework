@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_race_item"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="15dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ImageId"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <!-- Round -->
+    <TextView
+        android:id="@+id/tvRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ImageId"
+        android:layout_marginStart="10dp"/>
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14 Mar - 16"
+        android:textSize="12sp"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"/>
+
+    <!-- Country -->
+    <TextView
+        android:id="@+id/tvCountry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Australian GP"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toBottomOf="@id/tvRound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Circuit -->
+    <TextView
+        android:id="@+id/tvCircuit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Albert Park"
+        android:textSize="13sp"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toBottomOf="@id/tvCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- FIRST PLACE -->
+    <TextView
+        android:id="@+id/tvFirst"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="NOR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:background="@drawable/bg_position_first"
+        app:layout_constraintTop_toBottomOf="@id/tvCircuit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvSecond"
+        android:layout_marginTop="12dp"/>
+
+    <!-- SECOND PLACE -->
+    <TextView
+        android:id="@+id/tvSecond"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="VER"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:background="@drawable/bg_position_second"
+        app:layout_constraintTop_toTopOf="@id/tvFirst"
+        app:layout_constraintStart_toEndOf="@id/tvFirst"
+        app:layout_constraintEnd_toStartOf="@id/tvThird"
+        android:layout_marginHorizontal="48dp"/>
+
+    <!-- THIRD PLACE -->
+    <TextView
+        android:id="@+id/tvThird"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="RUS"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:background="@drawable/bg_position_third"
+        app:layout_constraintTop_toTopOf="@id/tvFirst"
+        app:layout_constraintStart_toEndOf="@id/tvSecond"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- TIME 1 -->
+    <TextView
+        android:id="@+id/tvTime1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:32.000"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toBottomOf="@id/tvFirst"
+        app:layout_constraintStart_toStartOf="@id/tvFirst"
+        app:layout_constraintEnd_toEndOf="@+id/tvFirst"
+        android:layout_marginTop="8dp"/>
+
+    <!-- TIME 2 -->
+    <TextView
+        android:id="@+id/tvTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+5.231"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toTopOf="@id/tvTime1"
+        app:layout_constraintStart_toStartOf="@id/tvSecond"
+        app:layout_constraintEnd_toEndOf="@+id/tvSecond"
+        />
+
+    <!-- TIME 3 -->
+    <TextView
+        android:id="@+id/tvTime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+12.421"
+        android:textColor="@color/on_primary"
+        app:layout_constraintTop_toTopOf="@id/tvTime1"
+        app:layout_constraintStart_toStartOf="@id/tvThird"
+        app:layout_constraintEnd_toEndOf="@+id/tvThird"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

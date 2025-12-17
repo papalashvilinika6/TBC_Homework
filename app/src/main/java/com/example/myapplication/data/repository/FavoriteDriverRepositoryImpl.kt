@@ -2,6 +2,7 @@ package com.example.myapplication.data.repository
 
 import com.example.myapplication.domain.repository.FavoriteDriverRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -28,31 +29,29 @@ class FavoriteDriverRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFavoriteDriver(): Result<Int?> {
-        val uid = auth.currentUser?.uid
-            ?: return Result.failure(IllegalStateException("User not logged in"))
+    override suspend fun getFavoriteDriverId(): Int? {
+        val uid = auth.currentUser?.uid ?: return null
 
-        val snap = firestore
+        val snapshot = firestore
             .collection("users")
             .document(uid)
             .get()
             .await()
 
-        return Result.success(
-            snap.getLong("favDriverId")?.toInt()
-        )
+        return snapshot.getLong("favoriteDriverId")?.toInt()
     }
 
     override suspend fun removeFavoriteDriver(userId: String): Result<Unit> {
         return try {
             firestore.collection(COLLECTION_USERS)
                 .document(userId)
-                .update(FIELD_FAVORITE_DRIVER_ID, null)
+                .update(FIELD_FAVORITE_DRIVER_ID, FieldValue.delete())
                 .await()
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
+
 }
 

@@ -26,5 +26,17 @@
     <string name="write_comment">Write comment…</string>
     <string name="f1_feed">F1 Feed</string>
     <string name="my_driver">MY DRIVER</string>
+    <string name="feed">Feed</string>
+    <string name="livef1">LiveF1</string>
+    <string name="nika_papalashvili">Nika Papalashvili</string>
+    <string name="email">Email</string>
+    <string name="gmail_com">gmail.com</string>
+    <string name="log_out">Log out</string>
+    <string name="info">Manage your account information on\nformula1.com</string>
+    <string name="delete_my_account">Delete my account</string>
+    <string name="select_a_driver">Please select a driver first</string>
+    <string name="navigation_error">Navigation error: %1$s</string>
+    <string name="relogin_required">relogin required\n</string>
+    <string name="profile_load_failed">profile load failed\n</string>
 
 </resources>

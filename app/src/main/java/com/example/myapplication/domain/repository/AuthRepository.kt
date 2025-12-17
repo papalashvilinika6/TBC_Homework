@@ -8,8 +8,7 @@ interface AuthRepository {
     suspend fun signUpWithEmail(
         email: String,
         password: String,
-        name: String,
-        phone: String?
+        name: String
     ): User
     suspend fun signInWithEmail(email: String, password: String): User
     suspend fun signInWithGoogle(idToken: String): User

@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -13,7 +14,8 @@ import com.example.myapplication.domain.model.User
 import javax.inject.Inject
 
 class FirebaseAuthRepository @Inject constructor(
-    private val firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth,
+    private val firestore: FirebaseFirestore
 ) : AuthRepository {
 
     override val currentUser: Flow<User?> = callbackFlow {
@@ -32,15 +34,19 @@ class FirebaseAuthRepository @Inject constructor(
     override suspend fun signInWithGoogle(idToken: String): User {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         val result = firebaseAuth.signInWithCredential(credential).await()
-        return result.user?.toDomain()
-            ?: throw IllegalStateException("Firebase user is null")
+
+        val user = result.user ?: throw IllegalStateException("Firebase user is null")
+
+        // Save user if first login
+        saveUserIfNotExists(user)
+
+        return user.toDomain()
     }
 
     override suspend fun signUpWithEmail(
         email: String,
         password: String,
         name: String,
-        phone: String?
     ): User {
         val result = firebaseAuth
             .createUserWithEmailAndPassword(email, password)
@@ -48,11 +54,25 @@ class FirebaseAuthRepository @Inject constructor(
 
         val user = result.user ?: throw IllegalStateException("User is null")
 
+        // Save displayName to FirebaseAuth
         val profile = UserProfileChangeRequest.Builder()
             .setDisplayName(name)
             .build()
 
         user.updateProfile(profile).await()
+
+        // Save to Firestore (THIS IS THE IMPORTANT PART)
+        val userMap = mapOf(
+            "uid" to user.uid,
+            "name" to name,
+            "email" to email,
+        )
+
+        firestore.collection("users")
+            .document(user.uid)
+            .set(userMap)
+            .await()
+
         return user.toDomain()
     }
 
@@ -72,6 +92,20 @@ class FirebaseAuthRepository @Inject constructor(
         firebaseAuth.signOut()
     }
 
+    private suspend fun saveUserIfNotExists(user: FirebaseUser) {
+        val ref = firestore.collection("users").document(user.uid)
+        val snapshot = ref.get().await()
+
+        if (!snapshot.exists()) {
+            val userMap = mapOf(
+                "uid" to user.uid,
+                "name" to (user.displayName ?: ""),
+                "email" to user.email
+            )
+            ref.set(userMap).await()
+        }
+    }
+
     private fun FirebaseUser.toDomain(): User =
         User(
             uid = uid,
@@ -80,3 +114,4 @@ class FirebaseAuthRepository @Inject constructor(
             photoUrl = photoUrl?.toString()
         )
 }
+

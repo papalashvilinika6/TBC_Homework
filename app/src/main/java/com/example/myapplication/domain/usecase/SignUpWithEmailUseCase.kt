@@ -9,9 +9,8 @@ class SignUpWithEmailUseCase @Inject constructor (private val repository: AuthRe
     suspend operator fun invoke(
         email: String,
         password: String,
-        name: String,
-        phone: String?
+        name: String
     ): User {
-        return repository.signUpWithEmail(email, password, name, phone)
+        return repository.signUpWithEmail(email, password, name)
     }
 }

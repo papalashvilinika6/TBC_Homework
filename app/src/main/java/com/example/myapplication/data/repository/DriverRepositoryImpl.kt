@@ -1,6 +1,5 @@
 package com.example.myapplication.data.repository
 
-import android.util.Log
 import com.example.myapplication.data.mapper.DriverDataMapper
 import com.example.myapplication.data.remote.DriversApi
 import com.example.myapplication.domain.model.Driver
@@ -14,7 +13,6 @@ class DriversRepositoryImpl @Inject constructor(
 
     override suspend fun getDrivers(): List<Driver> {
         val response = api.getDrivers()
-        Log.d("DRIVERS_DEBUG", "API drivers size = ${response.drivers.size}")
         return mapper.mapList(response.drivers)
     }
 }

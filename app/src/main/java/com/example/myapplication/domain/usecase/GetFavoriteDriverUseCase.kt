@@ -4,9 +4,10 @@ import com.example.myapplication.domain.repository.FavoriteDriverRepository
 import javax.inject.Inject
 
 class GetFavoriteDriverUseCase @Inject constructor(
-    private val favoriteDriverRepository: FavoriteDriverRepository
+    private val repository: FavoriteDriverRepository
 ) {
-    suspend operator fun invoke(): Result<Int?> =
-        favoriteDriverRepository.getFavoriteDriver()
+    suspend operator fun invoke(): Int? {
+        return repository.getFavoriteDriverId()
+    }
 }
 

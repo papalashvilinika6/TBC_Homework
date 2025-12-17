@@ -4,7 +4,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:padding="14dp"
     android:background="@color/primary">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/f1_car"
-        android:scaleType="fitXY"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/titleText"
@@ -88,29 +88,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/phone"
-        android:textColorHint = "@color/background"
-        app:hintTextColor="@color/background"
-        app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxStrokeColor="@color/textfield_bg"
-        app:boxStrokeWidth="1dp"
-        app:boxStrokeWidthFocused="2dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phoneEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:textColor="@color/background"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -118,7 +95,7 @@
         android:textColorHint = "@color/background"
         app:hintTextColor="@color/background"
         app:endIconMode="password_toggle"
-        app:layout_constraintTop_toBottomOf="@id/phoneInputLayout"
+        app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
@@ -169,29 +146,6 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/button_bg"/>
 
-    <TextView
-        android:id="@+id/orText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/or"
-        android:textColor="@color/background"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/createAccountButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/registerWithGoogleButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up_with_google"
-        android:textColor="@color/background"
-        app:layout_constraintTop_toBottomOf="@id/orText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_bg"/>
 
     <TextView
         android:id="@+id/loginText"
@@ -200,7 +154,7 @@
         android:text="@string/already_have_an_account_login"
         android:textColor="@color/background"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/registerWithGoogleButton"
+        app:layout_constraintTop_toBottomOf="@id/createAccountButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
