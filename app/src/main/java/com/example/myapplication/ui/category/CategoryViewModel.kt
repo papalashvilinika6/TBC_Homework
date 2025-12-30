@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.category
 
 import com.example.myapplication.domain.model.Category
+import com.example.myapplication.domain.model.ConnectivityObserver
 import com.example.myapplication.domain.model.Resource
 import com.example.myapplication.domain.usecase.SearchCategoriesUseCase
 import com.example.myapplication.ui.common.BaseViewModel
@@ -9,12 +10,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class CategoryViewModel @Inject constructor(
-    private val searchCategoriesUseCase: SearchCategoriesUseCase
+    private val searchCategoriesUseCase: SearchCategoriesUseCase,
+    private val connectivityObserver: ConnectivityObserver
 ) : BaseViewModel<CategoryState, CategoryEvent>(
     initialState = CategoryState()
 ) {
@@ -22,6 +26,18 @@ class CategoryViewModel @Inject constructor(
     private var searchJob: Job? = null
     private var loadJob: Job? = null
     private val searchDebounceDelay = 500L
+
+    init {
+        observeConnectivity()
+    }
+
+    private fun observeConnectivity() {
+        connectivityObserver.isConnected
+            .onEach { isConnected ->
+                updateState { it.copy(isOnline = isConnected) }
+            }
+            .launchIn(viewModelScope)
+    }
 
     override fun onEvent(event: CategoryEvent) {
         when (event) {

@@ -63,6 +63,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     }
 
     private fun renderState(state: CategoryState) = with(binding) {
+        offlineMessage.setVisible(!state.isOnline)
+        
         loadingImageView.setVisible(state.loading)
         if (state.loading) {
             startLoadingAnimation()
