@@ -1,7 +1,7 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.domain.repository.LocationRepository
-import com.example.myapplication.domain.usecase.GetPlacesUseCase
+import com.example.myapplication.domain.repository.CategoryRepository
+import com.example.myapplication.domain.usecase.SearchCategoriesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,5 +12,5 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class UseCaseModule {
     @Provides @Singleton
-    fun provideGetPlaces(repo: LocationRepository) = GetPlacesUseCase(repo)
+    fun provideSearchCategories(repo: CategoryRepository) = SearchCategoriesUseCase(repo)
 }

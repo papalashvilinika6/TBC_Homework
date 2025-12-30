@@ -25,7 +25,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
-        // Read MAPS_API_KEY from local.properties or env
+
         val mapsKey: String = run {
             val props = Properties()
             val f = rootProject.file("local.properties")
@@ -51,7 +51,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
             buildConfigField("String", "API_VERSION", "\"v1/\"")
 
-            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+            buildConfigField("String", "PLACE_ENDPOINT", "\"v1/d7c6d734-6080-4045-a196-7da16339b6d7\"")
             buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
         }
 
@@ -66,7 +66,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
             buildConfigField("String", "API_VERSION", "\"v1/\"")
 
-            buildConfigField("String", "STORIES_ENDPOINT", "\"0f76d541-3832-4a3c-927a-0593e060d6da\"")
+            buildConfigField("String", "PLACE_ENDPOINT", "\"v1/d7c6d734-6080-4045-a196-7da16339b6d7\"")
             buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
         }
     }

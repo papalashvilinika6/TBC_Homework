@@ -1,7 +1,8 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.data.remote.ApiService
+import com.example.myapplication.data.remote.service.ApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.example.myapplication.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,7 +29,7 @@ object NetworkModule {
     @Provides @Singleton
     fun provideRetrofit(json: Json, ok: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://mocki.io/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(ok)
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()

@@ -29,7 +29,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.sideEffect.collect { event ->
                 when(event) {
-                    SplashSideEffect.NavigateToMap -> findNavController().navigate(R.id.action_splashFragment_to_permissionFragment)
+                    SplashSideEffect.NavigateToMap -> findNavController().navigate(R.id.action_splashFragment_to_categoryFragment)
                 }
             }
         }

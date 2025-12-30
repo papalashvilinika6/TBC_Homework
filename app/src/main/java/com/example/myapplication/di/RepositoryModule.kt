@@ -1,9 +1,8 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.data.local.AppDatabase
-import com.example.myapplication.data.remote.ApiService
-import com.example.myapplication.data.repository.LocationRepositoryImpl
-import com.example.myapplication.domain.repository.LocationRepository
+import com.example.myapplication.data.remote.service.ApiService
+import com.example.myapplication.data.repository.CategoryRepositoryImpl
+import com.example.myapplication.domain.repository.CategoryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +14,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
     @Provides @Singleton
-    fun provideRepo(api: ApiService, db: AppDatabase, io: CoroutineDispatcher): LocationRepository =
-        LocationRepositoryImpl(api, db.placeDao(), io)
+    fun provideCategoryRepo(api: ApiService, io: CoroutineDispatcher): CategoryRepository =
+        CategoryRepositoryImpl(api, io)
 }
