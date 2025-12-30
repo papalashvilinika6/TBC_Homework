@@ -1,8 +1,10 @@
 package com.example.myapplication.domain.repository
 
 import com.example.myapplication.domain.model.Category
+import com.example.myapplication.domain.model.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface CategoryRepository {
-    suspend fun searchCategories(searchQuery: String?): Result<List<Category>>
+    fun searchCategories(searchQuery: String?): Flow<Resource<List<Category>>>
 }
 

@@ -49,10 +49,8 @@ android {
             isMinifyEnabled = false
 
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-            buildConfigField("String", "API_VERSION", "\"v1/\"")
 
-            buildConfigField("String", "PLACE_ENDPOINT", "\"v1/d7c6d734-6080-4045-a196-7da16339b6d7\"")
-            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
+            buildConfigField("String", "ENDPOINT", "\"v1/0c08be03-49c2-493b-951c-6ba8a397dc72\"")
         }
 
         release {
@@ -64,10 +62,8 @@ android {
             )
 
             buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-            buildConfigField("String", "API_VERSION", "\"v1/\"")
 
-            buildConfigField("String", "PLACE_ENDPOINT", "\"v1/d7c6d734-6080-4045-a196-7da16339b6d7\"")
-            buildConfigField("String", "POSTS_ENDPOINT", "\"1e3f40b1-19a5-4986-ad60-fdc80c27234b\"")
+            buildConfigField("String", "ENDPOINT", "\"v1/0c08be03-49c2-493b-951c-6ba8a397dc72\"")
         }
     }
 

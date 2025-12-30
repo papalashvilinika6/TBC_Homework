@@ -1,7 +1,7 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.domain.connectivity.ConnectivityObserver
-import com.example.myapplication.data.connectivity.ConnectivityObserverImpl
+import com.example.myapplication.domain.model.ConnectivityObserver
+import com.example.myapplication.data.remote.common.ConnectivityObserverImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

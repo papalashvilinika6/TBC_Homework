@@ -1,4 +1,4 @@
-package com.example.myapplication.domain.connectivity
+package com.example.myapplication.domain.model
 
 import kotlinx.coroutines.flow.Flow
 

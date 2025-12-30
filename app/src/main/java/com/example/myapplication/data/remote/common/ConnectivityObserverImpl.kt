@@ -1,9 +1,11 @@
-package com.example.myapplication.data.connectivity
+package com.example.myapplication.data.remote.common
 
 import android.content.Context
-import android.net.*
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
 import androidx.core.content.getSystemService
-import com.example.myapplication.domain.connectivity.ConnectivityObserver
+import com.example.myapplication.domain.model.ConnectivityObserver
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -17,16 +19,26 @@ class ConnectivityObserverImpl @Inject constructor(
 
     override val isConnected: Flow<Boolean> = callbackFlow {
         val initial = cm.activeNetwork?.let { n ->
-            cm.getNetworkCapabilities(n)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+            cm.getNetworkCapabilities(n)
+                ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
         } ?: false
         trySend(initial)
         val cb = object : ConnectivityManager.NetworkCallback() {
             override fun onCapabilitiesChanged(n: Network, c: NetworkCapabilities) {
                 trySend(c.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED))
             }
-            override fun onUnavailable() { trySend(false) }
-            override fun onLost(n: Network) { trySend(false) }
-            override fun onAvailable(n: Network) { trySend(true) }
+
+            override fun onUnavailable() {
+                trySend(false)
+            }
+
+            override fun onLost(n: Network) {
+                trySend(false)
+            }
+
+            override fun onAvailable(n: Network) {
+                trySend(true)
+            }
         }
         cm.registerDefaultNetworkCallback(cb)
         awaitClose { cm.unregisterNetworkCallback(cb) }

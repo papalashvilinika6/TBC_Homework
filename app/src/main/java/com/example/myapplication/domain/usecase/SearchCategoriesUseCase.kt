@@ -1,19 +1,28 @@
 package com.example.myapplication.domain.usecase
 
 import com.example.myapplication.domain.model.Category
+import com.example.myapplication.domain.model.Resource
 import com.example.myapplication.domain.repository.CategoryRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class SearchCategoriesUseCase @Inject constructor(
     private val repository: CategoryRepository
 ) {
-    suspend operator fun invoke(searchQuery: String?): Result<List<Category>> {
-        val result = repository.searchCategories(searchQuery)
-        return result.map { categories ->
-            if (searchQuery.isNullOrBlank()) {
-                categories
-            } else {
-                filterCategories(categories, searchQuery.lowercase())
+    operator fun invoke(searchQuery: String?): Flow<Resource<List<Category>>> {
+        return repository.searchCategories(searchQuery).map { resource ->
+            when (resource) {
+                is Resource.Success -> {
+                    val categories = if (searchQuery.isNullOrBlank()) {
+                        resource.data
+                    } else {
+                        filterCategories(resource.data, searchQuery.lowercase())
+                    }
+                    Resource.Success(categories)
+                }
+                is Resource.Error -> Resource.Error(resource.message)
+                is Resource.Loader -> Resource.Loader(resource.isLoading)
             }
         }
     }

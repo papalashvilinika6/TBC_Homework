@@ -1,8 +1,7 @@
 package com.example.myapplication.domain.model
 
-
-sealed interface Resource<out T> {
-    data object Loading : Resource<Nothing>
-    data class Success<T>(val data: T) : Resource<T>
-    data class Error(val message: String) : Resource<Nothing>
+sealed class Resource<out T> {
+    data class Success<out T>(val data: T) : Resource<T>()
+    data class Error<out T>(val message: String) : Resource<T>()
+    data class Loader<out T>(val isLoading: Boolean) : Resource<T>()
 }
