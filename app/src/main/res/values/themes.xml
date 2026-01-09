@@ -1,14 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme.  We extend Material3's DayNight theme
-         without an action bar.  Colors are overridden via the
-         Material3 color scheme attributes in light and dark mode. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your theme here. If you are using Material3
-             components you can override the color scheme attributes. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorSecondary">@color/secondary</item>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Challenge" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <style name="Theme.Challenge" parent="Base.Theme.Challenge" />
 </resources>
