@@ -16,5 +16,6 @@
     <string name="email_example_com">email@example.com</string>
     <string name="full_name">Full Name</string>
     <string name="error_invalid_event">Invalid Event</string>
+    <string name="msg_token_fmt">FCM Registration Token: %1$s</string>
 
 </resources>

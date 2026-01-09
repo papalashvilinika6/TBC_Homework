@@ -1,7 +1,9 @@
 package com.example.myapplication.presentation.ui.splash
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSplashBinding
@@ -12,32 +14,37 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
 
-    val viewModel : SplashViewModel by viewModels()
+    private val viewModel: SplashViewModel by viewModels()
+
     override fun listeners() {}
 
-
     override fun bind() {
-        viewModel.onEvent(SplashEvent.OnStartSplash)
     }
 
     override fun observers() {
         observeSplashSide()
     }
 
-    fun observeSplashSide() {
+    private fun observeSplashSide() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.navigation.collect { event ->
-                when(event) {
-                    SplashSideEffect.NavigateToHome -> findNavController().navigate(R.id.homeFragment)
-                    SplashSideEffect.NavigateToLogin -> findNavController().navigate(R.id.loginFragment)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.navigation.collect { event ->
+                    // Check if we're still on splash (if not, deep link already navigated us)
+                    if (findNavController().currentDestination?.id != R.id.splashFragment) {
+                        return@collect
+                    }
+                    
+                    when (event) {
+                        SplashSideEffect.NavigateToHome ->
+                            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+
+                        SplashSideEffect.NavigateToLogin ->
+                            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                    }
                 }
             }
         }
-
     }
 
-    override fun onPause() {
-        super.onPause()
-        viewModel.onEvent(SplashEvent.OnStopSplash)
-    }
+
 }

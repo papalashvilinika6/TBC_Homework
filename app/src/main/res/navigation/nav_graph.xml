@@ -17,6 +17,8 @@
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
 
+        <deepLink app:uri="MyApplication//::login" />
+
     </fragment>
 
 
@@ -28,6 +30,9 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+
+        <deepLink app:uri="MyApplication//::register" />
+
     </fragment>
 
 
@@ -39,6 +44,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+
+        <deepLink app:uri="MyApplication//::home" />
+
     </fragment>
 
 

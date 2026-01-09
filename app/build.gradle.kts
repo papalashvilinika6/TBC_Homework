@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -44,9 +45,6 @@ android {
         jvmTarget = "11"
     }
 
-//    packagingOptions {
-//        resources.pickFirsts.add("messages/JavaOptionBundle.properties")
-//    }
 }
 
 dependencies {
@@ -75,6 +73,10 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.navigationFragment)
     implementation(libs.navigationUi)
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
 
 }
 
