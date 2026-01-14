@@ -4,14 +4,15 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.challenge"
+    namespace = "com.example.myapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.challenge"
+        applicationId = "com.example.myapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -55,6 +56,10 @@ android {
 
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
@@ -72,10 +77,18 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.12.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("com.github.bumptech.glide:glide:4.16.0")
-    kapt("com.github.bumptech.glide:compiler:4.16.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation (platform ("com.google.firebase:firebase-bom:33.3.0"))
+    implementation("com.google.firebase:firebase-storage-ktx")
+
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-compiler:2.50")
+
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+
+    implementation("androidx.hilt:hilt-work:1.2.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
 
 }

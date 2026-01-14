@@ -1,0 +1,99 @@
+Index: app/src/main/java/com/example/challenge/domain/repository/LogInRepository.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/challenge/domain/repository/LogInRepository.kt b/app/src/main/java/com/example/challenge/domain/repository/LogInRepository.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/challenge/domain/repository/LogInRepository.kt	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
++++ /dev/null	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
+@@ -1,9 +0,0 @@
+-package com.example.challenge.domain.repository
+-
+-import com.example.challenge.data.common.Resource
+-import com.example.challenge.domain.model.GetToken
+-import kotlinx.coroutines.flow.Flow
+-
+-interface LogInRepository {
+-    suspend fun logIn(email: String, password: String): Flow<Resource<GetToken>>
+-}
+\ No newline at end of file
+Index: app/src/main/java/com/example/challenge/data/common/Resource.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/challenge/data/common/Resource.kt b/app/src/main/java/com/example/challenge/data/common/Resource.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/challenge/data/common/Resource.kt	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
++++ /dev/null	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
+@@ -1,10 +0,0 @@
+-package com.example.challenge.data.common
+-
+-import kotlinx.coroutines.flow.Flow
+-import kotlinx.coroutines.flow.map
+-
+-sealed class Resource<out D : Any> {
+-    data class Success<out D : Any>(val data: D) : Resource<D>()
+-    data class Error<out D : Any>(val errorMessage: String) : Resource<D>()
+-    data class Loading<Nothing : Any>(val loading: Boolean) : Resource<Nothing>()
+-}
+Index: app/src/main/java/com/example/challenge/presentation/screen/connection/ConnectionsRecyclerAdapter.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/challenge/presentation/screen/connection/ConnectionsRecyclerAdapter.kt b/app/src/main/java/com/example/challenge/presentation/screen/connection/ConnectionsRecyclerAdapter.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/challenge/presentation/screen/connection/ConnectionsRecyclerAdapter.kt	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
++++ /dev/null	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
+@@ -1,43 +0,0 @@
+-package com.example.challenge.presentation.screen.connection
+-
+-import android.view.LayoutInflater
+-import android.view.ViewGroup
+-import androidx.recyclerview.widget.DiffUtil
+-import androidx.recyclerview.widget.ListAdapter
+-import androidx.recyclerview.widget.RecyclerView
+-import com.example.challenge.databinding.ItemConnectionLayoutBinding
+-import com.example.challenge.presentation.extension.loadImage
+-
+-class ConnectionsRecyclerAdapter :
+-    ListAdapter<Connection, ConnectionsRecyclerAdapter.ConnectionsViewHolder>(ConnectionsDiffUtil()) {
+-
+-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConnectionsViewHolder {
+-        val inflater = LayoutInflater.from(parent.context)
+-        val binding = ItemConnectionLayoutBinding.inflate(inflater, parent, false)
+-        return ConnectionsViewHolder(binding)
+-    }
+-
+-    override fun onBindViewHolder(holder: ConnectionsViewHolder, position: Int) {
+-        holder.bind(getItem(position))
+-    }
+-
+-    inner class ConnectionsViewHolder(
+-        private val binding: ItemConnectionLayoutBinding
+-    ) : RecyclerView.ViewHolder(binding.root) {
+-
+-        fun bind(model: Connection) {
+-            binding.imvProfile.loadImage(model.avatar)
+-            binding.tvFullName.text = model.fullName
+-        }
+-    }
+-
+-    class ConnectionsDiffUtil : DiffUtil.ItemCallback<Connection>() {
+-        override fun areItemsTheSame(oldItem: Connection, newItem: Connection): Boolean {
+-            return oldItem.id == newItem.id
+-        }
+-
+-        override fun areContentsTheSame(oldItem: Connection, newItem: Connection): Boolean {
+-            return oldItem == newItem
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: app/src/main/java/com/example/challenge/domain/model/GetToken.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/challenge/domain/model/GetToken.kt b/app/src/main/java/com/example/challenge/domain/model/GetToken.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/challenge/domain/model/GetToken.kt	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
++++ /dev/null	(revision 8e7fce2addd5eec9a6c9319d40873b3bebe7118a)
+@@ -1,7 +0,0 @@
+-package com.example.challenge.domain.model
+-
+-data class GetToken(
+-    val needsMfa: Boolean,
+-    val accessToken: String,
+-    val refreshToken: String,
+-)
