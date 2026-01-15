@@ -16,4 +16,5 @@
     <string name="picker">picker</string>
     <string name="file_provider">%1$s.fileprovider</string>
     <string name="camera_jpg">camera_%1$d.jpg</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
