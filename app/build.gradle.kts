@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
 }
@@ -39,10 +40,10 @@ android {
 
     buildTypes {
         getByName("debug") {
-            buildConfigField("String", "BASE_URL", "\"https://mocki.io/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://c37108e6-8faf-4a15-a91c-7d1bc9b48d8a.mock.pstmn.io/\"")
         }
         getByName("release") {
-            buildConfigField("String", "BASE_URL", "\"https://mocki.io/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://c37108e6-8faf-4a15-a91c-7d1bc9b48d8a.mock.pstmn.io/\"")
         }
     }
 
@@ -84,6 +85,8 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    // Coil for Compose - image loading
+    implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation (platform ("com.google.firebase:firebase-bom:33.3.0"))
     implementation("com.google.firebase:firebase-storage-ktx")
@@ -95,6 +98,9 @@ dependencies {
 
     implementation("androidx.hilt:hilt-work:1.2.0")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
+
+    // Hilt Navigation Compose - for hiltViewModel() in Compose
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     implementation("androidx.compose.ui:ui-graphics")
 
@@ -119,5 +125,13 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+
+
+    kapt("com.google.dagger:hilt-compiler:<version>")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
 }

@@ -17,4 +17,23 @@
     <string name="file_provider">%1$s.fileprovider</string>
     <string name="camera_jpg">camera_%1$d.jpg</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="register">REGISTER</string>
+    <string name="log_inn">LOG IN</string>
+    <string name="pawel_czerwinski">Pawel Czerwinski</string>
+    <string name="pawel_czerwinskii">\@pawel_czerwinski</string>
+    <string name="photo_logo">Photo logo</string>
+    <string name="back">Back</string>
+    <string name="janedoe_acme_com">janedoe@acme.com</string>
+    <string name="passwordd">password</string>
+    <string name="next">NEXT</string>
+    <string name="your_name">Your name</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="by_signing_up_you_agree_to_photo_terms_conditions_and_privacy_policy"><![CDATA[By signing up, you agree to Photo Terms & Conditions and Privacy Policy.]]></string>
+    <string name="oops_something_went_wrong">Oops! Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="no_image">No Image</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="price_format">$%1$s</string>
 </resources>
