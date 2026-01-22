@@ -2,13 +2,20 @@ package com.example.myapp.presentation.screen.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+object AppColors {
+    val primary = Color(0xFF4F46E5)
+    val primaryVariant = Color(0xFF3730A3)
+    val secondary = Color(0xFF16A34A)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
-val DarkGray = Color(0xFF2C2C2C)
-val DarkGreen = Color(0xFF1B5E20)
-val LightGreen = Color(0xFFC8E6C9)
+    val pending = Color(0xFFFB923C)
+    val delivered = Color(0xFF10B981)
+    val canceled = Color(0xFFEF4444)
+
+    val background = Color(0xFFFFFFFF)
+    val surface = Color(0xFFF9FAFB)
+    val onPrimary = Color(0xFFFFFFFF)
+    val onBackground = Color(0xFF111827)
+    val onSurface = Color(0xFF374151)
+
+    val divider = Color(0xFFE5E7EB)
+}

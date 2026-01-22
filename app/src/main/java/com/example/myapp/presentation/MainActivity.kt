@@ -5,7 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import com.example.myapp.presentation.screen.navigation.AppNavGraph
+import androidx.navigation.compose.rememberNavController
+import com.example.myapp.presentation.screen.AppNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +16,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface {
-                    AppNavGraph()
+                    val navController = rememberNavController()
+                    AppNavGraph(navController = navController)
                 }
             }
         }

@@ -1,7 +1,7 @@
 package com.example.myapp.di
 
-import com.example.myapp.data.repository.ProductRepositoryImpl
-import com.example.myapp.domain.repository.ProductRepository
+import com.example.myapp.data.repository.OrderRepositoryImpl
+import com.example.myapp.domain.repository.OrderRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindProductRepository(
-        productRepositoryImpl: ProductRepositoryImpl
-    ): ProductRepository
+    abstract fun bindOrderRepository(
+        impl: OrderRepositoryImpl
+    ): OrderRepository
 }
