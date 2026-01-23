@@ -1,7 +1,7 @@
 package com.example.myapp.di
 
 import com.example.myapp.BuildConfig
-import com.example.myapp.data.remote.api.OrderApi
+import com.example.myapp.data.remote.api.ChatApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -35,6 +35,6 @@ object NetworkModule {
             .build()
 
     @Provides @Singleton
-    fun provideOrderApi(retrofit: Retrofit): OrderApi = retrofit.create(OrderApi::class.java)
+    fun provideOrderApi(retrofit: Retrofit): ChatApi = retrofit.create(ChatApi::class.java)
 
 }

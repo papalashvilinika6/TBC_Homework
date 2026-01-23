@@ -316,8 +316,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="icon_photo" />
-                            <entry key="sourceFile" value="C:\Users\User\Downloads\Group.svg" />
+                            <entry key="outputName" value="ic_default_avatar" />
+                            <entry key="sourceFile" value="C:\Users\User\OneDrive\Desktop\Picture.svg" />
                           </map>
                         </option>
                       </PersistentState>
