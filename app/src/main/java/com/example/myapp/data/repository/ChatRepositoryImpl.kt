@@ -1,6 +1,6 @@
 package com.example.myapp.data.repository
 
-import com.example.myapp.data.remote.api.ChatApi
+import com.example.myapp.data.remote.service.ChatApi
 import com.example.myapp.data.remote.common.HandleResponse
 import com.example.myapp.data.remote.mapper.toDomain
 import com.example.myapp.domain.model.Chat

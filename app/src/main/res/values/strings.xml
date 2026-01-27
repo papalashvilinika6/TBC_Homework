@@ -53,4 +53,9 @@
     <string name="cancel_order">Cancel Order</string>
     <string name="status_updated">Status updated successfully</string>
     <string name="only_pending_can_be_updated">Only PENDING orders can be updated</string>
+    <string name="search">Search</string>
+    <string name="sent_a_voice_message">Sent a voice message</string>
+    <string name="sent_an_attachment">Sent an attachment</string>
+    <string name="voice">voice</string>
+    <string name="attachment">attachment</string>
 </resources>

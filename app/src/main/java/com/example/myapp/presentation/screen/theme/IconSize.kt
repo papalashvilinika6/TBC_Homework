@@ -5,5 +5,5 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 object IconSize {
-    val iconSize25 = Modifier.size(25.dp)
+    val iconSize58 = Modifier.size(58.dp)
 }

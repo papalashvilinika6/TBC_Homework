@@ -1,7 +1,7 @@
 package com.example.myapp.di
 
 import com.example.myapp.BuildConfig
-import com.example.myapp.data.remote.api.ChatApi
+import com.example.myapp.data.remote.service.ChatApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
