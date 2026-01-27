@@ -4,6 +4,6 @@ import androidx.compose.ui.unit.sp
 
 object FontSize {
     val fontSize14 = 14.sp
-    val fontSize12 = 12.sp
-    val fontSize11 = 11.sp
+    val fontSize30 = 30.sp
+    val fontSize16 = 16.sp
 }

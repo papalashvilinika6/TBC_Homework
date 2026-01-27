@@ -1,21 +1,28 @@
 package com.example.myapp.presentation.screen.theme
 
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-object AppColors {
-    val primary = Color(0xFF4F46E5)
-    val secondary = Color(0xFF16A34A)
+val LightColors = lightColorScheme(
+    primary = Color(0xFF4EE6A8),
+    background = Color(0xFFF7F7F7),
+    surface = Color(0xFFFFFFFF),
+    onBackground = Color(0xFF111111),
+    onSurface = Color(0xFF111111)
+)
 
-    val pending = Color(0xFFFB923C)
-    val search = Color(0xFF2B434B)
-    val canceled = Color(0xFFEF4444)
+val DarkColors = darkColorScheme(
+    primary = Color(0xFF4EE6A8),
+    background = Color(0xFF1C2A32),
+    surface = Color(0xFF2A3B45),
+    onBackground = Color(0xFFFFFFFF),
+    onSurface = Color(0xFFFFFFFF)
+)
 
-    val surface = Color(0xFF1A282F)
-    val onPrimary = Color(0xFFFFFFFF)
-    val onBackground = Color(0xFF22343C)
+val white = Color(0xFFFFFFFF)
+val error = Color(0xFFFF6B6B)
+val errorBackground = Color(0xFF2A3B45)
+val loader = Color(0xFF4EE6A8)
 
-    val onSurface = Color(0xFF374151)
-
-    val divider = Color(0xFFE5E7EB)
-}
 

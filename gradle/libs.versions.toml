@@ -18,7 +18,7 @@ kotlinx-serialization = "1.7.3"
 retrofit-kotlinx = "1.0.0"
 coil = "2.7.0"
 datastore = "1.2.0"
-base-url = "https://c37108e6-8faf-4a15-a91c-7d1bc9b48d8a.mock.pstmn.io/"
+base-url = "https://8cabd47a-b55e-4d97-a295-79bbd22c8443.mock.pstmn.io/"
 
 
 [libraries]
