@@ -17,4 +17,5 @@ abstract class BaseViewModel<State, Event>(
         _state.value = update(_state.value)
     }
 
+
 }

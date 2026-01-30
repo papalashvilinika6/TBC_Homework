@@ -1,9 +1,10 @@
 package com.example.myapp.presentation.screen.theme
 
-import androidx.compose.foundation.layout.size
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 object IconSize {
-    val iconSize58 = Modifier.size(58.dp)
+    val icon18 = 18.dp
+    val icon20 = 20.dp
+    val icon24 = 24.dp
+    val avatar42 = 42.dp
 }

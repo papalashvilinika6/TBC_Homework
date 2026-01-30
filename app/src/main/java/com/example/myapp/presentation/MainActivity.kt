@@ -3,28 +3,41 @@ package com.example.myapp.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.myapp.presentation.screen.theme.MyAppTheme
-import com.example.myapp.presentation.screen.tour.TourHomeScreen
-import com.example.myapp.presentation.screen.tour.TourHomeViewModel
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.ui.Modifier
+import com.example.myapp.presentation.screen.navigation.NavGraph
+import com.example.myapp.presentation.screen.theme.AppTheme
+import com.example.myapp.presentation.screen.theme.LocalSnackbarHostState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         setContent {
-            val tourVm: TourHomeViewModel = hiltViewModel()
-            val isDarkMode by tourVm.isDarkMode.collectAsStateWithLifecycle()
+            AppTheme {
+                val snackbarHostState = LocalSnackbarHostState.current
 
-            MyAppTheme(darkTheme = isDarkMode) {
-                TourHomeScreen(
-                    onTourClick = {}
-                )
+                Scaffold(
+                    snackbarHost = {
+                        SnackbarHost(
+                            modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
+                            hostState = snackbarHostState,
+                        )
+                    },
+                ) { innerPadding ->
+                    Box(modifier = Modifier.padding(innerPadding)) {
+                        NavGraph()
+                    }
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 object Height {
-    val height520 = 520.dp
-    val height32 = 32.sp
-    val height10 = 10.dp
+    val storyHeight = 160.dp
+    val storyWidth = 140.dp
+    val bottomBarHeight = 64.dp
 }
