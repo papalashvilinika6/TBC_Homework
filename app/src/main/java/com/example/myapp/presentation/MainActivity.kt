@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.ui.Modifier
-import com.example.myapp.presentation.screen.navigation.NavGraph
+import com.example.myapp.presentation.screen.register.RegisterScreen
 import com.example.myapp.presentation.screen.theme.AppTheme
 import com.example.myapp.presentation.screen.theme.LocalSnackbarHostState
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,12 +35,10 @@ class MainActivity : ComponentActivity() {
                     },
                 ) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
-                        NavGraph()
+                        RegisterScreen()
                     }
                 }
             }
         }
     }
 }
-
-

@@ -1,9 +1,7 @@
 package com.example.myapp.di
 
-import com.example.myapp.data.repository.PostRepositoryImpl
-import com.example.myapp.data.repository.StoryRepositoryImpl
-import com.example.myapp.domain.repository.PostRepository
-import com.example.myapp.domain.repository.StoryRepository
+import com.example.myapp.data.repository.RegisterRepositoryImpl
+import com.example.myapp.domain.repository.RegisterRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,12 +15,7 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindStoryRepository(
-        impl: StoryRepositoryImpl
-    ): StoryRepository
+        impl: RegisterRepositoryImpl
+    ): RegisterRepository
 
-    @Binds
-    @Singleton
-    abstract fun bindPostRepository(
-        impl: PostRepositoryImpl
-    ): PostRepository
 }

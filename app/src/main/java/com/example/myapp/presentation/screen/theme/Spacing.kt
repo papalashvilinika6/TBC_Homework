@@ -11,8 +11,6 @@ object Spacing {
     val spacing12 = 12.dp
     val spacing14 = 14.dp
     val spacing16 = 16.dp
-    val spacing18 = 18.dp
     val spacing20 = 20.dp
     val spacing24 = 24.dp
-    val spacing28 = 28.dp
 }

@@ -7,5 +7,13 @@
     <string name="full_star">★</string>
     <string name="half_star">☆</string>
     <string name="retry">Retry</string>
+    <string name="ymd">%1$d-%2$s-%3$s</string>
+    <string name="register">Register</string>
+    <string name="loading">Loading...</string>
+    <string name="registerButton">Register</string>
+    <string name="error_empty_field">Empty Field!</string>
+    <string name="ok">Ok\n</string>
+    <string name="e_auth">E AUTH</string>
+    <string name="success">Success</string>
 
 </resources>

@@ -1,37 +1,34 @@
 package com.example.myapp.presentation.screen.theme
 
-import AppTypography
-import LocalAppTypography
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.Typography
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 
+val LocalSnackbarHostState = staticCompositionLocalOf<SnackbarHostState> {
+    error("SnackbarHostState not provided")
+}
+
+object AppThemeProvider {
+    val colors @Composable get() = LocalAppColors.current
+    val typography @Composable get() = LocalAppTypography.current
+}
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) DarkAppColors else LightAppColors
+    val isDark = isSystemInDarkTheme()
+    val colors = if (isDark) DarkColors else LightColors
     val snackbarHostState = remember { SnackbarHostState() }
 
     CompositionLocalProvider(
         LocalAppColors provides colors,
-        LocalAppTypography provides AppTypography,
+        LocalAppTypography provides DefaultTypography,
         LocalSnackbarHostState provides snackbarHostState
     ) {
         content()
     }
 }
-
-
-object AppThemeProvider {
-    val colors: AppColors
-        @Composable get() = LocalAppColors.current
-    val typography: Typography
-        @Composable get() = LocalAppTypography.current
-}
-
