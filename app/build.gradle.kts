@@ -47,7 +47,13 @@ android {
 
 
 dependencies {
+    // Module dependencies
+    implementation(project(":core:presentation"))
+    implementation(project(":core:data")) // Required for Hilt DI modules
+    implementation(project(":core:domain"))
+    implementation(project(":feature:register"))
 
+    // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -56,6 +62,22 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+    
+    // Kotlinx Serialization (required for KSP to process NetworkModule)
+    implementation(libs.kotlinx.serialization.json)
+    
+    // Retrofit & OkHttp (required for KSP to process NetworkModule)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit.kotlinx.serialization)
+    
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -63,24 +85,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlinx.serialization)
-    implementation(libs.coil.compose)
-    implementation(libs.datastore.preferences)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.material)
-    implementation("androidx.compose.material:material-icons-extended")
-    implementation("com.google.accompanist:accompanist-swiperefresh:0.34.0")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
     testImplementation("app.cash.turbine:turbine:1.1.0")
     testImplementation("io.mockk:mockk:1.13.12")
-
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
 }

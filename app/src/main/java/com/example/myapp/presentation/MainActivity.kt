@@ -12,9 +12,9 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.ui.Modifier
-import com.example.myapp.presentation.screen.register.RegisterScreen
-import com.example.myapp.presentation.screen.theme.AppTheme
-import com.example.myapp.presentation.screen.theme.LocalSnackbarHostState
+import com.example.myapp.core.theme.AppTheme
+import com.example.myapp.core.theme.LocalSnackbarHostState
+import com.example.myapp.feature.register.RegisterScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
